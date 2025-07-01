@@ -1,0 +1,860 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+ <title>Navbar Artigiano Moderno</title>
+ <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+ <link href="https://fonts.googleapis.com/css2?family=Urbanist:wght@400;600;800&display=swap" rel="stylesheet">
+ <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+  
+  <style>
+    /* Reset base */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+  font-family: 'Urbanist', sans-serif;
+    }
+
+    /* Navbar fissa e trasparente */
+     /* NAVBAR */
+     .am-navbar {
+      position: fixed;
+      top: 0; left: 0;
+      width: 100%;
+      padding: 15px 20px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      background-color: transparent;
+      transition: background-color 0.4s ease, padding 0.4s ease;
+      z-index: 1000;
+    }
+    /* Logo sizing and transition */
+    .am-navbar .logo {
+      width: 140px;      /* logo più grande di default */
+      transition: width 0.4s ease;
+    }
+    /* Shrink navbar and logo on scroll */
+    .am-navbar.scrolled {
+      padding: 8px 20px; /* navbar più sottile */
+      background-color: #f4c97b;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+    }
+    .am-navbar.scrolled .logo {
+      width: 100px;      /* logo rimpicciolisce */
+    }
+
+    /* Link & Social */
+    .nav-links { display: flex; gap: 25px; }
+    .nav-links a { text-decoration: none; color: #000; font-weight: 500; transition: color 0.3s; font-size: 1.2rem; }
+    .nav-links a:hover { color: #333; }
+    .social { display: flex; gap: 15px; }
+    .social a { color: #020100; font-size: 1.5rem; transition: color 0.3s; }
+    .social a:hover { color: #f0c040; }
+
+    /* Hamburger mobile */
+    .hamburger { display: none; font-size: 1.8rem; cursor: pointer; color: #020100; }
+    @media (max-width: 768px) {
+      .nav-links, .social { display: none; }
+      .hamburger { display: block; }
+    }
+    /* Mobile menu */
+    .am-mobile-menu { display: none; position: fixed; top: 57px; width: 100%; background: rgba(0,0,0,0.95); flex-direction: column; padding: 20px; z-index: 999; }
+    .am-mobile-menu.show { display: flex; }
+    .am-mobile-menu a { color: #fff; text-decoration: none; padding: 12px 0; border-bottom: 1px solid #333; }
+    .am-mobile-menu a:last-child { border: none; }
+
+
+
+
+
+    .am-hero-video {
+    position: relative;
+    height: 100vh;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+  }
+
+  .am-hero-background {
+    position: absolute;
+    top: 0; left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: 0;
+  }
+
+  .am-hero-content {
+    position: relative;
+    z-index: 1;
+    text-align: center;
+    padding: 20px;
+    width: 100%;
+    max-width: 800px;
+  }
+
+  .am-hero-blur-box {
+    background: linear-gradient(to bottom right, rgba(255,255,255,0.12), rgba(200,200,200,0.05));
+  backdrop-filter: blur(14px);
+  border-radius: 30px;
+  box-shadow: 0 8px 32px rgba(0,0,0,0.3);
+  padding: 50px 40px;
+  border-radius: 30px;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3); /* ombra diffusa */
+  border: 1px solid rgba(255, 255, 255, 0.2); /* bordo interno sfumato */
+  outline: 1px solid rgba(255,255,255,0.05);
+  outline-offset: -10px;
+
+  }
+
+  .am-hero-title {
+    font-size: 3rem;
+    margin-bottom: 10px;
+    color: #fff;
+text-shadow: 0 1px 2px rgba(0,0,0,0.5);
+font-weight: 800;
+  letter-spacing: -0.5px;
+  }
+
+  .am-hero-subtitle {
+    font-size: 1.2rem;
+    margin-bottom: 30px;
+    color: rgba(255, 255, 255, 0.85);
+    font-weight: 400;
+    line-height: 1.6;
+
+    
+  }
+
+  .am-hero-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    flex-wrap: wrap;
+  }
+
+  .am-btn {
+  background: linear-gradient(to right, #f0c040, #dca300);
+  color: #000;
+  font-weight: bold;
+  padding: 12px 25px;
+  border-radius: 8px;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.15);
+}
+
+.am-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.25);
+  filter: brightness(1.05);
+}
+
+.am-btn-outline {
+  background: transparent;
+  color: white;
+  border: 2px solid white;
+  transition: all 0.3s ease;
+}
+
+.am-btn-outline:hover {
+  background: white;
+  color: black;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.2);
+}
+  @media (max-width: 768px) {
+    .am-hero-title {
+      font-size: 2rem;
+      color: #fff;
+text-shadow: 0 1px 2px rgba(0,0,0,0.5);
+padding-bottom: 4%;
+    }
+
+    .am-hero-subtitle {
+      font-size: 1rem;
+      color: rgba(255, 255, 255, 0.85);
+
+    }
+
+    .am-hero-blur-box {
+      padding: 32px 20px;
+      margin: 0 16px;
+
+    }
+  }
+
+
+
+
+
+
+  .am-services-section {
+  padding: 80px 20px;
+  background: #fff;
+  font-family: 'Urbanist', sans-serif;
+}
+
+.am-service-card:hover img {
+  transform: scale(1.05);
+  filter: drop-shadow(0 0 6px rgba(240, 192, 64, 0.3));
+  transition: all 0.3s;
+}
+
+.am-section-title {
+  text-align: center;
+  font-size: 2.4rem;
+  font-weight: 800;
+  color: #222;
+  margin-bottom: 50px;
+}
+
+.am-services-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 30px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.am-service-card {
+  background: #fff;
+  border-radius: 16px;
+  text-align: center;
+  padding: 30px 20px;
+  text-decoration: none;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.05);
+  transition: all 0.3s ease;
+  border: 1px solid transparent;
+  cursor: pointer;
+}
+
+.am-service-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.12);
+  border: 1px solid #f0c040;
+}
+
+.am-service-card img {
+  height: 60px;
+  margin-bottom: 20px;
+}
+
+.am-service-card h3 {
+  font-size: 1.2rem;
+  color: #222;
+  margin-bottom: 10px;
+  font-weight: 700;
+}
+
+.am-service-card p {
+  font-size: 1rem;
+  color: #555;
+  max-width: 90%;
+  margin: 0 auto;
+}
+
+
+
+
+
+
+
+
+  
+  .work-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 30px;
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+
+  .work-item {
+    position: relative;
+    overflow: hidden;
+    border-radius: 16px;
+    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.1);
+  }
+
+  .work-item img {
+    width: 100%;
+    height: auto;
+    display: block;
+    transition: transform 0.4s ease;
+  }
+
+  .work-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.6);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+  }
+
+  .work-item:hover img {
+    transform: scale(1.05);
+  }
+
+  .work-item:hover .work-overlay {
+    opacity: 1;
+  }
+
+  .work-text {
+    color: white;
+    text-align: center;
+    padding: 20px;
+  }
+
+  .work-text h3 {
+    margin-bottom: 10px;
+    font-size: 1.3rem;
+  }
+
+  .work-text p {
+    font-size: 0.95rem;
+  }
+
+  .product-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+    gap: 30px;
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+
+  .product-card {
+    background: #fff;
+    border-radius: 16px;
+    padding: 20px;
+    text-align: center;
+    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.08);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+
+  .product-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 24px rgba(0, 0, 0, 0.15);
+  }
+
+  .product-card img {
+    width: 100%;
+    height: auto;
+    border-radius: 12px;
+    margin-bottom: 15px;
+  }
+
+  .product-card h3 {
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: #333;
+    margin-bottom: 8px;
+  }
+
+  .product-card .price {
+    color: #d4a42f;
+    font-weight: bold;
+    font-size: 1rem;
+  }
+  
+ /* CONTATTI - SEZIONE */
+.am-contact-section {
+  background-color: #fff;
+  padding: 80px 20px;
+  font-family: 'Urbanist', sans-serif;
+}
+
+.am-contact-container {
+  display: flex;
+  flex-wrap: wrap;
+  max-width: 1200px;
+  margin: 0 auto;
+  gap: 40px;
+}
+
+.am-contact-info {
+  flex: 1 1 500px;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.am-contact-info h2 {
+  font-size: 2.4rem;
+  font-weight: 800;
+  color: #222;
+  margin-bottom: 30px;
+}
+
+.am-contact-info p {
+  font-size: 1.2rem;
+  color: #333;
+  margin-bottom: 20px;
+  line-height: 1.8;
+}
+
+.am-contact-info a {
+  color: #000;
+  text-decoration: none;
+  font-weight: 500;
+}
+
+.am-social-icons {
+  margin-top: 30px;
+}
+
+.am-social-icons a {
+  font-size: 2rem;
+  margin: 0 12px;
+  color: #d4a42f;
+  transition: color 0.3s;
+}
+
+.am-social-icons a:hover {
+  color: #b38a00;
+}
+
+/* FORM */
+.am-contact-form {
+  flex: 1 1 500px;
+}
+
+.am-contact-form h2 {
+  font-size: 2rem;
+  margin-bottom: 25px;
+  color: #333;
+}
+
+.am-contact-form input,
+.am-contact-form textarea {
+  width: 100%;
+  padding: 14px;
+  margin-bottom: 20px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  font-size: 1rem;
+}
+
+.am-contact-form button {
+  background: #f0c040;
+  color: #000;
+  padding: 14px 25px;
+  border: none;
+  border-radius: 8px;
+  font-weight: bold;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+
+.am-contact-form button:hover {
+  background: #dca300;
+}
+
+/* FOOTER */
+.am-footer {
+  background-color: #111;
+  color: #fff;
+  text-align: center;
+  padding: 30px 20px;
+  font-size: 0.9rem;
+}
+
+/* RESPONSIVE */
+@media (max-width: 768px) {
+  .am-contact-container {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .am-contact-info,
+  .am-contact-form {
+    flex: 1 1 100%;
+  }
+
+  .am-contact-info h2 {
+    font-size: 2rem;
+  }
+
+  .am-contact-info p {
+    font-size: 1.05rem;
+  }
+
+  .am-social-icons a {
+    font-size: 1.7rem;
+  }
+}
+
+
+
+.am-service-details {
+  padding: 80px 20px;
+  background: #f9f9f9;
+  font-family: 'Urbanist', sans-serif;
+}
+
+.am-service-details-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 30px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.am-service-detail {
+  background: white;
+  padding: 30px 20px;
+  border-radius: 16px;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.05);
+  text-align: left;
+  transition: all 0.3s;
+}
+
+.am-service-detail:hover {
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
+  transform: translateY(-4px);
+}
+
+.am-service-detail h3 {
+  font-size: 1.3rem;
+  color: #222;
+  margin-bottom: 15px;
+  font-weight: 700;
+}
+
+.am-service-detail p {
+  font-size: 1rem;
+  color: #555;
+  line-height: 1.6;
+}
+
+  </style>
+</head>
+<body>
+
+  <!-- NAVBAR -->
+  <header>
+    <nav class="am-navbar" id="amNavbar">
+      <img class="logo" src="logo.png" alt="Artigiano Moderno Logo">
+      <div class="nav-links">
+        <a href="#">Home</a>
+        <a href="#progetti">Progetti</a>
+        <a href="#servizi">Servizi</a>
+        <a href="#contatti">Contatti</a>
+      </div>
+      <div class="social">
+        <a href="#"><i class="fab fa-instagram"></i></a>
+        <a href="#"><i class="fab fa-facebook"></i></a>
+        <a href="#"><i class="fab fa-twitter"></i></a>
+      </div>
+      <div class="hamburger" onclick="toggleMenu()">
+        <i class="fas fa-bars"></i>
+      </div>
+    </nav>
+    <div class="am-mobile-menu" id="mobileMenu">
+      <a href="#">Home</a>
+      <a href="#progetti">Progetti</a>
+      <a href="#servizi">Servizi</a>
+      <a href="#contatti">Contatti</a>
+      <a href="#"><i class="fab fa-instagram"></i> Instagram</a>
+      <a href="#"><i class="fab fa-facebook"></i> Facebook</a>
+      <a href="#"><i class="fab fa-twitter"></i> Twitter</a>
+    </div>
+  </header>
+  <section class="am-hero-video">
+    <video autoplay muted loop playsinline class="am-hero-background">
+      <source src="dome.mp4" type="video/mp4" />
+      Il tuo browser non supporta il video.
+    </video>
+  
+    <div class="am-hero-content">
+      <div class="am-hero-blur-box">
+        <h1 class="am-hero-title">Artigiano Moderno</h1>
+        <p class="am-hero-subtitle">
+          Soluzioni modulari, leggere e accessibili per privati, agricoltori,
+           maker ed eventi. Dai kit fai-da-te alle installazioni su misura.
+        </p>
+        <div class="am-hero-buttons">
+          <a href="#progetti" class="am-btn">Scopri i progetti</a>
+          <a href="#contatti" class="am-btn am-btn-outline">Contattami ora</a>
+        </div>
+      </div>
+    </div>
+  </section>
+  
+ 
+  
+    <section class="am-services-section">
+      <h2 class="am-section-title">Cosa facciamo</h2>
+      <div class="am-services-grid">
+    
+        <!-- Servizio 1 -->
+        <a href="#dettaglio-legno" class="am-service-card">
+          <img src="saw.png" alt="Lavorazione legno" />
+          <h3>Lavorazione legno</h3>
+          <p>            Realizziamo arredi, strutture, rivestimenti e pannelli su misura utilizzando legni masselli nazionali e compensati certificati. Ogni pezzo è trattato con attenzione artigianale, finiture su richiesta e possibilità di interventi sia estetici che strutturali.
+          </p>
+        </a>
+    
+        <!-- Servizio 2 -->
+        <a href="#dettaglio-metallo" class="am-service-card">
+          <img src="steel.png" alt="Lavorazione metallo" />
+          <h3>Lavorazione metallo</h3>
+          <p>            Ci occupiamo di carpenteria leggera, staffaggi, telai, dettagli custom per arredamento e soluzioni tecniche. Lavoriamo acciaio, ferro e alluminio, con taglio, saldatura e finitura manuale. Integriamo legno o 3D quando necessario.
+          </p>
+        </a>
+    
+        <!-- Servizio 3 -->
+        <a href="#dettaglio-stampa3d" class="am-service-card">
+          <img src="3d.png" alt="Stampa 3D" />
+          <h3>Stampa 3D</h3>
+          <p>            Stampiamo oggetti funzionali, prototipi e piccole serie in PLA, PETG e materiali tecnici. Offriamo anche modellazione su richiesta e possibilità di personalizzare il colore, le geometrie e la resistenza meccanica.
+          </p>
+        </a>
+    
+        <!-- Servizio 4 -->
+        <a href="#dettaglio-speciali" class="am-service-card">
+          <img src="innovation.png" alt="Progetti speciali" />
+          <h3>Progetti speciali</h3>
+          <p>            Sviluppiamo soluzioni ibride su richiesta: combinazioni di legno, metallo, stampa 3D, elettronica o illuminazione. Ideali per installazioni, arredamenti unici o prototipazioni avanzate. Tutto parte dalla tua idea.
+          </p>
+        </a>
+    
+      </div>
+    </section>
+    
+
+
+    
+
+
+
+  <section style="background: #fff; padding: 20px 20px; font-family: 'Urbanist', sans-serif;">
+    <h2 style="text-align: center; font-size: 2.2rem; font-weight: 800; color: #333; margin-bottom: 10px;">Le mie opere</h2>
+    <p style="text-align: center; color: #666; margin-bottom: 60px; max-width: 600px; margin-left: auto; margin-right: auto;">
+      Una selezione dei progetti realizzati con passione: su misura, in legno, metallo o stampa 3D.
+    </p>
+  
+    <div class="work-grid">
+      <!-- 6 lavori suggeriti per varietà -->
+      <div class="work-item">
+        <img src="img/opera1.jpg" alt="Lavoro 1">
+        <div class="work-overlay">
+          <div class="work-text">
+            <h3>Panca in legno massello</h3>
+            <p>Progettata e costruita interamente a mano con incastri tradizionali.</p>
+          </div>
+        </div>
+      </div>
+      <div class="work-item">
+        <img src="img/opera2.jpg" alt="Lavoro 2">
+        <div class="work-overlay">
+          <div class="work-text">
+            <h3>Lampada in ferro</h3>
+            <p>Lavorazione e finitura in ferro grezzo con inserti di legno recuperato.</p>
+          </div>
+        </div>
+      </div>
+      <div class="work-item">
+        <img src="cupola.jpg" alt="Lavoro 3">
+        <div class="work-overlay">
+          <div class="work-text">
+            <h3>Elemento stampato in 3D</h3>
+            <p>Design tecnico stampato in PETG per applicazione funzionale.</p>
+          </div>
+        </div>
+      </div>
+      <div class="work-item">
+        <img src="img/opera4.jpg" alt="Lavoro 4">
+        <div class="work-overlay">
+          <div class="work-text">
+            <h3>Mobile su misura</h3>
+            <p>Costruzione e installazione di un mobile contenitore personalizzato.</p>
+          </div>
+        </div>
+      </div>
+      <div class="work-item">
+        <img src="img/opera5.jpg" alt="Lavoro 5">
+        <div class="work-overlay">
+          <div class="work-text">
+            <h3>Scultura industriale</h3>
+            <p>Composizione artistica in acciaio e rame, creata per uno showroom.</p>
+          </div>
+        </div>
+      </div>
+      <div class="work-item">
+        <img src="altalena.jpg" alt="Lavoro 6">
+        <div class="work-overlay">
+          <div class="work-text">
+            <h3>Set da scrivania</h3>
+            <p>Serie in legno e stampa 3D combinata, su disegno originale.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+
+
+
+
+
+
+
+
+  <section style="background: #fdfaf5; padding: 80px 20px; font-family: 'Urbanist', sans-serif;">
+    <h2 style="text-align: center; font-size: 2.2rem; font-weight: 800; color: #333; margin-bottom: 10px;">Prodotti in vetrina</h2>
+    <p style="text-align: center; color: #666; margin-bottom: 60px; max-width: 600px; margin-left: auto; margin-right: auto;">
+      Alcuni dei nostri articoli unici, creati artigianalmente in legno, metallo o stampa 3D.
+    </p>
+  
+    <div class="product-grid">
+      <!-- 8 prodotti suggeriti -->
+      <div class="product-card">
+        <img src="img/prodotto1.jpg" alt="Prodotto 1">
+        <h3>Tagliere in noce</h3>
+        <p class="price">€ 45</p>
+      </div>
+      <div class="product-card">
+        <img src="img/prodotto2.jpg" alt="Prodotto 2">
+        <h3>Supporto laptop in legno</h3>
+        <p class="price">€ 60</p>
+      </div>
+      <div class="product-card">
+        <img src="img/prodotto3.jpg" alt="Prodotto 3">
+        <h3>Lampada in ferro</h3>
+        <p class="price">€ 75</p>
+      </div>
+      <div class="product-card">
+        <img src="img/prodotto4.jpg" alt="Prodotto 4">
+        <h3>Vassoio in frassino</h3>
+        <p class="price">€ 35</p>
+      </div>
+      <div class="product-card">
+        <img src="img/prodotto5.jpg" alt="Prodotto 5">
+        <h3>Organizer da scrivania</h3>
+        <p class="price">€ 50</p>
+      </div>
+      <div class="product-card">
+        <img src="img/prodotto6.jpg" alt="Prodotto 6">
+        <h3>Portaoggetti 3D</h3>
+        <p class="price">€ 30</p>
+      </div>
+      <div class="product-card">
+        <img src="img/prodotto7.jpg" alt="Prodotto 7">
+        <h3>Specchio con cornice</h3>
+        <p class="price">€ 80</p>
+      </div>
+      <div class="product-card">
+        <img src="img/prodotto8.jpg" alt="Prodotto 8">
+        <h3>Base monitor</h3>
+        <p class="price">€ 40</p>
+      </div>
+    </div>
+  </section>
+  
+
+  
+
+
+ <!-- SEZIONE CONTATTI -->
+<section class="am-contact-section">
+  <div class="am-contact-container">
+    <div class="am-contact-info">
+      <h2>Contatti diretti</h2>
+      <p><strong>📍 Indirizzo:</strong><br>Via dell’Artigiano 12, Milano (MI)</p>
+      <p><strong>🕒 Orari di apertura:</strong><br>Lunedì – Venerdì: 9:00 – 18:00<br>Sabato: su appuntamento</p>
+      <p><strong>📞 Telefono:</strong><br><a href="tel:+393481234567">+39 348 123 4567</a></p>
+      <p><strong>✉️ Email:</strong><br><a href="mailto:fabiofasur@gmail.com">fabiofasur@gmail.com</a></p>
+      <div class="am-social-icons">
+        <a href="#"><i class="fab fa-instagram"></i></a>
+        <a href="#"><i class="fab fa-facebook"></i></a>
+        <a href="#"><i class="fab fa-twitter"></i></a>
+      </div>
+    </div>
+
+    <form class="am-contact-form"
+action="https://formspree.io/f/xpwrzlbq" method="POST">   
+       <h2>Scrivimi un messaggio</h2>
+      <input type="text" name="name" placeholder="Nome" required>
+      <input type="email" name="email" placeholder="Email" required>
+      <textarea name="message" placeholder="Messaggio" rows="6" required></textarea>
+      <button type="submit">Invia messaggio</button>
+    </form>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="am-footer">
+  <p>&copy; 2025 Artigiano Moderno. Tutti i diritti riservati.</p>
+</footer>
+
+
+  <!-- SCRIPT -->
+  <script>
+    // Cambia colore navbar su scroll
+    window.addEventListener('scroll', () => {
+      const navbar = document.getElementById('amNavbar');
+      if (window.scrollY > 10) {
+        navbar.classList.add('scrolled');
+      } else {
+        navbar.classList.remove('scrolled');
+      }
+    });
+
+    // Menu mobile toggle
+    function toggleMenu() {
+      const menu = document.getElementById("mobileMenu");
+      menu.classList.toggle("show");
+    }
+  </script>
+
+<script>
+  window.addEventListener('scroll', () => {
+    const navbar = document.getElementById('amNavbar');
+    if (window.scrollY > 10) navbar.classList.add('scrolled');
+    else navbar.classList.remove('scrolled');
+  });
+  function toggleMenu() {
+    document.getElementById('mobileMenu').classList.toggle('show');
+  }
+</script>
+<!-- Swiper JS -->
+<script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+<script>
+  const swiper = new Swiper('.services-carousel', {
+    slidesPerView: 1,
+    spaceBetween: 0,
+    loop: true,
+    autoplay: {
+      delay: 4000,
+      disableOnInteraction: false,
+      pauseOnMouseEnter: true,
+    },
+    pagination: {
+      el: '.swiper-pagination',
+      clickable: true,
+    },
+    navigation: {
+      nextEl: '.swiper-button-next',
+      prevEl: '.swiper-button-prev',
+    },
+  });
+</script>
+</body>
+</html>
