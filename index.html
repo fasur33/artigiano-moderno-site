@@ -9,6 +9,8 @@
  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
   
   <style>
+
+    html{scroll-behavior: smooth;}
     /* Reset base */
     * {
       margin: 0;
@@ -200,6 +202,8 @@ padding-bottom: 4%;
   padding: 80px 20px;
   background: #fff;
   font-family: 'Urbanist', sans-serif;
+  scroll-margin-top: 100px; /* altezza della navbar */
+
 }
 
 .am-service-card:hover img {
@@ -261,115 +265,7 @@ padding-bottom: 4%;
   margin: 0 auto;
 }
 
-
-
-
-
-
-
-
-  
-  .work-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    gap: 30px;
-    max-width: 1200px;
-    margin: 0 auto;
-  }
-
-  .work-item {
-    position: relative;
-    overflow: hidden;
-    border-radius: 16px;
-    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.1);
-  }
-
-  .work-item img {
-    width: 100%;
-    height: auto;
-    display: block;
-    transition: transform 0.4s ease;
-  }
-
-  .work-overlay {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: rgba(0, 0, 0, 0.6);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    opacity: 0;
-    transition: opacity 0.3s ease;
-  }
-
-  .work-item:hover img {
-    transform: scale(1.05);
-  }
-
-  .work-item:hover .work-overlay {
-    opacity: 1;
-  }
-
-  .work-text {
-    color: white;
-    text-align: center;
-    padding: 20px;
-  }
-
-  .work-text h3 {
-    margin-bottom: 10px;
-    font-size: 1.3rem;
-  }
-
-  .work-text p {
-    font-size: 0.95rem;
-  }
-
-  .product-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
-    gap: 30px;
-    max-width: 1200px;
-    margin: 0 auto;
-  }
-
-  .product-card {
-    background: #fff;
-    border-radius: 16px;
-    padding: 20px;
-    text-align: center;
-    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.08);
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-  }
-
-  .product-card:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 10px 24px rgba(0, 0, 0, 0.15);
-  }
-
-  .product-card img {
-    width: 100%;
-    height: auto;
-    border-radius: 12px;
-    margin-bottom: 15px;
-  }
-
-  .product-card h3 {
-    font-size: 1.1rem;
-    font-weight: 600;
-    color: #333;
-    margin-bottom: 8px;
-  }
-
-  .product-card .price {
-    color: #d4a42f;
-    font-weight: bold;
-    font-size: 1rem;
-  }
-  
+ß
  /* CONTATTI - SEZIONE */
 .am-contact-section {
   background-color: #fff;
@@ -555,7 +451,82 @@ padding-bottom: 4%;
   line-height: 1.6;
 }
 
-
+.product-grid {
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+    gap:24px;
+    padding:40px;
+    max-width:1200px;
+    margin:auto;
+    scroll-margin-top: 100px; /* altezza della navbar */
+  }
+  .product-card {
+    position:relative;
+    cursor:pointer;
+    overflow:hidden;
+    border-radius:12px;
+    box-shadow:0 0 20px rgba(0,0,0,0.05);
+  }
+  .product-card img {
+    width:100%; height:240px; object-fit:cover;
+    transition:transform .3s;
+  }
+  .product-card:hover img { transform:scale(1.05); }
+  .overlay {
+    position:absolute; bottom:0;
+    background:rgba(0,0,0,0.6);
+    color:#fff; width:100%; padding:12px;
+    font-size:16px; text-align:center;
+    transition:.3s;
+  }
+  /* Modal */
+  .modal {
+    display:none;
+    position:fixed;
+     z-index:2000;
+    left:0; top:0; width:100%; height:100%;
+    background:rgba(0,0,0,0.6);
+    justify-content:center; align-items:center;
+  
+  z-index: 999;
+  }
+  .modal-content {
+    background:#fff; padding:24px;
+    border-radius:10px; max-width:800px;
+    width:90%; max-height:90vh; overflow-y:auto;
+    position:relative;
+  }
+  .close {
+    position:absolute; top:12px; right:16px;
+    font-size:24px; cursor:pointer;
+  }
+  .gallery {
+    display:flex; gap:8px; margin:12px 0;
+  }
+  .gallery img {
+    width:80px; height:60px; object-fit:cover;
+    cursor:pointer; border:2px solid #eee;
+  }
+  .gallery img.selected { border-color:#333; }
+  .main-image {
+    width:100%; height:300px; object-fit:cover;
+    border-radius:6px;
+  }
+  .product-options, .calculator, .checkout {
+    margin-top:16px;
+  }
+  label { font-weight:bold; display:block; margin:8px 0 4px;}
+  select, input[type="number"] {
+    width:100%; padding:8px; border-radius:5px;
+  }
+  .btn {
+    display:inline-block; padding:12px 20px;
+    margin:8px 4px 0;
+    border:none; border-radius:5px;
+    cursor:pointer; font-size:16px;
+  }
+  .btn-primary { background:#007bff; color:white; }
+  .btn-secondary { background:#6c757d; color:white; }
   </style>
 </head>
 <body>
@@ -565,8 +536,8 @@ padding-bottom: 4%;
     <nav class="am-navbar" id="amNavbar">
       <img class="logo" src="logo.png" alt="Artigiano Moderno Logo">
       <div class="nav-links">
-        <a href="#">Home</a>
-        <a href="#progetti">Progetti</a>
+        <a href="#home">Home</a>
+        <a href="#prodotti">Prodotti</a>
         <a href="#servizi">Servizi</a>
         <a href="#contatti">Contatti</a>
       </div>
@@ -580,8 +551,8 @@ padding-bottom: 4%;
       </div>
     </nav>
     <div class="am-mobile-menu" id="mobileMenu">
-      <a href="#">Home</a>
-      <a href="#progetti">Progetti</a>
+      <a href="#home">Home</a>
+      <a href="#prodotti">Prodotti</a>
       <a href="#servizi">Servizi</a>
       <a href="#contatti">Contatti</a>
       <a href="#"><i class="fab fa-instagram"></i> Instagram</a>
@@ -589,7 +560,7 @@ padding-bottom: 4%;
       <a href="#"><i class="fab fa-twitter"></i> Twitter</a>
     </div>
   </header>
-  <section class="am-hero-video">
+  <section class="am-hero-video" id="home">
     <video autoplay muted loop playsinline class="am-hero-background">
       <source src="dome.mp4" type="video/mp4" />
       Il tuo browser non supporta il video.
@@ -612,7 +583,7 @@ padding-bottom: 4%;
   
  
   
-  <section class="am-services-section">
+  <section class="am-services-section" id="servizi">
     <h2 class="am-section-title">Cosa facciamo</h2>
     <div class="am-services-grid">
   
@@ -663,132 +634,231 @@ padding-bottom: 4%;
     
 
 
-
-  <section style="background: #fff; padding: 20px 20px; font-family: 'Urbanist', sans-serif;">
-    <h2 style="text-align: center; font-size: 2.2rem; font-weight: 800; color: #333; margin-bottom: 10px;">Le mie opere</h2>
-    <p style="text-align: center; color: #666; margin-bottom: 60px; max-width: 600px; margin-left: auto; margin-right: auto;">
-      Una selezione dei progetti realizzati con passione: su misura, in legno, metallo o stampa 3D.
-    </p>
-  
-    <div class="work-grid">
-      <!-- 6 lavori suggeriti per varietà -->
-      <div class="work-item">
-        <img src="img/opera1.jpg" alt="Lavoro 1">
-        <div class="work-overlay">
-          <div class="work-text">
-            <h3>Panca in legno massello</h3>
-            <p>Progettata e costruita interamente a mano con incastri tradizionali.</p>
-          </div>
-        </div>
-      </div>
-      <div class="work-item">
-        <img src="img/opera2.jpg" alt="Lavoro 2">
-        <div class="work-overlay">
-          <div class="work-text">
-            <h3>Lampada in ferro</h3>
-            <p>Lavorazione e finitura in ferro grezzo con inserti di legno recuperato.</p>
-          </div>
-        </div>
-      </div>
-      <div class="work-item">
-        <img src="cupola.jpg" alt="Lavoro 3">
-        <div class="work-overlay">
-          <div class="work-text">
-            <h3>Elemento stampato in 3D</h3>
-            <p>Design tecnico stampato in PETG per applicazione funzionale.</p>
-          </div>
-        </div>
-      </div>
-      <div class="work-item">
-        <img src="img/opera4.jpg" alt="Lavoro 4">
-        <div class="work-overlay">
-          <div class="work-text">
-            <h3>Mobile su misura</h3>
-            <p>Costruzione e installazione di un mobile contenitore personalizzato.</p>
-          </div>
-        </div>
-      </div>
-      <div class="work-item">
-        <img src="img/opera5.jpg" alt="Lavoro 5">
-        <div class="work-overlay">
-          <div class="work-text">
-            <h3>Scultura industriale</h3>
-            <p>Composizione artistica in acciaio e rame, creata per uno showroom.</p>
-          </div>
-        </div>
-      </div>
-      <div class="work-item">
-        <img src="altalena.jpg" alt="Lavoro 6">
-        <div class="work-overlay">
-          <div class="work-text">
-            <h3>Set da scrivania</h3>
-            <p>Serie in legno e stampa 3D combinata, su disegno originale.</p>
-          </div>
-        </div>
-      </div>
+  <section class="product-grid" id="prodotti">
+    <div class="product-card" onclick="openModal(1)">
+      <img src="cupola.jpg" alt="Serra 4.2 m">
+      <div class="overlay">Serra Geodetica 4.2 m</div>
     </div>
-  </section>
-
-
-
-
-
-
-
-
-
-
-  <section style="background: #fdfaf5; padding: 80px 20px; font-family: 'Urbanist', sans-serif;">
-    <h2 style="text-align: center; font-size: 2.2rem; font-weight: 800; color: #333; margin-bottom: 10px;">Prodotti in vetrina</h2>
-    <p style="text-align: center; color: #666; margin-bottom: 60px; max-width: 600px; margin-left: auto; margin-right: auto;">
-      Alcuni dei nostri articoli unici, creati artigianalmente in legno, metallo o stampa 3D.
-    </p>
   
-    <div class="product-grid">
-      <!-- 8 prodotti suggeriti -->
-      <div class="product-card">
-        <img src="img/prodotto1.jpg" alt="Prodotto 1">
-        <h3>Tagliere in noce</h3>
-        <p class="price">€ 45</p>
-      </div>
-      <div class="product-card">
-        <img src="img/prodotto2.jpg" alt="Prodotto 2">
-        <h3>Supporto laptop in legno</h3>
-        <p class="price">€ 60</p>
-      </div>
-      <div class="product-card">
-        <img src="img/prodotto3.jpg" alt="Prodotto 3">
-        <h3>Lampada in ferro</h3>
-        <p class="price">€ 75</p>
-      </div>
-      <div class="product-card">
-        <img src="img/prodotto4.jpg" alt="Prodotto 4">
-        <h3>Vassoio in frassino</h3>
-        <p class="price">€ 35</p>
-      </div>
-      <div class="product-card">
-        <img src="img/prodotto5.jpg" alt="Prodotto 5">
-        <h3>Organizer da scrivania</h3>
-        <p class="price">€ 50</p>
-      </div>
-      <div class="product-card">
-        <img src="img/prodotto6.jpg" alt="Prodotto 6">
-        <h3>Portaoggetti 3D</h3>
-        <p class="price">€ 30</p>
-      </div>
-      <div class="product-card">
-        <img src="img/prodotto7.jpg" alt="Prodotto 7">
-        <h3>Specchio con cornice</h3>
-        <p class="price">€ 80</p>
-      </div>
-      <div class="product-card">
-        <img src="img/prodotto8.jpg" alt="Prodotto 8">
-        <h3>Base monitor</h3>
-        <p class="price">€ 40</p>
-      </div>
+    <div class="product-card" onclick="openModal(2)">
+      <img src="pollaio3v_1.jpg" alt="Pollaio 3.4 m">
+      <div class="overlay">Pollaio Geodetico 3.4 m</div>
+    </div>
+  
+    <div class="product-card" onclick="openModal(3)">
+      <img src="glamping5m_1.jpg" alt="Glamping 5.5 m">
+      <div class="overlay">Cupola Glamping 5.5 m</div>
     </div>
   </section>
   
+  <div id="modal1" class="modal">
+    <div class="modal-content">
+      <span class="close" onclick="closeModal(1)">&times;</span>
+      <h2>Serra Geodetica 4.2 m</h2>
+      <img id="mainImg1" class="main-image" src="serra4m_1.jpg" alt="">
+  
+      <div class="gallery">
+        <img src="serra4m_1.jpg" onclick="changeMain(1,this)" class="selected">
+        <img src="serra4m_2.jpg" onclick="changeMain(1,this)">
+        <img src="serra4m_3.jpg" onclick="changeMain(1,this)">
+      </div>
+  
+      <p>Struttura in ferro Ø16 mm, montaggio rapido. Kit completo per orto, giardino o copertura stagionale.</p>
+  
+      <div class="product-options">
+        <label>Copertura</label>
+        <select id="prod1_cover" onchange="updateCalculator(1)">
+          <option value="telo">Telo trasparente (30 €)</option>
+          <option value="policarbonato">Policarbonato alveolare (250 €)</option>
+        </select>
+  
+        <label>Struttura</label>
+        <select id="prod1_struct" onchange="updateCalculator(1)">
+          <option value="ferro">Ferro zincato (325 €)</option>
+          <option value="alluminio">Alluminio anodizzato (450 €)</option>
+        </select>
+  
+        <label>Connettori</label>
+        <select id="prod1_conns" onchange="updateCalculator(1)">
+          <option value="3d">Stampati 3D in PETG (40 €)</option>
+          <option value="acciaio">In acciaio zincato (90 €)</option>
+        </select>
+      </div>
+  
+      <div class="calculator">
+        <h3>Calcolo materiali & costi</h3>
+        <p>[Tubi totali: <span id="prod1_tubi">99.5 m</span>]</p>
+        <p>Struttura: <span id="prod1_cost_str">325 €</span></p>
+        <p>Copertura: <span id="prod1_cost_cov">30 €</span></p>
+        <p>Connettori: <span id="prod1_cost_conn">40 €</span></p>
+        <p>Totale produzione: <strong><span id="prod1_cost_tot">395 €</span></strong></p>
+      </div>
+  
+      <div class="checkout">
+        <label>Quantità</label>
+        <input type="number" id="prod1_qty" value="1" min="1" onchange="updateCheckout(1)">
+        <p>Prezzo finale: <span id="prod1_price">690 €</span></p>
+        <button class="btn btn-primary" onclick="addToCart(1)">Aggiungi al carrello</button>
+        <button class="btn btn-secondary" onclick="requestQuote(1)">Richiedi preventivo</button>
+      </div>
+    </div>
+  </div>
+  
+  <!-- PRODOTTO 2 -->
+  <div id="modal2" class="modal">
+    <div class="modal-content">
+      <span class="close" onclick="closeModal(2)">&times;</span>
+      <h2>Pollaio Geodetico 3.4 m</h2>
+      <img id="mainImg2" class="main-image" src="pollaio3v_1.jpg" alt="">
+  
+      <div class="gallery">
+        <img src="pollaio3v_1.jpg" onclick="changeMain(2,this)" class="selected">
+        <img src="pollaio3v_2.jpg" onclick="changeMain(2,this)">
+      </div>
+  
+      <p>Struttura leggera in legno 20×50 mm, connettori stampati 3D. Ideale per allevamenti domestici.</p>
+  
+      <div class="product-options">
+        <label>Copertura</label>
+        <select id="prod2_cover" onchange="updateCalculator(2)">
+          <option value="rete">Rete zincata (20 €)</option>
+          <option value="telo+rete">Telo + rete (50 €)</option>
+        </select>
+  
+        <label>Struttura</label>
+        <select id="prod2_struct" onchange="updateCalculator(2)">
+          <option value="legno">Legno abete piallato (90 €)</option>
+        </select>
+  
+        <label>Connettori</label>
+        <select id="prod2_conns" onchange="updateCalculator(2)">
+          <option value="3d">Stampati 3D in PETG (35 €)</option>
+        </select>
+      </div>
+  
+      <div class="calculator">
+        <h3>Calcolo materiali & costi</h3>
+        <p>[Tubi totali: <span id="prod2_tubi">64.7 m</span>]</p>
+        <p>Struttura: <span id="prod2_cost_str">90 €</span></p>
+        <p>Copertura: <span id="prod2_cost_cov">20 €</span></p>
+        <p>Connettori: <span id="prod2_cost_conn">35 €</span></p>
+        <p>Totale produzione: <strong><span id="prod2_cost_tot">145 €</span></strong></p>
+      </div>
+  
+      <div class="checkout">
+        <label>Quantità</label>
+        <input type="number" id="prod2_qty" value="1" min="1" onchange="updateCheckout(2)">
+        <p>Prezzo finale: <span id="prod2_price">390 €</span></p>
+        <button class="btn btn-primary" onclick="addToCart(2)">Aggiungi al carrello</button>
+        <button class="btn btn-secondary" onclick="requestQuote(2)">Richiedi preventivo</button>
+      </div>
+    </div>
+  </div>
+  
+  <!-- PRODOTTO 3 -->
+  <div id="modal3" class="modal">
+    <div class="modal-content">
+      <span class="close" onclick="closeModal(3)">&times;</span>
+      <h2>Cupola Glamping 5.5 m</h2>
+      <img id="mainImg3" class="main-image" src="glamping5m_1.jpg" alt="">
+  
+      <div class="gallery">
+        <img src="glamping5m_1.jpg" onclick="changeMain(3,this)" class="selected">
+        <img src="glamping5m_2.jpg" onclick="changeMain(3,this)">
+      </div>
+  
+      <p>Cupola spaziosa per allestimenti glamping, eventi o aree relax. Montaggio professionale e materiali durevoli.</p>
+  
+      <div class="product-options">
+        <label>Copertura</label>
+        <select id="prod3_cover" onchange="updateCalculator(3)">
+          <option value="pvc">PVC bianco (190 €)</option>
+          <option value="pvc+trasp">PVC + fronte trasparente (250 €)</option>
+        </select>
+  
+        <label>Struttura</label>
+        <select id="prod3_struct" onchange="updateCalculator(3)">
+          <option value="acciaio">Acciaio verniciato (600 €)</option>
+        </select>
+  
+        <label>Connettori</label>
+        <select id="prod3_conns" onchange="updateCalculator(3)">
+          <option value="acciaio">Acciaio rinforzato (120 €)</option>
+        </select>
+      </div>
+  
+      <div class="calculator">
+        <h3>Calcolo materiali & costi</h3>
+        <p>[Tubi totali: <span id="prod3_tubi">180 m</span>]</p>
+        <p>Struttura: <span id="prod3_cost_str">600 €</span></p>
+        <p>Copertura: <span id="prod3_cost_cov">190 €</span></p>
+        <p>Connettori: <span id="prod3_cost_conn">120 €</span></p>
+        <p>Totale produzione: <strong><span id="prod3_cost_tot">910 €</span></strong></p>
+      </div>
+      <div class="checkout">
+        <label>Quantità</label>
+        <input type="number" id="prod3_qty" value="1" min="1" onchange="updateCheckout(3)">
+        <p>Prezzo finale: <span id="prod3_price">1390 €</span></p>
+        <button class="btn btn-primary" onclick="addToCart(3)">Aggiungi al carrello</button>
+        <button class="btn btn-secondary" onclick="requestQuote(3)">Richiedi preventivo</button>
+      </div>
+    </div>
+  </div>
+ 
+  <!-- POLLAIO A CUPOLA -->
+  <div id="modalPollaio" class="modal">
+    <div class="modal-content">
+      <span class="close" onclick="closeModal('Pollaio')">&times;</span>
+      <h2>Pollaio a Cupola</h2>
+      <img id="mainImgPollaio" class="main-image" src="pollaio_cupola_1.jpg" alt="">
+  
+      <div class="gallery">
+        <img src="pollaio_cupola_1.jpg" onclick="changeMain('Pollaio',this)" class="selected">
+        <img src="pollaio_cupola_2.jpg" onclick="changeMain('Pollaio',this)">
+      </div>
+  
+      <p>Struttura leggera, copertura traspirante in rete zincata. Ideale per uso stagionale o fisso.</p>
+  
+      <div class="product-options">
+        <label>Dimensione</label>
+        <select id="prodPollaio_size" onchange="updateCalculator('Pollaio')">
+          <option value="3.0">3.0 m (piccolo)</option>
+          <option value="4.2">4.2 m (grande)</option>
+        </select>
+  
+        <label>Struttura</label>
+        <select id="prodPollaio_struct" onchange="updateCalculator('Pollaio')">
+          <option value="legno">Legno (90 € / 120 €)</option>
+          <option value="ferro">Ferro zincato (140 € / 180 €)</option>
+        </select>
+  
+        <label>Copertura</label>
+        <select id="prodPollaio_cov" onchange="updateCalculator('Pollaio')">
+          <option value="rete-larga">Rete zincata maglia larga (30 € / 50 €)</option>
+          <option value="rete-stretta">Rete zincata maglia stretta (60 € / 90 €)</option>
+        </select>
+      </div>
+  
+      <div class="calculator">
+        <h3>Calcolo materiali & costi</h3>
+        <p>[Tubi totali: <span id="prodPollaio_tubi">--</span>]</p>
+        <p>Struttura: <span id="prodPollaio_cost_str">--</span></p>
+        <p>Copertura: <span id="prodPollaio_cost_cov">--</span></p>
+        <p>Totale produzione: <strong><span id="prodPollaio_cost_tot">--</span></strong></p>
+      </div>
+  
+      <div class="checkout">
+        <label>Quantità</label>
+        <input type="number" id="prodPollaio_qty" value="1" min="1" onchange="updateCheckout('Pollaio')">
+        <p>Prezzo finale: <span id="prodPollaio_price">--</span></p>
+        <button class="btn btn-primary" onclick="addToCart('Pollaio')">Aggiungi al carrello</button>
+        <button class="btn btn-secondary" onclick="requestQuote('Pollaio')">Richiedi preventivo</button>
+      </div>
+    </div>
+  </div>
+<br>
+
+
 
   
 
@@ -877,5 +947,122 @@ action="https://formspree.io/f/xpwrzlbq" method="POST">
     },
   });
 </script>
+<script>
+const base = {
+  1: {
+    tubi: 99.5,
+    costStruct: { ferro: 325, alluminio: 450 },
+    costCov:    { telo: 30, policarbonato: 250 },
+    costConns:  { "3d": 40, acciaio: 90 },
+    prezzoBase: 690
+  },
+  2: {
+    tubi: 64.7,
+    costStruct: { legno: 90 },
+    costCov:    { rete: 20, "telo+rete": 50 },
+    costConns:  { "3d": 35 },
+    prezzoBase: 390
+  },
+  3: {
+    tubi: 180,
+    costStruct: { acciaio: 600 },
+    costCov:    { pvc: 190, "pvc+trasp": 250 },
+    costConns:  { acciaio: 120 },
+    prezzoBase: 1390
+  },
+  Pollaio: {
+    tubi:        { "3.0": 65,   "4.2": 99.5 },
+    costStruct:  { "3.0": { legno: 90,  ferro: 140 },
+                  "4.2": { legno:120,  ferro: 180 } },
+    costCov:     { "3.0": { "rete-larga": 30, "rete-stretta": 60 },
+                  "4.2": { "rete-larga": 50, "rete-stretta": 90 } },
+    prezzoBase:  { "3.0": 350, "4.2": 490 }
+  }
+};
+
+// 2) Calcola e aggiorna i costi in base agli <select>
+function updateCalculator(id) {
+  const cfg = base[id];
+  let size = null, 
+      tubi, costStruct, costCov, costConn = 0;
+
+  // se ha dimensioni (Pollaio), altrimenti no
+  if (typeof cfg.tubi === "object") {
+    size = document.getElementById(`prod${id}_size`).value;
+    tubi       = cfg.tubi[size];
+    costStruct = cfg.costStruct[size][ document.getElementById(`prod${id}_struct`).value ];
+    costCov    = cfg.costCov[size][   document.getElementById(`prod${id}_cov`).value    ];
+    if (cfg.costConns) {
+      // se anche i connettori variano per dimensione
+      const connVal = document.getElementById(`prod${id}_conns`)?.value;
+      costConn = connVal ? (cfg.costConns[size]?.[connVal] || 0) : 0;
+    }
+  } else {
+    tubi       = cfg.tubi;
+    costStruct = cfg.costStruct[ document.getElementById(`prod${id}_struct`).value ];
+    costCov    = cfg.costCov[    document.getElementById(`prod${id}_cover`).value  ];
+    if (cfg.costConns) {
+      costConn = cfg.costConns[ document.getElementById(`prod${id}_conns`).value ] || 0;
+    }
+  }
+
+  const total = costStruct + costCov + costConn;
+
+  // Aggiorno il DOM
+  if (document.getElementById(`prod${id}_tubi`))
+    document.getElementById(`prod${id}_tubi`).innerText     = tubi + " m";
+  document.getElementById(`prod${id}_cost_str`).innerText    = costStruct + " €";
+  document.getElementById(`prod${id}_cost_cov`).innerText    = costCov + " €";
+  if (cfg.costConns)
+    document.getElementById(`prod${id}_cost_conn`).innerText = costConn + " €";
+  document.getElementById(`prod${id}_cost_tot`).innerText    = total + " €";
+
+  updateCheckout(id);
+}
+
+// 3) Calcola e aggiorna il prezzo finale in base alla quantità
+function updateCheckout(id) {
+  // 1) Prendo la quantità selezionata
+  const qty = parseInt(document.getElementById(`prod${id}_qty`).value) || 1;
+  // 2) Leggo il "Totale produzione" calcolato
+  const totalProdStr = document.getElementById(`prod${id}_cost_tot`).innerText;
+  const totalProd = parseFloat(totalProdStr.replace(" €", "")) || 0;
+  // 3) Moltiplico per la quantità
+  const finalPrice = (totalProd * qty).toFixed(2);
+  // 4) Aggiorno il prezzo finale in pagina
+  document.getElementById(`prod${id}_price`).innerText = finalPrice + " €";
+}
+
+// 4) Galleria immagini
+function changeMain(id, img) {
+  document.getElementById(`mainImg${id}`).src = img.src;
+  img.parentNode.querySelectorAll("img").forEach(i => i.classList.remove("selected"));
+  img.classList.add("selected");
+}
+
+// 5) Open / Close modali (con navbar che scompare)
+function openModal(id) {
+  const m = document.getElementById(`modal${id}`);
+  m.style.display = "flex";
+  document.querySelector(".am-navbar").style.display = "none";
+  updateCalculator(id);
+}
+function closeModal(id) {
+  document.getElementById(`modal${id}`).style.display = "none";
+  document.querySelector(".am-navbar").style.display = "";
+}
+
+// 6) click fuori dal modal → chiudi tutto
+window.addEventListener("click", e => {
+  document.querySelectorAll(".modal").forEach(m => {
+    if (e.target === m) {
+      m.style.display = "none";
+      document.querySelector(".am-navbar").style.display = "";
+    }
+  });
+});
+
+</script>
+
 </body>
 </html>
