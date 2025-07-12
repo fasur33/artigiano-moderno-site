@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
- <title>Navbar Artigiano Moderno</title>
+ <title>artigiano moderno</title>
  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
  <link href="https://fonts.googleapis.com/css2?family=Urbanist:wght@400;600;800&display=swap" rel="stylesheet">
  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
@@ -66,7 +66,7 @@
       .hamburger { display: block; }
     }
     /* Mobile menu */
-    .am-mobile-menu { display: none; position: fixed; top: 57px; width: 100%; background: rgba(0,0,0,0.95); flex-direction: column; padding: 20px; z-index: 999; }
+    .am-mobile-menu { display: none; position: fixed; top: 120px; width: 100%; background: rgba(0,0,0,0.95); flex-direction: column; padding: 20px; z-index: 999; }
     .am-mobile-menu.show { display: flex; }
     .am-mobile-menu a { color: #fff; text-decoration: none; padding: 12px 0; border-bottom: 1px solid #333; }
     .am-mobile-menu a:last-child { border: none; }
@@ -481,20 +481,26 @@ padding-bottom: 4%;
   }
   /* Modal */
   .modal {
-    display:none;
-    position:fixed;
-     z-index:2000;
-    left:0; top:0; width:100%; height:100%;
-    background:rgba(0,0,0,0.6);
-    justify-content:center; align-items:center;
-  
-  z-index: 999;
+    position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.6);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 2000;
+  padding: 20px;
+
   }
   .modal-content {
-    background:#fff; padding:24px;
-    border-radius:10px; max-width:800px;
-    width:90%; max-height:90vh; overflow-y:auto;
-    position:relative;
+    background: #fff;
+  padding: 24px;
+  border-radius: 10px;
+  max-width: 800px;
+  width: 90%;
+  max-height: 90vh;
+  overflow-y: auto;
+  position: relative;
+  margin: auto; /* centra il contenuto */
   }
   .close {
     position:absolute; top:12px; right:16px;
@@ -632,230 +638,110 @@ padding-bottom: 4%;
   </section>
 
     
-
-
   <section class="product-grid" id="prodotti">
     <div class="product-card" onclick="openModal(1)">
-      <img src="cupola.jpg" alt="Serra 4.2 m">
-      <div class="overlay">Serra Geodetica 4.2 m</div>
+      <img src="serra.jpg" alt="Serra Geodetica">
+      <div class="overlay">Serra Geodetica 3.4 m</div>
     </div>
-  
+
     <div class="product-card" onclick="openModal(2)">
-      <img src="pollaio3v_1.jpg" alt="Pollaio 3.4 m">
-      <div class="overlay">Pollaio Geodetico 3.4 m</div>
-    </div>
-  
-    <div class="product-card" onclick="openModal(3)">
-      <img src="glamping5m_1.jpg" alt="Glamping 5.5 m">
-      <div class="overlay">Cupola Glamping 5.5 m</div>
+      <img src="cupola.jpg" alt="Cupola Perline">
+      <div class="overlay">Cupola con Perline</div>
     </div>
   </section>
-  
-  <div id="modal1" class="modal">
-    <div class="modal-content">
-      <span class="close" onclick="closeModal(1)">&times;</span>
-      <h2>Serra Geodetica 4.2 m</h2>
-      <img id="mainImg1" class="main-image" src="serra4m_1.jpg" alt="">
-  
-      <div class="gallery">
-        <img src="serra4m_1.jpg" onclick="changeMain(1,this)" class="selected">
-        <img src="serra4m_2.jpg" onclick="changeMain(1,this)">
-        <img src="serra4m_3.jpg" onclick="changeMain(1,this)">
-      </div>
-  
-      <p>Struttura in ferro Ø16 mm, montaggio rapido. Kit completo per orto, giardino o copertura stagionale.</p>
-  
-      <div class="product-options">
-        <label>Copertura</label>
-        <select id="prod1_cover" onchange="updateCalculator(1)">
-          <option value="telo">Telo trasparente (30 €)</option>
-          <option value="policarbonato">Policarbonato alveolare (250 €)</option>
-        </select>
-  
-        <label>Struttura</label>
-        <select id="prod1_struct" onchange="updateCalculator(1)">
-          <option value="ferro">Ferro zincato (325 €)</option>
-          <option value="alluminio">Alluminio anodizzato (450 €)</option>
-        </select>
-  
-        <label>Connettori</label>
-        <select id="prod1_conns" onchange="updateCalculator(1)">
-          <option value="3d">Stampati 3D in PETG (40 €)</option>
-          <option value="acciaio">In acciaio zincato (90 €)</option>
-        </select>
-      </div>
-  
-      <div class="calculator">
-        <h3>Calcolo materiali & costi</h3>
-        <p>[Tubi totali: <span id="prod1_tubi">99.5 m</span>]</p>
-        <p>Struttura: <span id="prod1_cost_str">325 €</span></p>
-        <p>Copertura: <span id="prod1_cost_cov">30 €</span></p>
-        <p>Connettori: <span id="prod1_cost_conn">40 €</span></p>
-        <p>Totale produzione: <strong><span id="prod1_cost_tot">395 €</span></strong></p>
-      </div>
-  
-      <div class="checkout">
-        <label>Quantità</label>
-        <input type="number" id="prod1_qty" value="1" min="1" onchange="updateCheckout(1)">
-        <p>Prezzo finale: <span id="prod1_price">690 €</span></p>
-        <button class="btn btn-primary" onclick="addToCart(1)">Aggiungi al carrello</button>
-        <button class="btn btn-secondary" onclick="requestQuote(1)">Richiedi preventivo</button>
-      </div>
-    </div>
-  </div>
-  
-  <!-- PRODOTTO 2 -->
-  <div id="modal2" class="modal">
-    <div class="modal-content">
-      <span class="close" onclick="closeModal(2)">&times;</span>
-      <h2>Pollaio Geodetico 3.4 m</h2>
-      <img id="mainImg2" class="main-image" src="pollaio3v_1.jpg" alt="">
-  
-      <div class="gallery">
-        <img src="pollaio3v_1.jpg" onclick="changeMain(2,this)" class="selected">
-        <img src="pollaio3v_2.jpg" onclick="changeMain(2,this)">
-      </div>
-  
-      <p>Struttura leggera in legno 20×50 mm, connettori stampati 3D. Ideale per allevamenti domestici.</p>
-  
-      <div class="product-options">
-        <label>Copertura</label>
-        <select id="prod2_cover" onchange="updateCalculator(2)">
-          <option value="rete">Rete zincata (20 €)</option>
-          <option value="telo+rete">Telo + rete (50 €)</option>
-        </select>
-  
-        <label>Struttura</label>
-        <select id="prod2_struct" onchange="updateCalculator(2)">
-          <option value="legno">Legno abete piallato (90 €)</option>
-        </select>
-  
-        <label>Connettori</label>
-        <select id="prod2_conns" onchange="updateCalculator(2)">
-          <option value="3d">Stampati 3D in PETG (35 €)</option>
-        </select>
-      </div>
-  
-      <div class="calculator">
-        <h3>Calcolo materiali & costi</h3>
-        <p>[Tubi totali: <span id="prod2_tubi">64.7 m</span>]</p>
-        <p>Struttura: <span id="prod2_cost_str">90 €</span></p>
-        <p>Copertura: <span id="prod2_cost_cov">20 €</span></p>
-        <p>Connettori: <span id="prod2_cost_conn">35 €</span></p>
-        <p>Totale produzione: <strong><span id="prod2_cost_tot">145 €</span></strong></p>
-      </div>
-  
-      <div class="checkout">
-        <label>Quantità</label>
-        <input type="number" id="prod2_qty" value="1" min="1" onchange="updateCheckout(2)">
-        <p>Prezzo finale: <span id="prod2_price">390 €</span></p>
-        <button class="btn btn-primary" onclick="addToCart(2)">Aggiungi al carrello</button>
-        <button class="btn btn-secondary" onclick="requestQuote(2)">Richiedi preventivo</button>
-      </div>
-    </div>
-  </div>
-  
-  <!-- PRODOTTO 3 -->
-  <div id="modal3" class="modal">
-    <div class="modal-content">
-      <span class="close" onclick="closeModal(3)">&times;</span>
-      <h2>Cupola Glamping 5.5 m</h2>
-      <img id="mainImg3" class="main-image" src="glamping5m_1.jpg" alt="">
-  
-      <div class="gallery">
-        <img src="glamping5m_1.jpg" onclick="changeMain(3,this)" class="selected">
-        <img src="glamping5m_2.jpg" onclick="changeMain(3,this)">
-      </div>
-  
-      <p>Cupola spaziosa per allestimenti glamping, eventi o aree relax. Montaggio professionale e materiali durevoli.</p>
-  
-      <div class="product-options">
-        <label>Copertura</label>
-        <select id="prod3_cover" onchange="updateCalculator(3)">
-          <option value="pvc">PVC bianco (190 €)</option>
-          <option value="pvc+trasp">PVC + fronte trasparente (250 €)</option>
-        </select>
-  
-        <label>Struttura</label>
-        <select id="prod3_struct" onchange="updateCalculator(3)">
-          <option value="acciaio">Acciaio verniciato (600 €)</option>
-        </select>
-  
-        <label>Connettori</label>
-        <select id="prod3_conns" onchange="updateCalculator(3)">
-          <option value="acciaio">Acciaio rinforzato (120 €)</option>
-        </select>
-      </div>
-  
-      <div class="calculator">
-        <h3>Calcolo materiali & costi</h3>
-        <p>[Tubi totali: <span id="prod3_tubi">180 m</span>]</p>
-        <p>Struttura: <span id="prod3_cost_str">600 €</span></p>
-        <p>Copertura: <span id="prod3_cost_cov">190 €</span></p>
-        <p>Connettori: <span id="prod3_cost_conn">120 €</span></p>
-        <p>Totale produzione: <strong><span id="prod3_cost_tot">910 €</span></strong></p>
-      </div>
-      <div class="checkout">
-        <label>Quantità</label>
-        <input type="number" id="prod3_qty" value="1" min="1" onchange="updateCheckout(3)">
-        <p>Prezzo finale: <span id="prod3_price">1390 €</span></p>
-        <button class="btn btn-primary" onclick="addToCart(3)">Aggiungi al carrello</button>
-        <button class="btn btn-secondary" onclick="requestQuote(3)">Richiedi preventivo</button>
-      </div>
-    </div>
-  </div>
+
  
-  <!-- POLLAIO A CUPOLA -->
-  <div id="modalPollaio" class="modal">
-    <div class="modal-content">
-      <span class="close" onclick="closeModal('Pollaio')">&times;</span>
-      <h2>Pollaio a Cupola</h2>
-      <img id="mainImgPollaio" class="main-image" src="pollaio_cupola_1.jpg" alt="">
   
-      <div class="gallery">
-        <img src="pollaio_cupola_1.jpg" onclick="changeMain('Pollaio',this)" class="selected">
-        <img src="pollaio_cupola_2.jpg" onclick="changeMain('Pollaio',this)">
-      </div>
-  
-      <p>Struttura leggera, copertura traspirante in rete zincata. Ideale per uso stagionale o fisso.</p>
-  
-      <div class="product-options">
-        <label>Dimensione</label>
-        <select id="prodPollaio_size" onchange="updateCalculator('Pollaio')">
-          <option value="3.0">3.0 m (piccolo)</option>
-          <option value="4.2">4.2 m (grande)</option>
-        </select>
-  
-        <label>Struttura</label>
-        <select id="prodPollaio_struct" onchange="updateCalculator('Pollaio')">
-          <option value="legno">Legno (90 € / 120 €)</option>
-          <option value="ferro">Ferro zincato (140 € / 180 €)</option>
-        </select>
-  
-        <label>Copertura</label>
-        <select id="prodPollaio_cov" onchange="updateCalculator('Pollaio')">
-          <option value="rete-larga">Rete zincata maglia larga (30 € / 50 €)</option>
-          <option value="rete-stretta">Rete zincata maglia stretta (60 € / 90 €)</option>
-        </select>
-      </div>
-  
-      <div class="calculator">
-        <h3>Calcolo materiali & costi</h3>
-        <p>[Tubi totali: <span id="prodPollaio_tubi">--</span>]</p>
-        <p>Struttura: <span id="prodPollaio_cost_str">--</span></p>
-        <p>Copertura: <span id="prodPollaio_cost_cov">--</span></p>
-        <p>Totale produzione: <strong><span id="prodPollaio_cost_tot">--</span></strong></p>
-      </div>
-  
-      <div class="checkout">
-        <label>Quantità</label>
-        <input type="number" id="prodPollaio_qty" value="1" min="1" onchange="updateCheckout('Pollaio')">
-        <p>Prezzo finale: <span id="prodPollaio_price">--</span></p>
-        <button class="btn btn-primary" onclick="addToCart('Pollaio')">Aggiungi al carrello</button>
-        <button class="btn btn-secondary" onclick="requestQuote('Pollaio')">Richiedi preventivo</button>
-      </div>
+<!-- MODAL Serra Geodetica con dimensioni e colori -->
+<div id="modal1" class="modal" style="display: none;">
+  <div class="modal-content">
+    <span class="close" onclick="closeModal(1)">&times;</span>
+    <h2>Serra Geodetica</h2>
+
+    <img id="mainImg1" class="main-image" src="serra4m_1.jpg" alt="Serra Geodetica">
+    <div class="gallery">
+      <img src="serra.jpg" onclick="changeMain(1,this)" class="selected">
+      <img src="serra4m_2.jpg" onclick="changeMain(1,this)">
+      <img src="serra4m_3.jpg" onclick="changeMain(1,this)">
+    </div>
+
+    <p>Serra geodetica modulare, con copertura in polietilene trasparente. Ideale per orti e giardini.</p>
+
+    <div class="product-options">
+      <label>Dimensione</label>
+      <select id="prod1_size" onchange="updateCalculator(1)">
+        <option value="3.4">3.4 m</option>
+        <option value="6.4">6.4 m</option>
+      </select>
+
+      <label>Struttura</label>
+      <select id="prod1_struct" onchange="updateCalculator(1)">
+        <option value="ferro">Ferro zincato</option>
+        <option value="legno">Legno trattato</option>
+      </select>
+
+      <label>Colore copertura</label>
+      <select id="prod1_color" onchange="updateCalculator(1)">
+        <option value="trasparente">Trasparente</option>
+        <option value="verde">Verde</option>
+        <option value="beige">Beige</option>
+        <option value="nero">Nero</option>
+      </select>
+    </div>
+
+    <div class="checkout">
+      <label>Quantità</label>
+      <input type="number" id="prod1_qty" value="1" min="1" onchange="updateCheckout(1)">
+      <span id="prod1_cost_tot" style="display:none;">0 €</span>
+      <p><strong>Prezzo finale: <span id="prod1_price">660 €</span></strong></p>
+      <button class="btn btn-primary" onclick="addToCart(1)">Aggiungi al carrello</button>
+      <button class="btn btn-secondary" onclick="requestQuote(1)">Richiedi preventivo</button>
     </div>
   </div>
+</div>
+
+<div id="modal2" class="modal" style="display: none;">
+  <div class="modal-content">
+    <span class="close" onclick="closeModal(2)">&times;</span>
+    <h2>Cupola in Legno con Perline</h2>
+
+    <img id="mainImg2" class="main-image" src="cupola.jpg" alt="Cupola Perline">
+    <div class="gallery">
+      <img src="perline1.jpg" onclick="changeMain(2,this)" class="selected">
+      <img src="perline2.jpg" onclick="changeMain(2,this)">
+      <img src="perline3.jpg" onclick="changeMain(2,this)">
+    </div>
+
+    <p>Cupola geodetica coperta con perline di legno. Ideale per allestimenti outdoor, relax o uso ricreativo.</p>
+
+    <div class="product-options">
+      <label>Dimensione</label>
+      <select id="prod2_size" onchange="updateCalculator(2)">
+        <option value="3.4">3.4 m</option>
+        <option value="6.4">6.4 m</option>
+      </select>
+
+      <label>Colore copertura</label>
+      <select id="prod2_color" onchange="updateCalculator(2)">
+        <option value="naturale">Naturale</option>
+        <option value="bianco">Bianco</option>
+        <option value="miele">Miele</option>
+        <option value="noce">Noce</option>
+      </select>
+
+      <label><input type="checkbox" id="prod2_pav" onchange="updateCalculator(2)"> Aggiungi pavimentazione in legno (250 €)</label>
+    </div>
+
+    <div class="checkout">
+      <label>Quantità</label>
+      <input type="number" id="prod2_qty" value="1" min="1" onchange="updateCheckout(2)">
+      <span id="prod2_cost_tot" style="display:none;">0 €</span>
+      <p><strong>Prezzo finale: <span id="prod2_price">880 €</span></strong></p>
+      <button class="btn btn-primary" onclick="addToCart(2)">Aggiungi al carrello</button>
+      <button class="btn btn-secondary" onclick="requestQuote(2)">Richiedi preventivo</button>
+    </div>
+  </div>
+</div>
 <br>
 
 
@@ -947,122 +833,112 @@ action="https://formspree.io/f/xpwrzlbq" method="POST">
     },
   });
 </script>
+
+
 <script>
-const base = {
-  1: {
-    tubi: 99.5,
-    costStruct: { ferro: 325, alluminio: 450 },
-    costCov:    { telo: 30, policarbonato: 250 },
-    costConns:  { "3d": 40, acciaio: 90 },
-    prezzoBase: 690
-  },
-  2: {
-    tubi: 64.7,
-    costStruct: { legno: 90 },
-    costCov:    { rete: 20, "telo+rete": 50 },
-    costConns:  { "3d": 35 },
-    prezzoBase: 390
-  },
-  3: {
-    tubi: 180,
-    costStruct: { acciaio: 600 },
-    costCov:    { pvc: 190, "pvc+trasp": 250 },
-    costConns:  { acciaio: 120 },
-    prezzoBase: 1390
-  },
-  Pollaio: {
-    tubi:        { "3.0": 65,   "4.2": 99.5 },
-    costStruct:  { "3.0": { legno: 90,  ferro: 140 },
-                  "4.2": { legno:120,  ferro: 180 } },
-    costCov:     { "3.0": { "rete-larga": 30, "rete-stretta": 60 },
-                  "4.2": { "rete-larga": 50, "rete-stretta": 90 } },
-    prezzoBase:  { "3.0": 350, "4.2": 490 }
+  // Qui va tutto il tuo codice JavaScript
+  // 1. Oggetto base dei prodotti
+  const base = {
+    1: {
+      costStruct: {
+        "3.4": { ferro: 240, legno: 160 },
+        "6.4": { ferro: 480, legno: 320 }
+      },
+      costCov: {
+        "3.4": 70,
+        "6.4": 140
+      },
+      manodopera: {
+        "3.4": 300,
+        "6.4": 600
+      },
+      trattamento: 50
+    },
+    2: {
+      costStruct: {
+        "3.4": 160,
+        "6.4": 320
+      },
+      costCov: {
+        "3.4": 300,
+        "6.4": 600
+      },
+      trattamento: 50,
+      manodopera: {
+        "3.4": 370,
+        "6.4": 740
+      },
+      pavimento: 250
+    }
+  };
+
+  function updateCalculator(id) {
+    const cfg = base[id];
+    const size = document.getElementById(`prod${id}_size`).value;
+
+    const costoStruttura = typeof cfg.costStruct[size] === "object" 
+      ? cfg.costStruct[size][document.getElementById(`prod${id}_struct`)?.value || "ferro"] 
+      : cfg.costStruct[size];
+
+    const costoCopertura = cfg.costCov[size];
+    const manodopera = cfg.manodopera[size];
+    const trattamento = cfg.trattamento;
+
+    const includePavimento = document.getElementById(`prod${id}_pav`)?.checked;
+    const costoPavimento = includePavimento ? cfg.pavimento || 0 : 0;
+
+    const totale = costoStruttura + costoCopertura + manodopera + trattamento + costoPavimento;
+
+    document.getElementById(`prod${id}_cost_tot`).innerText = totale + " €";
+    updateCheckout(id);
   }
-};
 
-// 2) Calcola e aggiorna i costi in base agli <select>
-function updateCalculator(id) {
-  const cfg = base[id];
-  let size = null, 
-      tubi, costStruct, costCov, costConn = 0;
-
-  // se ha dimensioni (Pollaio), altrimenti no
-  if (typeof cfg.tubi === "object") {
-    size = document.getElementById(`prod${id}_size`).value;
-    tubi       = cfg.tubi[size];
-    costStruct = cfg.costStruct[size][ document.getElementById(`prod${id}_struct`).value ];
-    costCov    = cfg.costCov[size][   document.getElementById(`prod${id}_cov`).value    ];
-    if (cfg.costConns) {
-      // se anche i connettori variano per dimensione
-      const connVal = document.getElementById(`prod${id}_conns`)?.value;
-      costConn = connVal ? (cfg.costConns[size]?.[connVal] || 0) : 0;
-    }
-  } else {
-    tubi       = cfg.tubi;
-    costStruct = cfg.costStruct[ document.getElementById(`prod${id}_struct`).value ];
-    costCov    = cfg.costCov[    document.getElementById(`prod${id}_cover`).value  ];
-    if (cfg.costConns) {
-      costConn = cfg.costConns[ document.getElementById(`prod${id}_conns`).value ] || 0;
-    }
+  function updateCheckout(id) {
+    const qty = parseInt(document.getElementById(`prod${id}_qty`).value) || 1;
+    const totalStr = document.getElementById(`prod${id}_cost_tot`).innerText;
+    const total = parseFloat(totalStr.replace(" €", "")) || 0;
+    const final = (total * qty).toFixed(2);
+    document.getElementById(`prod${id}_price`).innerText = final + " €";
   }
 
-  const total = costStruct + costCov + costConn;
+  function openModal(id) {
+    document.getElementById(`modal${id}`).style.display = "block";
+    updateCalculator(id);
+  }
 
-  // Aggiorno il DOM
-  if (document.getElementById(`prod${id}_tubi`))
-    document.getElementById(`prod${id}_tubi`).innerText     = tubi + " m";
-  document.getElementById(`prod${id}_cost_str`).innerText    = costStruct + " €";
-  document.getElementById(`prod${id}_cost_cov`).innerText    = costCov + " €";
-  if (cfg.costConns)
-    document.getElementById(`prod${id}_cost_conn`).innerText = costConn + " €";
-  document.getElementById(`prod${id}_cost_tot`).innerText    = total + " €";
+  function closeModal(id) {
+    document.getElementById(`modal${id}`).style.display = "none";
+  }
 
-  updateCheckout(id);
-}
+  function changeMain(id, imgEl) {
+    const mainImg = document.getElementById(`mainImg${id}`);
+    mainImg.src = imgEl.src;
+    [...imgEl.parentElement.children].forEach(el => el.classList.remove("selected"));
+    imgEl.classList.add("selected");
+  }
 
-// 3) Calcola e aggiorna il prezzo finale in base alla quantità
-function updateCheckout(id) {
-  // 1) Prendo la quantità selezionata
-  const qty = parseInt(document.getElementById(`prod${id}_qty`).value) || 1;
-  // 2) Leggo il "Totale produzione" calcolato
-  const totalProdStr = document.getElementById(`prod${id}_cost_tot`).innerText;
-  const totalProd = parseFloat(totalProdStr.replace(" €", "")) || 0;
-  // 3) Moltiplico per la quantità
-  const finalPrice = (totalProd * qty).toFixed(2);
-  // 4) Aggiorno il prezzo finale in pagina
-  document.getElementById(`prod${id}_price`).innerText = finalPrice + " €";
-}
+  function addToCart(id) {
+    alert("Prodotto aggiunto al carrello!");
+  }
 
-// 4) Galleria immagini
-function changeMain(id, img) {
-  document.getElementById(`mainImg${id}`).src = img.src;
-  img.parentNode.querySelectorAll("img").forEach(i => i.classList.remove("selected"));
-  img.classList.add("selected");
-}
+  function requestQuote(id) {
+    alert("Preventivo richiesto!");
+  }
 
-// 5) Open / Close modali (con navbar che scompare)
-function openModal(id) {
-  const m = document.getElementById(`modal${id}`);
-  m.style.display = "flex";
-  document.querySelector(".am-navbar").style.display = "none";
-  updateCalculator(id);
-}
-function closeModal(id) {
-  document.getElementById(`modal${id}`).style.display = "none";
-  document.querySelector(".am-navbar").style.display = "";
-}
 
-// 6) click fuori dal modal → chiudi tutto
-window.addEventListener("click", e => {
-  document.querySelectorAll(".modal").forEach(m => {
-    if (e.target === m) {
-      m.style.display = "none";
-      document.querySelector(".am-navbar").style.display = "";
+
+  // Chiudi il modal cliccando fuori dal contenuto
+window.addEventListener("click", function(event) {
+  for (let i = 1; i <= 2; i++) {
+    const modal = document.getElementById(`modal${i}`);
+    if (modal && event.target === modal) {
+      modal.style.display = "none";
     }
-  });
+  }
 });
-
 </script>
+
+  
 
 </body>
 </html>
