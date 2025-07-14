@@ -938,7 +938,20 @@ window.addEventListener("click", function(event) {
 });
 </script>
 
-  
+<script>
+  document.addEventListener('click', function (event) {
+    const menu = document.getElementById('mobileMenu');
+    const hamburger = document.querySelector('.hamburger');
+    
+    const isClickInsideMenu = menu.contains(event.target);
+    const isClickOnHamburger = hamburger.contains(event.target);
+
+    if (!isClickInsideMenu && !isClickOnHamburger && menu.classList.contains('show')) {
+      menu.classList.remove('show');
+    }
+  });
+</script>
+
 
 </body>
 </html>
