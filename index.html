@@ -72,76 +72,63 @@
     .am-mobile-menu a:last-child { border: none; }
 
 
+    .am-hero-image {
+  position: relative;
+  height: 100vh;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+}
 
+.am-hero-background {
+  position: absolute;
+  top: 0; left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: url('home.jpg'); /* cambia con il tuo percorso immagine */
+  background-size: cover;
+  background-position: center;
+  z-index: 0;
+}
 
+.am-hero-content {
+  position: relative;
+  z-index: 1;
+  text-align: center;
+  padding: 20px;
+  width: 100%;
+  max-width: 800px;
+}
 
-    .am-hero-video {
-    position: relative;
-    height: 100vh;
-    overflow: hidden;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    color: white;
-  }
-
-  .am-hero-background {
-    position: absolute;
-    top: 0; left: 0;
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    z-index: 0;
-  }
-
-  .am-hero-content {
-    position: relative;
-    z-index: 1;
-    text-align: center;
-    padding: 20px;
-    width: 100%;
-    max-width: 800px;
-  }
-
-  .am-hero-blur-box {
-    background: linear-gradient(to bottom right, rgba(255,255,255,0.12), rgba(200,200,200,0.05));
+.am-hero-blur-box {
+  background: linear-gradient(to bottom right, rgba(255,255,255,0.12), rgba(200,200,200,0.05));
   backdrop-filter: blur(14px);
   border-radius: 30px;
   box-shadow: 0 8px 32px rgba(0,0,0,0.3);
   padding: 50px 40px;
-  border-radius: 30px;
-  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3); /* ombra diffusa */
-  border: 1px solid rgba(255, 255, 255, 0.2); /* bordo interno sfumato */
+  border: 1px solid rgba(255, 255, 255, 0.2);
   outline: 1px solid rgba(255,255,255,0.05);
   outline-offset: -10px;
+}
 
-  }
-
-  .am-hero-title {
-    font-size: 3rem;
-    margin-bottom: 10px;
-    color: #fff;
-text-shadow: 0 1px 2px rgba(0,0,0,0.5);
-font-weight: 800;
+.am-hero-title {
+  font-size: 3rem;
+  margin-bottom: 10px;
+  color: #fff;
+  text-shadow: 0 1px 2px rgba(0,0,0,0.5);
+  font-weight: 800;
   letter-spacing: -0.5px;
-  }
+}
 
-  .am-hero-subtitle {
-    font-size: 1.2rem;
-    margin-bottom: 30px;
-    color: rgba(255, 255, 255, 0.85);
-    font-weight: 400;
-    line-height: 1.6;
-
-    
-  }
-
-  .am-hero-buttons {
-    display: flex;
-    justify-content: center;
-    gap: 20px;
-    flex-wrap: wrap;
-  }
+.am-hero-subtitle {
+  font-size: 1.2rem;
+  margin-bottom: 30px;
+  color: rgba(255, 255, 255, 0.85);
+  font-weight: 400;
+  line-height: 1.6;
+}
 
   .am-btn {
   background: linear-gradient(to right, #f0c040, #dca300);
@@ -282,11 +269,12 @@ padding-bottom: 4%;
 }
 
 .am-contact-info {
-  flex: 1 1 500px;
   text-align: center;
-  display: flex;
-  flex-direction: column;
+  display: inline;
   justify-content: center;
+  margin-bottom: 3%;
+  margin-top: 3%;
+
 }
 
 .am-contact-info h2 {
@@ -326,7 +314,8 @@ padding-bottom: 4%;
 
 /* FORM */
 .am-contact-form {
-  flex: 1 1 500px;
+  padding: 0% 5%;
+  width: 50%;
 }
 
 .am-contact-form h2 {
@@ -375,13 +364,19 @@ padding-bottom: 4%;
   .am-contact-container {
     flex-direction: column;
     align-items: center;
+ 
   }
 
-  .am-contact-info,
+  
   .am-contact-form {
-    flex: 1 1 100%;
+padding: 10%;
+width: 100%;
   }
+.am-contact-info {
+  margin-top: 10%;
+  margin-bottom: 10%;
 
+}
   .am-contact-info h2 {
     font-size: 2rem;
   }
@@ -566,22 +561,19 @@ padding-bottom: 4%;
       <a href="#"><i class="fab fa-twitter"></i> Twitter</a>
     </div>
   </header>
-  <section class="am-hero-video" id="home">
-    <video autoplay muted loop playsinline class="am-hero-background">
-      <source src="dome.mp4" type="video/mp4" />
-      Il tuo browser non supporta il video.
-    </video>
+  <section class="am-hero-image" id="home">
+    <div class="am-hero-background"></div>
   
     <div class="am-hero-content">
       <div class="am-hero-blur-box">
         <h1 class="am-hero-title">Artigiano Moderno</h1>
         <p class="am-hero-subtitle">
           Soluzioni modulari, leggere e accessibili per privati, agricoltori,
-           maker ed eventi. Dai kit fai-da-te alle installazioni su misura.
+          maker ed eventi. Dai kit fai-da-te alle installazioni su misura.
         </p>
         <div class="am-hero-buttons">
-          <a href="#progetti" class="am-btn">Scopri i progetti</a>
-          <a href="#contatti" class="am-btn am-btn-outline">Contattami ora</a>
+          <a href="#prodotti" class="am-btn">Scopri i prodotti</a>
+          <a href="#contatti" class="am-btn am-btn-outline">Contattami</a>
         </div>
       </div>
     </div>
@@ -640,105 +632,239 @@ padding-bottom: 4%;
     
   <section class="product-grid" id="prodotti">
     <div class="product-card" onclick="openModal(1)">
-      <img src="serra.jpg" alt="Serra Geodetica">
-      <div class="overlay">Serra Geodetica 3.4 m</div>
+      <img src="cupola.jpg" alt="GeoSerra 3.4">
+      <div class="overlay">GeoSerra 3.4 – Serra 2V in ferro</div>
     </div>
-
+    
     <div class="product-card" onclick="openModal(2)">
-      <img src="cupola.jpg" alt="Cupola Perline">
-      <div class="overlay">Cupola con Perline</div>
+      <img src="mini-serra.jpg" alt="MiniDome 2.0">
+      <div class="overlay">MiniDome 2.0 – Serra compatta rialzata</div>
     </div>
+    
+    <div class="product-card" onclick="openModal(3)">
+      <img src="serra.webp" alt="GeoSerra 6.4">
+      <div class="overlay">GeoSerra 6.4 – Serra geodetica maxi</div>
+    </div>
+    
+    <div class="product-card" onclick="openModal(4)">
+      <img src="anima.jpg" alt="Stable Dome 3.4">
+      <div class="overlay">Stable Dome 3.4 – Rifugio per animali</div>
+    </div>
+    
+    <div class="product-card" onclick="openModal(5)">
+      <img src="coop.jpg" alt="CupolaRecinto 3.4">
+      <div class="overlay">CupolaRecinto 3.4 – Recinto geodetico</div>
+    </div>
+    
+    <div class="product-card" onclick="openModal(6)">
+      <img src="1v.jpg" alt="Voliera 1V Modular">
+      <div class="overlay">Voliera 1V Modular – Struttura per pennuti</div>
+    </div>
+    
+    <div class="product-card" onclick="openModal(7)">
+  <img src="chicken-dome.webp" alt="Cupola Pollaio">
+  <div class="overlay">Cupola rifugio per animali 2m</div>
+</div>
+
+<div class="product-card" onclick="openModal(8)">
+  <img src="gazebo.jpg" alt="Gazebo Modulare">
+  <div class="overlay">Gazebo Modulare 4</div>
+</div>
+
+<div class="product-card" onclick="openModal(9)">
+  <img src="recinto.jpg" alt="Recinto Modulare">
+  <div class="overlay">Recinto Modulare Animali</div>
+</div>
+
   </section>
 
  
   
-<!-- MODAL Serra Geodetica con dimensioni e colori -->
+
+<!-- MODAL 1: Serra Mini -->
 <div id="modal1" class="modal" style="display: none;">
   <div class="modal-content">
     <span class="close" onclick="closeModal(1)">&times;</span>
-    <h2>Serra Geodetica</h2>
-
-    <img id="mainImg1" class="main-image" src="serra4m_1.jpg" alt="Serra Geodetica">
+    <h2>serra geodetica 2v rialzato 2m</h2>
+    <img id="mainImg1" class="main-image" src="serra-mini1.jpg" alt="Serra Mini">
     <div class="gallery">
-      <img src="serra.jpg" onclick="changeMain(1,this)" class="selected">
-      <img src="serra4m_2.jpg" onclick="changeMain(1,this)">
-      <img src="serra4m_3.jpg" onclick="changeMain(1,this)">
+      <img src="serra-mini1.jpg" onclick="changeMain(1,this)" class="selected">
+      <img src="serra-mini2.jpg" onclick="changeMain(1,this)">
+      <img src="serra-mini3.jpg" onclick="changeMain(1,this)">
     </div>
-
-    <p>Serra geodetica modulare, con copertura in polietilene trasparente. Ideale per orti e giardini.</p>
-
-    <div class="product-options">
-      <label>Dimensione</label>
-      <select id="prod1_size" onchange="updateCalculator(1)">
-        <option value="3.4">3.4 m</option>
-        <option value="6.4">6.4 m</option>
-      </select>
-
-      <label>Struttura</label>
-      <select id="prod1_struct" onchange="updateCalculator(1)">
-        <option value="ferro">Ferro zincato</option>
-        <option value="legno">Legno trattato</option>
-      </select>
-
-      <label>Colore copertura</label>
-      <select id="prod1_color" onchange="updateCalculator(1)">
-        <option value="trasparente">Trasparente</option>
-        <option value="verde">Verde</option>
-        <option value="beige">Beige</option>
-        <option value="nero">Nero</option>
-      </select>
-    </div>
-
+    <p>Piccola serra geodetica con struttura in legno trattato, copertura parziale in telo rinforzato. Ideale per balconi, aiuole e spazi ristretti.</p>
     <div class="checkout">
+      <div class="product-options">
+        <label>Colore copertura</label>
+        <select>
+          <option value="trasparente">Trasparente</option>
+          <option value="verde">Verde</option>
+          <option value="bianco">Bianco</option>
+          <option value="nero">Nero</option>
+        </select>
+      </div>
+      
       <label>Quantità</label>
       <input type="number" id="prod1_qty" value="1" min="1" onchange="updateCheckout(1)">
-      <span id="prod1_cost_tot" style="display:none;">0 €</span>
-      <p><strong>Prezzo finale: <span id="prod1_price">660 €</span></strong></p>
+      <p><strong>Prezzo finale: <span id="prod1_price">250 €</span></strong></p>
       <button class="btn btn-primary" onclick="addToCart(1)">Aggiungi al carrello</button>
       <button class="btn btn-secondary" onclick="requestQuote(1)">Richiedi preventivo</button>
     </div>
   </div>
 </div>
 
+<!-- MODAL 2: Serra Media -->
 <div id="modal2" class="modal" style="display: none;">
   <div class="modal-content">
     <span class="close" onclick="closeModal(2)">&times;</span>
-    <h2>Cupola in Legno con Perline</h2>
-
-    <img id="mainImg2" class="main-image" src="cupola.jpg" alt="Cupola Perline">
+    <h2></h2>
+    <img id="mainImg2" class="main-image" src="serra-media1.jpg" alt="Serra Media">
     <div class="gallery">
-      <img src="perline1.jpg" onclick="changeMain(2,this)" class="selected">
-      <img src="perline2.jpg" onclick="changeMain(2,this)">
-      <img src="perline3.jpg" onclick="changeMain(2,this)">
+      <img src="serra-media1.jpg" onclick="changeMain(2,this)" class="selected">
+      <img src="serra-media2.jpg" onclick="changeMain(2,this)">
+      <img src="serra-media3.jpg" onclick="changeMain(2,this)">
     </div>
-
-    <p>Cupola geodetica coperta con perline di legno. Ideale per allestimenti outdoor, relax o uso ricreativo.</p>
-
-    <div class="product-options">
-      <label>Dimensione</label>
-      <select id="prod2_size" onchange="updateCalculator(2)">
-        <option value="3.4">3.4 m</option>
-        <option value="6.4">6.4 m</option>
-      </select>
-
-      <label>Colore copertura</label>
-      <select id="prod2_color" onchange="updateCalculator(2)">
-        <option value="naturale">Naturale</option>
-        <option value="bianco">Bianco</option>
-        <option value="miele">Miele</option>
-        <option value="noce">Noce</option>
-      </select>
-
-      <label><input type="checkbox" id="prod2_pav" onchange="updateCalculator(2)"> Aggiungi pavimentazione in legno (250 €)</label>
-    </div>
-
+    <p>Serra geodetica diametro 3.6 m, struttura in ferro zincato trattato e copertura anti-UV. Perfetta per coltivazioni hobbistiche o uso orticolo semi-professionale.</p>
     <div class="checkout">
+      <div class="product-options">
+        <label>Colore copertura</label>
+        <select>
+          <option value="trasparente">Trasparente</option>
+          <option value="verde">Verde</option>
+          <option value="bianco">Bianco</option>
+          <option value="nero">Nero</option>
+        </select>
+      </div>
+      
       <label>Quantità</label>
       <input type="number" id="prod2_qty" value="1" min="1" onchange="updateCheckout(2)">
-      <span id="prod2_cost_tot" style="display:none;">0 €</span>
-      <p><strong>Prezzo finale: <span id="prod2_price">880 €</span></strong></p>
+      <p><strong>Prezzo finale: <span id="prod2_price">550 €</span></strong></p>
       <button class="btn btn-primary" onclick="addToCart(2)">Aggiungi al carrello</button>
       <button class="btn btn-secondary" onclick="requestQuote(2)">Richiedi preventivo</button>
+    </div>
+  </div>
+</div>
+
+<!-- MODAL 3: Serra Grande -->
+<div id="modal3" class="modal" style="display: none;">
+  <div class="modal-content">
+    <span class="close" onclick="closeModal(3)">&times;</span>
+    <h2>Serra Geodetica Grande</h2>
+    <img id="mainImg3" class="main-image" src="serra-grande1.jpg" alt="Serra Grande">
+    <div class="gallery">
+      <img src="serra-grande1.jpg" onclick="changeMain(3,this)" class="selected">
+      <img src="serra-grande2.jpg" onclick="changeMain(3,this)">
+      <img src="serra-grande3.jpg" onclick="changeMain(3,this)">
+    </div>
+    <p>Struttura geodetica 6.4 m con telaio in ferro verniciato e telo professionale anti-UV. Ampio spazio per coltivazioni intensive o spazio multifunzionale.</p>
+    <div class="checkout">
+      <div class="product-options">
+        <label>Colore copertura</label>
+        <select>
+          <option value="trasparente">Trasparente</option>
+          <option value="verde">Verde</option>
+          <option value="bianco">Bianco</option>
+          <option value="nero">Nero</option>
+        </select>
+      </div>
+      <label>Quantità</label>
+      <input type="number" id="prod3_qty" value="1" min="1" onchange="updateCheckout(3)">
+      <p><strong>Prezzo finale: <span id="prod3_price">1050 €</span></strong></p>
+      <button class="btn btn-primary" onclick="addToCart(3)">Aggiungi al carrello</button>
+      <button class="btn btn-secondary" onclick="requestQuote(3)">Richiedi preventivo</button>
+    </div>
+  </div>
+</div>
+
+
+
+<div id="modal4" class="modal" style="display: none;">
+  <div class="modal-content">
+    <span class="close" onclick="closeModal(4)">&times;</span>
+    <h2>Serra Geodetica Grande</h2>
+    <img id="mainImg4" class="main-image" src="anima.jpg" alt="Serra con pannelli in fenolico">
+    <div class="gallery">
+      <img src="listelli.jpg" onclick="changeMain(4,this)" class="selected">
+      <img src="serra-grande2.jpg" onclick="changeMain(4,this)">
+      <img src="serra-grande3.jpg" onclick="changeMain(4,this)">
+    </div>
+    <p></p>
+    <div class="checkout">
+      <div class="product-options">
+        <label>color</label>
+        <select>
+          <option value="trasparente">Trasparente</option>
+          <option value="verde">Verde</option>
+          <option value="bianco">Bianco</option>
+          <option value="nero">Nero</option>
+        </select>
+      </div>
+      <label>Quantità</label>
+      <input type="number" id="prod4_qty" value="1" min="1" onchange="updateCheckout(4)">
+      <p><strong>Prezzo finale: <span id="prod4_price">1200 €</span></strong></p>
+      <button class="btn btn-primary" onclick="addToCart(4)">Aggiungi al carrello</button>
+      <button class="btn btn-secondary" onclick="requestQuote(4)">Richiedi preventivo</button>
+    </div>
+  </div>
+</div>
+
+<div id="modal5" class="modal" style="display: none;">
+  <div class="modal-content">
+    <span class="close" onclick="closeModal(5)">&times;</span>
+    <h2>Serra Geodetica Grande</h2>
+    <img id="mainImg5" class="main-image" src="coop.jpg" alt="Serra con pannelli in fenolico">
+    <div class="gallery">
+      <img src="coop.jpg" onclick="changeMain(5,this)" class="selected">
+      <img src="serra-grande2.jpg" onclick="changeMain(5,this)">
+      <img src="serra-grande3.jpg" onclick="changeMain(5,this)">
+    </div>
+    <p></p>
+    <div class="checkout">
+      <div class="product-options">
+        <label>rete</label>
+        <select>
+          <option value="trasparente">plastificata</option>
+          <option value="verde">avicola</option>
+          <option value="bianco">elettrosaldata maglia 13x13 pennuti</option>
+          <option value="nero">elettrosaldata maglia 25x25</option>
+        </select>
+      </div>
+      <label>Quantità</label>
+      <input type="number" id="prod5_qty" value="1" min="1" onchange="updateCheckout(5)">
+      <p><strong>Prezzo finale: <span id="prod5_price">1200 €</span></strong></p>
+      <button class="btn btn-primary" onclick="addToCart(5)">Aggiungi al carrello</button>
+      <button class="btn btn-secondary" onclick="requestQuote(5)">Richiedi preventivo</button>
+    </div>
+  </div>
+</div>
+
+
+<div id="modal6" class="modal" style="display: none;">
+  <div class="modal-content">
+    <span class="close" onclick="closeModal(6)">&times;</span>
+    <h2>Serra Geodetica Grande</h2>
+    <img id="mainImg6" class="main-image" src="1v.jpg" alt="Serra con pannelli in fenolico">
+    <div class="gallery">
+      <img src="1v.jpg" onclick="changeMain(6,this)" class="selected">
+      <img src="serra-grande2.jpg" onclick="changeMain(6,this)">
+      <img src="serra-grande3.jpg" onclick="changeMain(6,this)">
+    </div>
+    <p></p>
+    <div class="checkout">
+      <div class="product-options">
+        <label>rete</label>
+        <select>
+          <option value="trasparente">plastificata</option>
+          <option value="verde">avicola</option>
+          <option value="bianco">elettrosaldata maglia 13x13 pennuti</option>
+          <option value="nero">elettrosaldata maglia 25x25</option>
+        </select>
+      </div>
+      <label>Quantità</label>
+      <input type="number" id="prod5_qty" value="1" min="1" onchange="updateCheckout(6)">
+      <p><strong>Prezzo finale: <span id="prod5_price">1200 €</span></strong></p>
+      <button class="btn btn-primary" onclick="addToCart(6)">Aggiungi al carrello</button>
+      <button class="btn btn-secondary" onclick="requestQuote(6)">Richiedi preventivo</button>
     </div>
   </div>
 </div>
@@ -746,27 +872,73 @@ padding-bottom: 4%;
 
 
 
-  
+  <!-- MODAL 7 -->
+<div id="modal7" class="modal" style="display: none;">
+  <div class="modal-content">
+    <span class="close" onclick="closeModal(7)">&times;</span>
+    <h2>mini Cupola rigugio per galline, conigli ecc</h2>
+    <img id="mainImg7" class="main-image" src="pollaio1.jpg" alt="Cupola Pollaio">
+    <div class="gallery">
+      <img src="pollaio1.jpg" onclick="changeMain(7,this)" class="selected">
+      <img src="pollaio2.jpg" onclick="changeMain(7,this)">
+      <img src="pollaio3.jpg" onclick="changeMain(7,this)">
+    </div>
+    <p>cupola rifugio con copertura in fenolico per 3/4 animali da cortile</p>
+    <label>Quantità</label>
+    <input type="number" id="prod7_qty" value="1" min="1" onchange="updateCheckout(7)">
+    <p><strong>Prezzo finale: <span id="prod7_price">370€</span></strong></p>
+    <button class="btn btn-primary" onclick="addToCart(7)">Aggiungi al carrello</button>
+    <button class="btn btn-secondary" onclick="requestQuote(7)">Richiedi preventivo</button>
+  </div>
+</div>
+
+<!-- MODAL 8 -->
+<div id="modal8" class="modal" style="display: none;">
+  <div class="modal-content">
+    <span class="close" onclick="closeModal(8)">&times;</span>
+    <h2>cupola abitativa con pavi</h2>
+    <img id="mainImg8" class="main-image" src="gazebo1.jpg" alt="Gazebo Modulare">
+    <div class="gallery">
+      <img src="gazebo1.jpg" onclick="changeMain(8,this)" class="selected">
+      <img src="gazebo2.jpg" onclick="changeMain(8,this)">
+      <img src="gazebo3.jpg" onclick="changeMain(8,this)">
+    </div>
+    <p>Gazebo modulare elegante, ideale per eventi, giardini o spazi relax. Struttura in acciaio zincato e copertura impermeabile.</p>
+    <label>Quantità</label>
+    <input type="number" id="prod8_qty" value="1" min="1" onchange="updateCheckout(8)">
+    <p><strong>Prezzo finale: <span id="prod8_price">950 €</span></strong></p>
+    <button class="btn btn-primary" onclick="addToCart(8)">Aggiungi al carrello</button>
+    <button class="btn btn-secondary" onclick="requestQuote(8)">Richiedi preventivo</button>
+  </div>
+</div>
+
+<!-- MODAL 9 -->
+<div id="modal9" class="modal" style="display: none;">
+  <div class="modal-content">
+    <span class="close" onclick="closeModal(9)">&times;</span>
+    <h2>Recinto Modulare per Animali</h2>
+    <img id="mainImg9" class="main-image" src="recinto1.jpg" alt="Recinto Animali">
+    <div class="gallery">
+      <img src="recinto1.jpg" onclick="changeMain(9,this)" class="selected">
+      <img src="recinto2.jpg" onclick="changeMain(9,this)">
+      <img src="recinto3.jpg" onclick="changeMain(9,this)">
+    </div>
+    <p>Recinto modulare robusto, facilmente assemblabile per animali domestici o allevamenti. Personalizzabile in dimensioni e rete.</p>
+    <label>Quantità</label>
+    <input type="number" id="prod9_qty" value="1" min="1" onchange="updateCheckout(9)">
+    <p><strong>Prezzo finale: <span id="prod9_price">500 €</span></strong></p>
+    <button class="btn btn-primary" onclick="addToCart(9)">Aggiungi al carrello</button>
+    <button class="btn btn-secondary" onclick="requestQuote(9)">Richiedi preventivo</button>
+  </div>
+</div>
 
 
  <!-- SEZIONE CONTATTI -->
 <section class="am-contact-section">
   <div class="am-contact-container">
-    <div class="am-contact-info">
-      <h2>Contatti diretti</h2>
-      <p><strong>📍 Indirizzo:</strong><br>Via dell’Artigiano 12, Milano (MI)</p>
-      <p><strong>🕒 Orari di apertura:</strong><br>Lunedì – Venerdì: 9:00 – 18:00<br>Sabato: su appuntamento</p>
-      <p><strong>📞 Telefono:</strong><br><a href="tel:+393481234567">+39 348 123 4567</a></p>
-      <p><strong>✉️ Email:</strong><br><a href="mailto:fabiofasur@gmail.com">fabiofasur@gmail.com</a></p>
-      <div class="am-social-icons">
-        <a href="#"><i class="fab fa-instagram"></i></a>
-        <a href="#"><i class="fab fa-facebook"></i></a>
-        <a href="#"><i class="fab fa-twitter"></i></a>
-      </div>
-    </div>
-
+  
     <form class="am-contact-form"
-action="https://formspree.io/f/xpwrzlbq" method="POST">   
+   action="https://formspree.io/f/xpwrzlbq" method="POST" id="contatti">   
        <h2>Scrivimi un messaggio</h2>
       <input type="text" name="name" placeholder="Nome" required>
       <input type="email" name="email" placeholder="Email" required>
@@ -774,7 +946,27 @@ action="https://formspree.io/f/xpwrzlbq" method="POST">
       <button type="submit">Invia messaggio</button>
     </form>
   </div>
+
+
+<div class="am-contact-info" >
+  <h2>Contatti diretti</h2>
+  <p><strong>📍 Indirizzo:</strong><br>Via dell’Artigiano 12, Milano (MI)</p>
+  <p><strong>🕒 Orari di apertura:</strong><br>Lunedì – Venerdì: 9:00 – 18:00<br>Sabato: su appuntamento</p>
+  <p><strong>📞 Telefono:</strong><br><a href="tel:+393481234567">+39 348 123 4567</a></p>
+  <p><strong>✉️ Email:</strong><br><a href="mailto:fabiofasur@gmail.com">fabiofasur@gmail.com</a></p>
+  <div class="am-social-icons">
+    <a href="#"><i class="fab fa-instagram"></i></a>
+    <a href="#"><i class="fab fa-facebook"></i></a>
+    <a href="#"><i class="fab fa-twitter"></i></a>
+  </div>
+</div>
+
+
 </section>
+
+
+
+
 
 <!-- FOOTER -->
 <footer class="am-footer">
@@ -836,74 +1028,24 @@ action="https://formspree.io/f/xpwrzlbq" method="POST">
 
 
 <script>
-  // Qui va tutto il tuo codice JavaScript
-  // 1. Oggetto base dei prodotti
-  const base = {
-    1: {
-      costStruct: {
-        "3.4": { ferro: 240, legno: 160 },
-        "6.4": { ferro: 480, legno: 320 }
-      },
-      costCov: {
-        "3.4": 70,
-        "6.4": 140
-      },
-      manodopera: {
-        "3.4": 300,
-        "6.4": 600
-      },
-      trattamento: 50
-    },
-    2: {
-      costStruct: {
-        "3.4": 160,
-        "6.4": 320
-      },
-      costCov: {
-        "3.4": 300,
-        "6.4": 600
-      },
-      trattamento: 50,
-      manodopera: {
-        "3.4": 370,
-        "6.4": 740
-      },
-      pavimento: 250
-    }
+  const prezziFissi = {
+    1: 250,
+    2: 550,
+    3: 1050,
+    4: 1200,
+    5: 600,
+    6: 400
   };
-
-  function updateCalculator(id) {
-    const cfg = base[id];
-    const size = document.getElementById(`prod${id}_size`).value;
-
-    const costoStruttura = typeof cfg.costStruct[size] === "object" 
-      ? cfg.costStruct[size][document.getElementById(`prod${id}_struct`)?.value || "ferro"] 
-      : cfg.costStruct[size];
-
-    const costoCopertura = cfg.costCov[size];
-    const manodopera = cfg.manodopera[size];
-    const trattamento = cfg.trattamento;
-
-    const includePavimento = document.getElementById(`prod${id}_pav`)?.checked;
-    const costoPavimento = includePavimento ? cfg.pavimento || 0 : 0;
-
-    const totale = costoStruttura + costoCopertura + manodopera + trattamento + costoPavimento;
-
-    document.getElementById(`prod${id}_cost_tot`).innerText = totale + " €";
-    updateCheckout(id);
-  }
 
   function updateCheckout(id) {
     const qty = parseInt(document.getElementById(`prod${id}_qty`).value) || 1;
-    const totalStr = document.getElementById(`prod${id}_cost_tot`).innerText;
-    const total = parseFloat(totalStr.replace(" €", "")) || 0;
-    const final = (total * qty).toFixed(2);
-    document.getElementById(`prod${id}_price`).innerText = final + " €";
+    const total = prezziFissi[id] * qty;
+    document.getElementById(`prod${id}_price`).innerText = total.toFixed(5) + " €";
   }
 
   function openModal(id) {
     document.getElementById(`modal${id}`).style.display = "block";
-    updateCalculator(id);
+    updateCheckout(id);
   }
 
   function closeModal(id) {
@@ -925,18 +1067,16 @@ action="https://formspree.io/f/xpwrzlbq" method="POST">
     alert("Preventivo richiesto!");
   }
 
-
-
-  // Chiudi il modal cliccando fuori dal contenuto
-window.addEventListener("click", function(event) {
-  for (let i = 1; i <= 2; i++) {
-    const modal = document.getElementById(`modal${i}`);
-    if (modal && event.target === modal) {
-      modal.style.display = "none";
+  window.addEventListener("click", function(event) {
+    for (let i = 1; i <= 9; i++) {
+      const modal = document.getElementById(`modal${i}`);
+      if (modal && event.target === modal) {
+        modal.style.display = "none";
+      }
     }
-  }
-});
+  });
 </script>
+
 
 <script>
   document.addEventListener('click', function (event) {
@@ -949,9 +1089,18 @@ window.addEventListener("click", function(event) {
     if (!isClickInsideMenu && !isClickOnHamburger && menu.classList.contains('show')) {
       menu.classList.remove('show');
     }
-  });
+  })
+  
+  ;
+
+  
 </script>
 
+<script>
+  prezziFissi[7] = 850;
+  prezziFissi[8] = 950;
+  prezziFissi[9] = 500;
+</script>
 
 </body>
 </html>
