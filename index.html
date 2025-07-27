@@ -4,755 +4,19 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
  <title>artigiano moderno</title>
+ <link rel="stylesheet" href="style.css">
  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
  <link href="https://fonts.googleapis.com/css2?family=Urbanist:wght@400;600;800&display=swap" rel="stylesheet">
  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
   
-  <style>
-
-    html{scroll-behavior: smooth;}
-    /* Reset base */
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
-
-    body {
-  font-family: 'Urbanist', sans-serif;
-    }
-
-    .am-navbar {
-      position: fixed;
-      top: 0; left: 0;
-      width: 100%;
-      padding: 15px 20px;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      background-color: transparent;
-      transition: background-color 0.4s ease, padding 0.4s ease;
-      z-index: 1000;
-    }
-    .am-navbar .logo {
-      width: 140px;
-      transition: width 0.4s ease;
-    }
-    .am-navbar.scrolled {
-      padding: 8px 20px;
-      background-color: #f4c97b;
-      box-shadow: 0 4px 10px rgba(0,0,0,0.15);
-    }
-    .am-navbar.scrolled .logo {
-      width: 100px;
-    }
-
-    .nav-links { display: flex; gap: 25px; }
-    .nav-links a { text-decoration: none; color: #000; font-weight: 500; transition: color 0.3s; font-size: 1.2rem; }
-    .nav-links a:hover { color: #333; }
-    .social { display: flex; gap: 15px; }
-    .social a { color: #020100; font-size: 1.5rem; transition: color 0.3s; }
-    .social a:hover { color: #f0c040; }
-
-    .hamburger { display: none; font-size: 1.8rem; cursor: pointer; color: #020100; }
-    @media (max-width: 768px) {
-      .nav-links, .social { display: none; }
-      .hamburger { display: block; }
-    }
-  
-
-    .am-mobile-menu {
-  display: none;
-  position: fixed;
-  top: 120px;
-  width: 100%;
-  background: linear-gradient(to bottom, #f4c97b, #fffbe6);
-  flex-direction: column;
-  padding: 20px;
-  z-index: 999;
-  overflow-y: auto;
-  border-top: 2px solid #f4c97b;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-  font-family: 'Urbanist', sans-serif;
-}
-
-.am-mobile-menu.show { display: flex; }
-
-.am-mobile-menu a,
-.am-mobile-menu .dropdown-toggle {
-  color: #020100;
-  text-decoration: none;
-  padding: 12px 0;
-  border-bottom: 1px solid rgba(0,0,0,0.1);
-  font-size: 1.1rem;
-  cursor: pointer;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  transition: background 0.2s;
-}
-
-.am-mobile-menu a:hover,
-.am-mobile-menu .dropdown-toggle:hover {
-  background-color: rgba(0,0,0,0.03);
-}
-
-.mobile-dropdown-content {
-  display: none;
-  flex-direction: column;
-  padding-left: 15px;
-  background-color: #fff9df;
-  border-left: 3px solid #f4c97b;
-}
-
-.mobile-dropdown-content a {
-  font-size: 1rem;
-  border: none;
-  padding: 8px 0;
-  color: #333;
-}
-
-.mobile-dropdown-content a:hover {
-  text-decoration: underline;
-}
-
-.mobile-social {
-  display: flex;
-  justify-content: center;
-  gap: 20px;
-  margin-top: 20px;
-  border-top: 1px solid rgba(0,0,0,0.1);
-  padding-top: 15px;
-}
-
-.mobile-social a {
-  font-size: 1.6rem;
-  color: #020100;
-  transition: color 0.3s;
-}
-
-.mobile-social a:hover {
-  color: #f4c97b;
-}
-
-.dropdown-toggle span {
-  font-size: 0.9rem;
-  transition: transform 0.3s;
-}
-
-.mobile-dropdown.active .dropdown-toggle span {
-  transform: rotate(180deg);
-}
-
-
-    .dropdown {
-      position: relative;
-    }
-    .dropdown-content {
-      display: none;
-      position: absolute;
-      background-color: white;
-      min-width: 200px;
-      box-shadow: 0px 4px 12px rgba(0,0,0,0.15);
-      z-index: 1001;
-      top: 100%;
-      left: 0;
-      border-radius: 8px;
-      overflow: hidden;
-    }
-    .dropdown-content a {
-      padding: 12px 16px;
-      display: block;
-      color: #000;
-      text-decoration: none;
-      font-size: 1rem;
-      white-space: nowrap;
-    }
-    .dropdown-content a:hover {
-      background-color: #f4c97b;
-    }
-    .dropdown:hover .dropdown-content {
-      display: block;
-    }
-
-    .am-hero-image {
-  position: relative;
-  height: 100vh;
-  overflow: hidden;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  color: white;
-}
-
-.am-hero-background {
-  position: absolute;
-  top: 0; left: 0;
-  width: 100%;
-  height: 100%;
-  background-image: url('home.jpg'); /* cambia con il tuo percorso immagine */
-  background-size: cover;
-  background-position: center;
-  z-index: 0;
-}
-
-.am-hero-content {
-  position: relative;
-  z-index: 1;
-  text-align: center;
-  padding: 20px;
-  width: 100%;
-  max-width: 800px;
-}
-
-.am-hero-blur-box {
-  background: linear-gradient(to bottom right, rgba(255,255,255,0.12), rgba(200,200,200,0.05));
-  backdrop-filter: blur(14px);
-  border-radius: 30px;
-  box-shadow: 0 8px 32px rgba(0,0,0,0.3);
-  padding: 50px 40px;
-  border: 1px solid rgba(255, 255, 255, 0.2);
-  outline: 1px solid rgba(255,255,255,0.05);
-  outline-offset: -10px;
-}
-
-.am-hero-title {
-  font-size: 3rem;
-  margin-bottom: 10px;
-  color: #fff;
-  text-shadow: 0 1px 2px rgba(0,0,0,0.5);
-  font-weight: 800;
-  letter-spacing: -0.5px;
-}
-
-.am-hero-subtitle {
-  font-size: 1.2rem;
-  margin-bottom: 30px;
-  color: rgba(255, 255, 255, 0.85);
-  font-weight: 400;
-  line-height: 1.6;
-}
-
-  .am-btn {
-  background: linear-gradient(to right, #f0c040, #dca300);
-  color: #000;
-  font-weight: bold;
-  padding: 12px 25px;
-  border-radius: 8px;
-  transition: all 0.3s ease;
-  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.15);
-}
-
-.am-btn:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.25);
-  filter: brightness(1.05);
-}
-
-.am-btn-outline {
-  background: transparent;
-  color: white;
-  border: 2px solid white;
-  transition: all 0.3s ease;
-}
-
-.am-btn-outline:hover {
-  background: white;
-  color: black;
-  transform: translateY(-2px);
-  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.2);
-}
-  @media (max-width: 768px) {
-    .am-hero-title {
-      font-size: 2rem;
-      color: #fff;
-text-shadow: 0 1px 2px rgba(0,0,0,0.5);
-padding-bottom: 4%;
-    }
-
-    .am-hero-subtitle {
-      font-size: 1rem;
-      color: rgba(255, 255, 255, 0.85);
-
-    }
-
-    .am-hero-blur-box {
-      padding: 32px 20px;
-      margin: 0 16px;
-
-    }
-  }
-
-
-
-
-
-
-  .am-services-section {
-  padding: 80px 20px;
-  background: #fff;
-  font-family: 'Urbanist', sans-serif;
-  scroll-margin-top: 100px; /* altezza della navbar */
-
-}
-
-.am-service-card:hover img {
-  transform: scale(1.05);
-  filter: drop-shadow(0 0 6px rgba(240, 192, 64, 0.3));
-  transition: all 0.3s;
-}
-
-.am-section-title {
-  text-align: center;
-  font-size: 2.4rem;
-  font-weight: 800;
-  color: #222;
-  margin-bottom: 50px;
-}
-
-.am-services-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-  gap: 30px;
-  max-width: 1200px;
-  margin: 0 auto;
-}
-
-.am-service-card {
-  background: #fff;
-  border-radius: 16px;
-  text-align: center;
-  padding: 30px 20px;
-  text-decoration: none;
-  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.05);
-  transition: all 0.3s ease;
-  border: 1px solid transparent;
-  cursor: pointer;
-}
-
-.am-service-card:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.12);
-  border: 1px solid #f0c040;
-}
-
-.am-service-card img {
-  height: 60px;
-  margin-bottom: 20px;
-}
-
-.am-service-card h3 {
-  font-size: 1.2rem;
-  color: #b38a00;
-  margin-bottom: 10px;
-  font-weight: 700;
-}
-
-.am-service-card p {
-  font-size: 1rem;
-  color: #555;
-  max-width: 90%;
-  margin: 4% auto;
-}
-
-
-.am-card-cta  {
-  text-align: center;
-  font-size: 0.85rem;
-  font-weight: 600;
-  color: #f0c040;
-  opacity: 0.6;
-  margin-top: 8px;
-  transition: opacity 0.3s ease;
-}
-
-.am-card-cta:hover {
-  opacity: 1;
-  cursor: pointer;
-}
-
-
-
-
-
-.am-services-grid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr); /* 3 card per riga */
-  gap: 30px;
-}
-
-/* Tablet: 2 colonne */
-@media (max-width: 900px) {
-  .am-services-grid {
-    grid-template-columns: repeat(2, 1fr);
-  }
-}
-
-/* Mobile: 1 colonna */
-@media (max-width: 600px) {
-  .am-services-grid {
-    grid-template-columns: 1fr;
-  }
-}
-
-
-
-
-
-
-
- /* CONTATTI - SEZIONE */
-.am-contact-section {
-  background-color: #fff;
-  padding: 80px 20px;
-  font-family: 'Urbanist', sans-serif;
-}
-
-.am-contact-container {
-  display: flex;
-  flex-wrap: wrap;
-  max-width: 1200px;
-  margin: 0 auto;
-  gap: 40px;
-}
-
-.am-contact-info {
-  text-align: center;
-  display: inline;
-  justify-content: center;
-  margin-bottom: 3%;
-  margin-top: 3%;
-
-}
-
-.am-contact-info h2 {
-  font-size: 2.4rem;
-  font-weight: 800;
-  color: #222;
-  margin-bottom: 30px;
-}
-
-.am-contact-info p {
-  font-size: 1.2rem;
-  color: #333;
-  margin-bottom: 20px;
-  line-height: 1.8;
-}
-
-.am-contact-info a {
-  color: #000;
-  text-decoration: none;
-  font-weight: 500;
-}
-
-.am-social-icons {
-  margin-top: 30px;
-}
-
-.am-social-icons a {
-  font-size: 2rem;
-  margin: 0 12px;
-  color: #d4a42f;
-  transition: color 0.3s;
-}
-
-.am-social-icons a:hover {
-  color: #b38a00;
-}
-
-/* FORM */
-.am-contact-form {
-  padding: 0% 5%;
-  width: 50%;
-}
-
-.am-contact-form h2 {
-  font-size: 2rem;
-  margin-bottom: 25px;
-  color: #333;
-}
-
-.am-contact-form input,
-.am-contact-form textarea {
-  width: 100%;
-  padding: 14px;
-  margin-bottom: 20px;
-  border: 1px solid #ccc;
-  border-radius: 8px;
-  font-size: 1rem;
-}
-
-.am-contact-form button {
-  background: #f0c040;
-  color: #000;
-  padding: 14px 25px;
-  border: none;
-  border-radius: 8px;
-  font-weight: bold;
-  font-size: 1rem;
-  cursor: pointer;
-  transition: background 0.3s;
-}
-
-.am-contact-form button:hover {
-  background: #dca300;
-}
-
-/* FOOTER */
-.am-footer {
-  background-color: #111;
-  color: #fff;
-  text-align: center;
-  padding: 30px 20px;
-  font-size: 0.9rem;
-}
-
-/* RESPONSIVE */
-@media (max-width: 768px) {
-  .am-contact-container {
-    flex-direction: column;
-    align-items: center;
- 
-  }
-
-  
-  .am-contact-form {
-padding: 10%;
-width: 100%;
-  }
-.am-contact-info {
-  margin-top: 10%;
-  margin-bottom: 10%;
-
-}
-  .am-contact-info h2 {
-    font-size: 2rem;
-  }
-
-  .am-contact-info p {
-    font-size: 1.05rem;
-  }
-
-  .am-social-icons a {
-    font-size: 1.7rem;
-  }
-}
-
-
-
-
-.am-services-grid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr); /* 3 card per riga */
-  gap: 30px;
-}
-
-/* Tablet: 2 colonne */
-@media (max-width: 900px) {
-  .am-services-grid {
-    grid-template-columns: repeat(2, 1fr);
-  }
-}
-
-/* Mobile: 1 colonna */
-@media (max-width: 600px) {
-  .am-services-grid {
-    grid-template-columns: 1fr;
-  }
-}
-
-
-.product-grid {
-    display:grid;
-    grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
-    gap:24px;
-    padding:40px;
-    max-width:1200px;
-    margin:auto;
-    scroll-margin-top: 100px; /* altezza della navbar */
-  }
-  .product-card {
-    position:relative;
-    cursor:pointer;
-    overflow:hidden;
-    border-radius:12px;
-    box-shadow:0 0 20px rgba(0,0,0,0.05);
-  }
-  .product-card img {
-    width:100%; height:240px; object-fit:cover;
-    transition:transform .3s;
-  }
-  .product-card:hover img { transform:scale(1.05); }
-  .overlay {
-    position:absolute; bottom:0;
-    background:rgba(0,0,0,0.6);
-    color:#fff; width:100%; padding:12px;
-    font-size:16px; text-align:center;
-    transition:.3s;
-  }
-  .modal {
-  position: fixed;
-  inset: 0;
-  background: rgba(0, 0, 0, 0.6);
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  z-index: 2000;
-  padding: 20px;
-  animation: fadeIn 0.3s ease;
-
-}
-
-.modal-content {
-  background: #ffffff;
-  padding: 40px;
-  border-radius: 20px;
-  max-width: 840px;
-  width: 90%;
-  max-height: 90vh;
-  overflow-y: auto;
-  position: relative;
-  box-shadow: 0 16px 40px rgba(0, 0, 0, 0.3);
-  font-family: 'Urbanist', sans-serif;
-  position: absolute;
-top: 50%;
-left: 50%;
-transform: translate(-50%, -50%);
-}
-
-.modal h2 {
-  font-size: 2rem;
-  color: #111;
-  font-weight: 800;
-  margin-bottom: 20px;
-  text-align: center;
-}
-
-.modal p {
-  font-size: 1.1rem;
-  color: #444;
-  line-height: 1.6;
-  margin-bottom: 20px;
-}
-
-.gallery {
-  display: flex;
-  gap: 12px;
-  justify-content: center;
-  flex-wrap: wrap;
-  margin: 20px 0;
-}
-
-.gallery img {
-  width: 90px;
-  height: 70px;
-  object-fit: cover;
-  border-radius: 6px;
-  cursor: pointer;
-  border: 2px solid transparent;
-  transition: all 0.3s ease;
-}
-
-.gallery img:hover,
-.gallery img.selected {
-  border-color: #f4c97b;
-  transform: scale(1.05);
-}
-
-.main-image {
-  display: block;
-  margin: 0 auto 20px auto;
-  width: 100%;
-  height: auto;
-  max-height: 400px;
-  object-fit: cover;
-  border-radius: 12px;
-  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.15);
-}
-
-.checkout {
-  margin-top: 24px;
-  padding-top: 20px;
-  border-top: 1px solid #eee;
-}
-
-.checkout label {
-  font-weight: 600;
-  margin-bottom: 8px;
-  display: block;
-  color: #222;
-}
-
-.checkout select,
-.checkout input[type="number"] {
-  width: 100%;
-  padding: 12px;
-  font-size: 1rem;
-  border-radius: 8px;
-  border: 1px solid #ccc;
-  margin-bottom: 20px;
-}
-
-.btn {
-  display: inline-block;
-  padding: 12px 24px;
-  margin-right: 10px;
-  font-size: 1rem;
-  font-weight: bold;
-  border-radius: 8px;
-  cursor: pointer;
-  transition: all 0.3s ease;
-  border: none;
-}
-
-.btn-primary {
-  background: linear-gradient(to right, #f0c040, #dca300);
-  color: #000;
-}
-
-.btn-secondary {
-  background: #eee;
-  color: #000;
-}
-
-.btn:hover {
-  transform: translateY(-2px);
-  filter: brightness(1.1);
-}
-
-.close {
-  position: absolute;
-  top: 16px;
-  right: 20px;
-  font-size: 28px;
-  font-weight: bold;
-  color: #333;
-  cursor: pointer;
-  transition: transform 0.2s ease, color 0.2s ease;
-}
-
-.close:hover {
-  color: #000;
-  transform: scale(1.1);
-}
-
-@keyframes fadeIn {
-  from { opacity: 0; transform: scale(0.95); }
-  to { opacity: 1; transform: scale(1); }
-}
-
-
-
-
-  </style>
 </head>
 <body>
 
   <!-- NAVBAR -->
   <header>
     <nav class="am-navbar" id="amNavbar">
-      <img class="logo" src="logo.png" alt="Artigiano Moderno Logo">
-      <div class="nav-links">
+      <img src="logo.png" alt="Logo giallo" class="logo logo-default">
+           <div class="nav-links">
         <a href="#home">Home</a>
         <div class="dropdown">
           <a href="#prodotti">Prodotti  <i class="fas fa-angle-down"></i>
@@ -788,7 +52,7 @@ transform: translate(-50%, -50%);
       <a href="#home">Home</a>
       
       <div class="mobile-dropdown">
-        <div class="dropdown-toggle">Prodotti <span>▼</span></div>
+        <a href="#prodotti"> <div class="dropdown-toggle" > prodotti<span>▼</span></div></a> 
         <div class="mobile-dropdown-content">
           <a href="#cupole-abitative">Cupole Abitative</a>
           <a href="#gabbie-stalle">Gabbie & Stalle</a>
@@ -834,6 +98,377 @@ transform: translate(-50%, -50%);
   </section>
   
  
+
+
+  <section class="chi-siamo-section" id="chi-siamo">
+    <div class="chi-siamo-row">
+      <div class="chi-siamo-text">
+        <h2>Chi siamo</h2>
+        <p>
+          Artigiano Moderno è un progetto indipendente nato da una passione concreta: costruire strutture funzionali, resistenti e accessibili. Realizziamo cupole geodetiche, serre, rifugi per animali e soluzioni su misura, pensate per durare nel tempo e adattarsi davvero alle esigenze di chi le usa.        </p>
+        <p>
+          Siamo un piccolo team affiatato di tre persone: seguiamo ogni progetto con cura, dalla progettazione alla realizzazione, collaborando con artigiani e fornitori esterni quando serve. Alcuni prodotti sono già disponibili sul sito, altri li realizziamo su richiesta, partendo da un confronto diretto e semplice.        </p>
+        <p>
+          Lavorando in modo indipendente e senza intermediari, possiamo mantenere i costi trasparenti e accessibili, senza compromessi sulla qualità dei materiali o sulla precisione del lavoro. Il nostro obiettivo è offrire soluzioni oneste, ben costruite e davvero su misura di chi le sceglie.        </p>
+        <p>
+          Se hai un’idea o ti serve qualcosa di speciale, scrivici: possiamo costruirla insieme.
+
+        </p>
+      </div>
+      <div class="chi-siamo-image">
+        <img src="scra.jpg" alt="Artigiano al lavoro">
+      </div>
+    </div>
+  </section>
+  
+
+
+  
+  <section class="am-services-section" id="servizi">
+    <h2 class="am-section-title">Cosa facciamo</h2>
+    <div class="am-services-grid">
+  
+      <!-- Servizio 1 -->
+      <a href="cupole.html" class="am-service-card">
+        <img src="dome.png" alt="Cupole" />
+        <h3>Cupole di ogni tipo</h3>
+        <p>Strutture versatili, perfette sia per creare serre protettive in giardino sia per allestimenti “glamping” o corner espositivi. Montaggio rapido in meno di un’ora, offrono protezione da intemperie e un design riconoscibile in ogni contesto.</p>
+        <text class="am-card-cta" >scopri tutte le cupole →</text>
+
+      
+      </a>
+  
+      <!-- Servizio 2 -->
+      <a href="#dettaglio-coperture" class="am-service-card">
+        <img src="canopy.png" alt="Coperture Modulari" />
+        <h3>Coperture Modulari</h3>
+        <p>Perfette per ombreggiare aree esterne, posti auto o angoli relax, si adattano a qualsiasi spazio senza interventi murari. Facili da montare, con finiture personalizzabili per integrarsi al meglio nel tuo ambiente.</p>
+        <text class="am-card-cta" >scopri di piu →</text>
+
+      </a>
+  
+      <!-- Servizio 3 -->
+      <a href="#dettaglio-stalle" class="am-service-card">
+        <img src="stable.png" alt="Gabbie & Stalle" />
+        <h3>Gabbie & Stalle</h3>
+        <p>Soluzioni rapide “plug-and-play” per animali di ogni taglia: dal pollame ai cavalli. Garantiscono ventilazione naturale, pulizia facilitata e sono ideali sia per l’hobby che per piccoli allevamenti.</p>
+        <text class="am-card-cta" >scopri di piu →</text>
+
+      </a>
+  
+      <!-- Servizio 4 -->
+      <a href="#dettaglio-progetti" class="am-service-card">
+        <img src="idee.png" alt="Progetti personalizzati" />
+        <h3>Progetti personalizzati</h3>
+        <p>Sviluppiamo soluzioni ibride su richiesta: combinazioni di legno, metallo, stampa 3D, elettronica o illuminazione. Ideali per installazioni, arredamenti unici o prototipazioni avanzate. Tutto parte dalla tua idea.</p>
+        <text class="am-card-cta" >contattaci →</text>
+
+      </a>
+  
+      <!-- Servizio 5 -->
+      <a href="#dettaglio-kit" class="am-service-card">
+        <img src="diy.png" alt="Kit Chiavi in Mano" />
+        <h3>Kit “Chiavi in Mano”</h3>
+        <p>Tubi e componenti pre-tagliati, connettori 3D, bulloneria e manuale PDF/video per montare in autonomia dome, tettoie o stalle, con supporto e ricambi sempre disponibili.</p>
+        <text class="am-card-cta" >scopri di piu →</text>
+
+      </a>
+  
+      <!-- Servizio 6 -->
+      <a href="#dettaglio-noleggio" class="am-service-card">
+        <img src="noleggio.png" alt="Soluzioni Temporanee" />
+        <h3>Soluzioni Temporanee</h3>
+        <p>Noleggio dome, chioschi e coperture per eventi, fiere o pop-up. Servizio “chiavi in mano” con trasporto, montaggio e smontaggio, per allestimenti professionali in tempi rapidi.</p>
+        <text class="am-card-cta" >prenota subito →</text>
+
+      </a>
+    </div>
+  </section>
+
+    
+
+
+
+
+
+
+
+
+
+  <section class="product-grid" id="prodotti">
+    <div class="product-card" onclick="openModal(1)">
+      <img src="cupola.jpg" alt="GeoSerra 3.4">
+      <div class="overlay">GeoSerra 3.4 – Serra 2V in ferro</div>
+    </div>
+    
+    <div class="product-card" onclick="openModal(2)">
+      <img src="mini-serra.jpg" alt="MiniDome 2.0">
+      <div class="overlay">MiniDome 2.0 – Serra compatta rialzata</div>
+    </div>
+    
+    <div class="product-card" onclick="openModal(3)">
+      <img src="serra.webp" alt="GeoSerra 6.4">
+      <div class="overlay">GeoSerra 6.4 – Serra geodetica maxi</div>
+    </div>
+    
+    <div class="product-card" onclick="openModal(4)">
+      <img src="anima.jpg" alt="Stable Dome 3.4">
+      <div class="overlay">Stable Dome 3.4 – Rifugio per animali</div>
+    </div>
+    
+    <div class="product-card" onclick="openModal(5)">
+      <img src="coop.jpg" alt="CupolaRecinto 3.4">
+      <div class="overlay">CupolaRecinto 3.4 – Recinto geodetico</div>
+    </div>
+    
+    <div class="product-card" onclick="openModal(6)">
+      <img src="1v.jpg" alt="Voliera 1V Modular">
+      <div class="overlay">Voliera 1V Modular – Struttura per pennuti</div>
+    </div>
+    
+    <div class="product-card" onclick="openModal(7)">
+  <img src="chicken-dome.webp" alt="Cupola Pollaio">
+  <div class="overlay">Cupola rifugio per animali 2m</div>
+</div>
+
+<div class="product-card" onclick="openModal(8)">
+  <img src="gazebo.jpg" alt="Gazebo Modulare">
+  <div class="overlay">Gazebo Modulare 4</div>
+</div>
+
+<div class="product-card" onclick="openModal(9)">
+  <img src="recinto.jpg" alt="Recinto Modulare">
+  <div class="overlay">Recinto Modulare Animali</div>
+</div>
+
+  </section>
+
+ 
+  
+  <div id="modal1" class="modal" style="display: none;">
+    <div class="modal-content">
+      <span class="close" onclick="closeModal(1)">&times;</span>
+      <h2>Serra Geodetica 3.4m – Struttura in Ferro</h2>
+      <img id="mainImg1" class="main-image" src="serra-ferro1.jpg" alt="Serra Geodetica 3.4m">
+      <div class="gallery">
+        <img src="serra-ferro1.jpg" onclick="changeMain(1,this)" class="selected">
+        <img src="serra-ferro2.jpg" onclick="changeMain(1,this)">
+        <img src="serra-ferro3.jpg" onclick="changeMain(1,this)">
+      </div>
+  
+      <p>
+        La nostra cupola geodetica da 3.4 metri è una serra compatta ma solida, pensata per offrire la massima protezione alle tue coltivazioni in uno spazio ridotto. Ideale per orti domestici, piccoli giardini o balconi spaziosi, garantisce resistenza agli agenti atmosferici grazie ai materiali trattati e una copertura duratura nel tempo.
+      </p>
+  
+      <ul>
+        <li><strong>Struttura:</strong> tubi in ferro Ø17 mm spessi 2 mm, verniciati e trattati contro la corrosione</li>
+        <li><strong>Copertura:</strong> telo in polietilene 300 micron, resistente ai raggi UV e agli agenti atmosferici</li>
+        <li><strong>Superficie coperta:</strong> circa 8 m²</li>
+        <li><strong>Altezza interna:</strong> circa 2.2 m</li>
+        <li><strong>Apertura:</strong> ingresso con zip frontale richiudibile</li>
+        <li><strong>Montaggio:</strong> facile, in 1–2 persone, con istruzioni incluse</li>
+        <li><strong>Utilizzi:</strong> serra per ortaggi, riparo per attrezzi, rifugio per animali, zona relax</li>
+      </ul>
+  
+      <div class="checkout">
+        <div class="product-options">
+          <label>Colore copertura</label>
+          <select>
+            <option value="trasparente">Trasparente</option>
+            <option value="verde">Verde</option>
+            <option value="bianco">Bianco</option>
+            <option value="nero">Nero</option>
+          </select>
+        </div>
+  
+        <label>Quantità</label>
+        <input type="number" id="prod1_qty" value="1" min="1" onchange="updateCheckout(1)">
+        <p><strong>Prezzo finale: <span id="prod1_price">390 €</span></strong></p>
+        <button class="btn btn-primary" onclick="addToCart(1)">Aggiungi al carrello</button>
+        <button class="btn btn-secondary" onclick="requestQuote(1)">Richiedi preventivo</button>
+      </div>
+    </div>
+  </div>
+
+<!-- MODAL 2: Serra Media -->
+<!-- MODAL 2: Mini Cupola Rialzata 2m -->
+<div id="modal2" class="modal" style="display: none;">
+  <div class="modal-content">
+    <span class="close" onclick="closeModal(2)">&times;</span>
+    <h2>Mini Cupola Rialzata 2m – Accesso Doppio</h2>
+    <img id="mainImg2" class="main-image" src="serra-media1.jpg" alt="Mini Cupola Rialzata">
+    <div class="gallery">
+      <img src="serra-media1.jpg" onclick="changeMain(2,this)" class="selected">
+      <img src="serra-media2.jpg" onclick="changeMain(2,this)">
+      <img src="serra-media3.jpg" onclick="changeMain(2,this)">
+    </div>
+
+    <p>
+      Una piccola cupola geodetica dal design compatto ma funzionale, perfetta per piccoli orti, coperture da giardino o rifugi per animali.  
+      Struttura leggera ma resistente grazie ai tubi in ferro trattato e verniciato, con accesso facilitato da due aperture: sportello superiore apribile e zip laterale.  
+      L’altezza interna di 160 cm consente di lavorare agevolmente all’interno, pur mantenendo una superficie contenuta.
+    </p>
+
+    <ul>
+      <li><strong>Diametro:</strong> 2 metri</li>
+      <li><strong>Altezza:</strong> 160 cm al centro</li>
+      <li><strong>Struttura:</strong> tubi in ferro Ø17 mm, spessore 2 mm, verniciati e trattati</li>
+      <li><strong>Copertura:</strong> telo in polietilene 300 micron, anti-UV</li>
+      <li><strong>Aperture:</strong> sportello superiore + zip laterale</li>
+      <li><strong>Montaggio:</strong> semplice, in 1 persona, kit completo incluso</li>
+      <li><strong>Utilizzi:</strong> mini serra, rifugio animali, copertura materiali</li>
+    </ul>
+
+    <div class="checkout">
+      <div class="product-options">
+        <label>Colore copertura</label>
+        <select>
+          <option value="trasparente">Trasparente</option>
+          <option value="verde">Verde</option>
+          <option value="bianco">Bianco</option>
+          <option value="nero">Nero</option>
+        </select>
+      </div>
+
+      <label>Quantità</label>
+      <input type="number" id="prod2_qty" value="1" min="1" onchange="updateCheckout(2)">
+      <p><strong>Prezzo finale: <span id="prod2_price">320 €</span></strong></p>
+      <button class="btn btn-primary" onclick="addToCart(2)">Aggiungi al carrello</button>
+      <button class="btn btn-secondary" onclick="requestQuote(2)">Richiedi preventivo</button>
+    </div>
+  </div>
+</div>
+
+
+<!-- MODAL 3: Serra Geodetica Grande 6.3m -->
+<div id="modal3" class="modal" style="display: none;">
+  <div class="modal-content">
+    <span class="close" onclick="closeModal(3)">&times;</span>
+    <h2>Serra Geodetica 6.3m – Struttura Rinforzata</h2>
+    <img id="mainImg3" class="main-image" src="serra-grande1.jpg" alt="Serra Grande">
+    <div class="gallery">
+      <img src="serra-grande1.jpg" onclick="changeMain(3,this)" class="selected">
+      <img src="serra-grande2.jpg" onclick="changeMain(3,this)">
+      <img src="serra-grande3.jpg" onclick="changeMain(3,this)">
+    </div>
+
+    <p>
+      Struttura geodetica di grande dimensione, ideale per coltivazioni intensive, serre multifunzionali o coperture outdoor.  
+      Realizzata con tubi in ferro Ø21 mm spessore 2.2 mm, verniciati e trattati anticorrosione.  
+      Copertura professionale su misura in telo 300 micron anti-UV, resistente agli agenti atmosferici.  
+      Porta di ingresso frontale con zip rinforzata e struttura a 2 frequenze (2V) per maggiore stabilità.
+    </p>
+
+    <ul>
+      <li><strong>Diametro:</strong> 6.3 metri</li>
+      <li><strong>Altezza interna:</strong> ~3.15 metri</li>
+      <li><strong>Superficie coperta:</strong> ~29 m²</li>
+      <li><strong>Struttura:</strong> cupola geodetica 2V – tubi Ø21 mm, spessore 2.2 mm</li>
+      <li><strong>Copertura:</strong> telo in polietilene 300 micron resistente ai raggi UV</li>
+      <li><strong>Ingresso:</strong> porta frontale con apertura a zip</li>
+      <li><strong>Montaggio:</strong> richiede 2-3 persone, guida inclusa</li>
+      <li><strong>Utilizzi:</strong> serra produttiva, spazio laboratorio, copertura per eventi o animali</li>
+    </ul>
+
+    <div class="checkout">
+      <div class="product-options">
+        <label>Colore copertura</label>
+        <select>
+          <option value="trasparente">Trasparente</option>
+          <option value="verde">Verde</option>
+          <option value="bianco">Bianco</option>
+          <option value="nero">Nero</option>
+        </select>
+      </div>
+
+      <label>Quantità</label>
+      <input type="number" id="prod3_qty" value="1" min="1" onchange="updateCheckout(3)">
+      <p><strong>Prezzo finale: <span id="prod3_price">1050 €</span></strong></p>
+      <button class="btn btn-primary" onclick="addToCart(3)">Aggiungi al carrello</button>
+      <button class="btn btn-secondary" onclick="requestQuote(3)">Richiedi preventivo</button>
+    </div>
+  </div>
+</div>
+
+
+<!-- MODAL 4: Cupola Stalla con Pannelli Fenolici -->
+<div id="modal4" class="modal" style="display: none;">
+  <div class="modal-content">
+    <span class="close" onclick="closeModal(4)">&times;</span>
+    <h2>Cupola Stalla 3.3 m – Struttura Rinforzata in Fenolico</h2>
+    <img id="mainImg4" class="main-image" src="anima.jpg" alt="Serra con pannelli in fenolico">
+    <div class="gallery">
+      <img src="listelli.jpg" onclick="changeMain(4,this)" class="selected">
+      <img src="serra-grande2.jpg" onclick="changeMain(4,this)">
+      <img src="serra-grande3.jpg" onclick="changeMain(4,this)">
+    </div>
+
+    <p>
+      Struttura geodetica ultra resistente, pensata per uso agricolo e zootecnico.  
+      Telaio rinforzato in tubolare metallico da 26 mm spesso 2.2 mm, con copertura in pannelli modulari di compensato fenolico da 21 mm.  
+      Ideale come rifugio per animali, deposito attrezzi o spazio di lavoro all'aperto.  
+      Progettata per essere facilmente modificabile o ampliabile nel tempo grazie alla copertura modulare e sostituibile.
+    </p>
+
+    <ul>
+      <li><strong>Diametro:</strong> 3.3 metri</li>
+      <li><strong>Altezza interna:</strong> 1.8 metri</li>
+      <li><strong>Superficie coperta:</strong> ~7.5 m²</li>
+      <li><strong>Struttura:</strong> tubolare Ø26 mm, spessore 2.2 mm, verniciato e trattato</li>
+      <li><strong>Copertura:</strong> pannelli in compensato fenolico 21 mm (resistente a umidità, urti e animali)</li>
+      <li><strong>Frequenza:</strong> 2V (cupola semi-sferica a doppia frequenza)</li>
+      <li><strong>Modularità:</strong> pannelli numerati, smontabili e facilmente sostituibili</li>
+      <li><strong>Utilizzi:</strong> stalla, pollaio, capanno, riparo agricolo, casetta da lavoro</li>
+    </ul>
+
+    <div class="checkout">
+      <div class="product-options">
+        <label>Colore copertura</label>
+        <select>
+          <option value="trasparente">Trasparente</option>
+          <option value="verde">Verde</option>
+          <option value="bianco">Bianco</option>
+          <option value="nero">Nero</option>
+        </select>
+      </div>
+      <label>Quantità</label>
+      <input type="number" id="prod4_qty" value="1" min="1" onchange="updateCheckout(4)">
+      <p><strong>Prezzo finale: <span id="prod4_price">1200 €</span></strong></p>
+      <button class="btn btn-primary" onclick="addToCart(4)">Aggiungi al carrello</button>
+      <button class="btn btn-secondary" onclick="requestQuote(4)">Richiedi preventivo</button>
+    </div>
+  </div>
+</div>
+
+<!-- MODAL 5: Cupola Recinto con Rete -->
+<div id="modal5" class="modal" style="display: none;">
+  <div class="modal-content">
+    <span class="close" onclick="closeModal(5)">&times;</span>
+    <h2>Cupola Recinto – Struttura Rinforzata con Rete</h2>
+    <img id="mainImg5" class="main-image" src="coop.jpg" alt="Cupola recinto per animali">
+    <div class="gallery">
+      <img src="coop.jpg" onclick="changeMain(5,this)" class="selected">
+      <img src="serra-grande2.jpg" onclick="changeMain(5,this)">
+      <img src="serra-grande3.jpg" onclick="changeMain(5,this)">
+    </div>
+
+    <p>
+      Recinto geodetico robusto e sicuro per animali da cortile o uso agricolo.  
+      Struttura in tubolare zincato Ø21 mm con rete a scelta (plastificata o elettrosaldata) per adattarsi a diverse specie e necessità.  
+      Copertura superiore in telo 130 g/m² inclusa per offrire protezione dal sole o pioggia.  
+      Porta rigida inclusa, rinforzata e apribile per accesso comodo.
+    </p>
+
+    <ul>
+      <li><strong>Diametro:</strong> 3.3 metri</li>
+      <li><strong>Altezza massima:</strong> ~1.9 metri</li>
+      <li><strong>Struttura:</strong> tubolare metallico Ø21 mm, spessore 2 mm, zincato e verniciato</li>
+      <li><strong>Recinzione:</strong> rete personalizzabile in base all’uso (vedi opzioni)</li>
+      <li><strong>Copertura:</strong> telo superiore incluso, grammatura 130 g/m², resistente UV</li>
+      <li><strong>Ingresso:</strong> porta rigida con chiusura, già montata nel kit</li>
+      <li><strong>Montaggio:</strong> semplice e veloce, richiede 1–2 persone</li>
+      <li><strong>Utilizzi:</strong> pollaio, recinto per galline, conigli, anatre, o spazio di sicurezza agricolo</li>
+    </ul>
 
     <div class="checkout">
       <div class="product-options">
@@ -990,6 +625,74 @@ transform: translate(-50%, -50%);
 </div>
 
 
+
+  <section class="noleggio" id="noleggio">
+    <h2>Noleggio strutture</h2>
+    <p>Offro la possibilità di noleggiare alcune delle mie strutture per eventi, mercatini, installazioni o progetti temporanei. Entro 200 km da Milano, anche con trasporto e montaggio.</p>
+  
+    <div class="noleggio-card-container">
+      <!-- CUPOLA CHIOSCO -->
+      <div class="noleggio-card">
+        <img src="cupola.jpg" alt="Cupola Chiosco">
+        <h3>Cupola Chiosco</h3>
+        <ul>
+          <li>8 m² - altezza 1,9 m</li>
+          <li>Copertura in legno o PVC</li>
+          <li>Ideale per stand e mercatini</li>
+        </ul>
+        <p class="prezzo">100€ / giorno</p>
+        <p class="extra">Montaggio + trasporto: 300€<br>Con decking: 450€<br>Decking extra: +50€ / giorno</p>
+        <p class="note">Possibile ritiro e montaggio autonomo</p>
+      </div>
+  
+      <!-- CUPOLA EVENTI -->
+      <div class="noleggio-card">
+        <img src="" alt="Cupola Eventi">
+        <h3>Cupola Eventi Grande</h3>
+        <ul>
+          <li>30 m² - altezza 2,6 m</li>
+          <li>Copertura PVC modulare apribile</li>
+          <li>Perfetta per eventi e cerimonie</li>
+        </ul>
+        <p class="prezzo">200€ / giorno</p>
+        <p class="extra">Montaggio + trasporto: 450€<br>Con decking: 675€<br>Decking extra: +50€ / giorno</p>
+        <p class="note">Possibile ritiro e montaggio autonomo</p>
+      </div>
+    </div>
+  
+    <div class="preventivatore">
+      <h3>Calcola il tuo preventivo</h3>
+      <form id="noleggioForm">
+        <label for="tipo">Struttura:</label>
+        <select id="tipo">
+          <option value="chiosco">Cupola Chiosco</option>
+          <option value="eventi">Cupola Eventi Grande</option>
+        </select>
+  
+        <label for="giorni"><i class="fa-solid fa-calendar-days"> </i>Giorni di noleggio:</label>
+        <input type="number" id="giorni" min="1" max="15" value="1">
+  
+        <label><input type="checkbox" id="decking"><i class="fa-solid fa-layer-group"></i> Includi decking</label><br>
+
+        
+        <label><input type="checkbox" id="trasporto"><i class="fa-solid fa-truck"></i> Richiedi trasporto e montaggio</label><br>
+  
+        <button type="button" onclick="calcolaPreventivo()">Calcola</button>
+      </form>
+  
+      <p id="outputPreventivo"></p>
+    </div>
+
+
+    <div class="noleggio-info">
+      <p><strong>Durata massima:</strong> 15 giorni</p>
+      <p><strong>Per periodi più lunghi:</strong> contattami per un preventivo personalizzato</p>
+      <a href="#contatti" class="am-button">Richiedi preventivo</a>
+    </div>
+
+
+  </section>
+
  <!-- SEZIONE CONTATTI -->
 <section class="am-contact-section">
   <div class="am-contact-container">
@@ -1030,36 +733,16 @@ transform: translate(-50%, -50%);
   <p>&copy; 2025 Artigiano Moderno. Tutti i diritti riservati.</p>
 </footer>
 
-
-  <!-- SCRIPT -->
-  <script>
-    // Cambia colore navbar su scroll
-    window.addEventListener('scroll', () => {
-      const navbar = document.getElementById('amNavbar');
-      if (window.scrollY > 10) {
-        navbar.classList.add('scrolled');
-      } else {
-        navbar.classList.remove('scrolled');
-      }
-    });
-
-    // Menu mobile toggle
-    function toggleMenu() {
-      const menu = document.getElementById("mobileMenu");
-      menu.classList.toggle("show");
-    }
-  </script>
-
 <script>
   window.addEventListener('scroll', () => {
     const navbar = document.getElementById('amNavbar');
-    if (window.scrollY > 10) navbar.classList.add('scrolled');
-    else navbar.classList.remove('scrolled');
+    navbar.classList.toggle('scrolled', window.scrollY > 10);
   });
-  function toggleMenu() {
-    document.getElementById('mobileMenu').classList.toggle('show');
-  }
-</script>
+  
+  // Menu mobile toggle
+
+  </script>
+
 <!-- Swiper JS -->
 <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
 <script>
@@ -1182,10 +865,38 @@ window.addEventListener('click', function(event) {
 </script>
 
 <script>
-  prezziFissi[7] = 850;
-  prezziFissi[8] = 950;
-  prezziFissi[9] = 500;
-</script>
+function calcolaPreventivo() {
+  const tipo = document.getElementById('tipo').value;
+  const giorni = parseInt(document.getElementById('giorni').value);
+  const decking = document.getElementById('decking').checked;
+  const trasporto = document.getElementById('trasporto').checked;
 
+  let prezzoGiornaliero, prezzoMontaggio, prezzoDeckingMontaggio, prezzoDeckingGiornaliero;
+
+  if (tipo === 'chiosco') {
+    prezzoGiornaliero = 50;
+    prezzoMontaggio = 100;
+    prezzoDeckingMontaggio = 100;
+    prezzoDeckingGiornaliero = 20;
+  } else if (tipo === 'eventi') {
+    prezzoGiornaliero = 100;
+    prezzoMontaggio = 200;
+    prezzoDeckingMontaggio = 200;
+    prezzoDeckingGiornaliero = 40;
+  }
+
+  let prezzoDecking = decking ? prezzoDeckingGiornaliero * giorni : 0;
+  let totale = prezzoGiornaliero * giorni;
+
+  if (trasporto) {
+    totale += decking ? prezzoDeckingMontaggio : prezzoMontaggio;
+  }
+
+  totale += prezzoDecking;
+
+  document.getElementById('outputPreventivo').innerText = `Totale stimato: €${totale}`;
+}
+  </script>
+  
 </body>
 </html>
