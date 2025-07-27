@@ -1,0 +1,827 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+ <title>artigiano moderno</title>
+ <link rel="stylesheet" href="style.css">
+ <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+ <link href="https://fonts.googleapis.com/css2?family=Urbanist:wght@400;600;800&display=swap" rel="stylesheet">
+ <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+  
+</head>
+<body>
+
+  <!-- NAVBAR -->
+  <header>
+    <nav class="am-navbar" id="amNavbar">
+      <img class="logo" src="logo.png" alt="Artigiano Moderno Logo">
+      <div class="nav-links">
+        <a href="index.html">Home</a>
+        <div class="dropdown">
+          <a href="#prodotti">Prodotti  <i class="fas fa-angle-down"></i>
+          </a>
+          <div class="dropdown-content">
+            <a href="#cupole-abitative">Cupole Abitative</a>
+            <a href="#gabbie-stalle">Gabbie & Stalle</a>
+            <a href="#serre">Serre</a>
+          </div>
+        </div>
+        <div class="dropdown">
+          <a href="#servizi">Servizi  <i class="fas fa-angle-down"></i>
+          </a>
+          <div class="dropdown-content">
+            <a href="#progettazione">Progettazione</a>
+            <a href="#consulenze">Consulenze</a>
+            <a href="#personalizzati">Prodotti Personalizzati</a>
+          </div>
+        </div>
+        <a href="#chi-siamo">Chi siamo</a>
+        <a href="#contatti">Contatti</a>
+      </div>
+      <div class="social">
+        <a href="#"><i class="fab fa-instagram"></i></a>
+        <a href="#"><i class="fab fa-facebook"></i></a>
+        <a href="#"><i class="fab fa-youtube"></i></a>
+      </div>
+      <div class="hamburger" onclick="toggleMenu()">
+        <i class="fas fa-bars"></i>
+      </div>
+    </nav>
+    <div class="am-mobile-menu" id="mobileMenu">
+      <a href="#home">Home</a>
+      
+      <div class="mobile-dropdown">
+        <div class="dropdown-toggle">Prodotti <span>▼</span></div>
+        <div class="mobile-dropdown-content">
+          <a href="#cupole-abitative">Cupole Abitative</a>
+          <a href="#gabbie-stalle">Gabbie & Stalle</a>
+          <a href="#serre">Serre</a>
+        </div>
+      </div>
+    
+      <div class="mobile-dropdown">
+        <div class="dropdown-toggle">Servizi <span>▼</span></div>
+        <div class="mobile-dropdown-content">
+          <a href="#progettazione">Progettazione</a>
+          <a href="#consulenze">Consulenze</a>
+          <a href="#personalizzati">Prodotti Personalizzati</a>
+        </div>
+      </div>
+    
+      <a href="#chi-siamo">Chi siamo</a>
+      <a href="#contatti">Contatti</a>
+    
+      <div class="mobile-social">
+        <a href="#"><i class="fab fa-instagram"></i></a>
+        <a href="#"><i class="fab fa-facebook"></i></a>
+        <a href="#"><i class="fab fa-twitter"></i></a>
+      </div>
+    </div>
+  </header>
+
+
+  <section class="hero-section">
+    <div class="hero-content">
+      <div class="hero-blur-box">
+        <h1 class="hero-title">Cupole Geodetiche</h1>
+        <p class="hero-subtitle">
+          Progettiamo e costruiamo cupole modulari per ogni esigenza: serre, spazi abitabili, strutture per eventi o rifugi per animali. Ogni cupola è personalizzabile in dimensioni, materiali e finiture. Le strutture si montano in poche ore e possono essere trasportate e rismontate all’occorrenza.
+        </p>
+      </div>
+    </div>
+    <a href="#prodotti" class="scroll-down-arrow">
+        <i class="fas fa-chevron-down"></i>
+      </a>
+  </section>
+
+
+
+
+
+
+  <section class="product-grid" id="prodotti">
+    <div class="product-card" onclick="openModal(1)">
+      <img src="cupola.jpg" alt="GeoSerra 3.4">
+      <div class="overlay">GeoSerra 3.4 – Serra 2V in ferro</div>
+    </div>
+    
+    <div class="product-card" onclick="openModal(2)">
+      <img src="mini-serra.jpg" alt="MiniDome 2.0">
+      <div class="overlay">MiniDome 2.0 – Serra compatta rialzata</div>
+    </div>
+    
+    <div class="product-card" onclick="openModal(3)">
+      <img src="serra.webp" alt="GeoSerra 6.4">
+      <div class="overlay">GeoSerra 6.4 – Serra geodetica maxi</div>
+    </div>
+    
+    <div class="product-card" onclick="openModal(4)">
+      <img src="anima.jpg" alt="Stable Dome 3.4">
+      <div class="overlay">Stable Dome 3.4 – Rifugio per animali</div>
+    </div>
+    
+    <div class="product-card" onclick="openModal(5)">
+      <img src="coop.jpg" alt="CupolaRecinto 3.4">
+      <div class="overlay">CupolaRecinto 3.4 – Recinto geodetico</div>
+    </div>
+    
+    <div class="product-card" onclick="openModal(6)">
+      <img src="1v.jpg" alt="Voliera 1V Modular">
+      <div class="overlay">Voliera 1V Modular – Struttura per pennuti</div>
+    </div>
+    
+    <div class="product-card" onclick="openModal(7)">
+  <img src="chicken-dome.webp" alt="Cupola Pollaio">
+  <div class="overlay">Cupola rifugio per animali 2m</div>
+</div>
+
+<div class="product-card" onclick="openModal(8)">
+  <img src="gazebo.jpg" alt="Gazebo Modulare">
+  <div class="overlay">Gazebo Modulare 4</div>
+</div>
+
+<div class="product-card" onclick="openModal(9)">
+  <img src="recinto.jpg" alt="Recinto Modulare">
+  <div class="overlay">Recinto Modulare Animali</div>
+</div>
+
+  </section>
+
+ 
+  
+  <div id="modal1" class="modal" style="display: none;">
+    <div class="modal-content">
+      <span class="close" onclick="closeModal(1)">&times;</span>
+      <h2>Serra Geodetica 3.4m – Struttura in Ferro</h2>
+      <img id="mainImg1" class="main-image" src="serra-ferro1.jpg" alt="Serra Geodetica 3.4m">
+      <div class="gallery">
+        <img src="serra-ferro1.jpg" onclick="changeMain(1,this)" class="selected">
+        <img src="serra-ferro2.jpg" onclick="changeMain(1,this)">
+        <img src="serra-ferro3.jpg" onclick="changeMain(1,this)">
+      </div>
+  
+      <p>
+        La nostra cupola geodetica da 3.4 metri è una serra compatta ma solida, pensata per offrire la massima protezione alle tue coltivazioni in uno spazio ridotto. Ideale per orti domestici, piccoli giardini o balconi spaziosi, garantisce resistenza agli agenti atmosferici grazie ai materiali trattati e una copertura duratura nel tempo.
+      </p>
+  
+      <ul>
+        <li><strong>Struttura:</strong> tubi in ferro Ø17 mm spessi 2 mm, verniciati e trattati contro la corrosione</li>
+        <li><strong>Copertura:</strong> telo in polietilene 300 micron, resistente ai raggi UV e agli agenti atmosferici</li>
+        <li><strong>Superficie coperta:</strong> circa 8 m²</li>
+        <li><strong>Altezza interna:</strong> circa 2.2 m</li>
+        <li><strong>Apertura:</strong> ingresso con zip frontale richiudibile</li>
+        <li><strong>Montaggio:</strong> facile, in 1–2 persone, con istruzioni incluse</li>
+        <li><strong>Utilizzi:</strong> serra per ortaggi, riparo per attrezzi, rifugio per animali, zona relax</li>
+      </ul>
+  
+      <div class="checkout">
+        <div class="product-options">
+          <label>Colore copertura</label>
+          <select>
+            <option value="trasparente">Trasparente</option>
+            <option value="verde">Verde</option>
+            <option value="bianco">Bianco</option>
+            <option value="nero">Nero</option>
+          </select>
+        </div>
+  
+        <label>Quantità</label>
+        <input type="number" id="prod1_qty" value="1" min="1" onchange="updateCheckout(1)">
+        <p><strong>Prezzo finale: <span id="prod1_price">390 €</span></strong></p>
+        <button class="btn btn-primary" onclick="addToCart(1)">Aggiungi al carrello</button>
+        <button class="btn btn-secondary" onclick="requestQuote(1)">Richiedi preventivo</button>
+      </div>
+    </div>
+  </div>
+
+<!-- MODAL 2: Serra Media -->
+<!-- MODAL 2: Mini Cupola Rialzata 2m -->
+<div id="modal2" class="modal" style="display: none;">
+  <div class="modal-content">
+    <span class="close" onclick="closeModal(2)">&times;</span>
+    <h2>Mini Cupola Rialzata 2m – Accesso Doppio</h2>
+    <img id="mainImg2" class="main-image" src="serra-media1.jpg" alt="Mini Cupola Rialzata">
+    <div class="gallery">
+      <img src="serra-media1.jpg" onclick="changeMain(2,this)" class="selected">
+      <img src="serra-media2.jpg" onclick="changeMain(2,this)">
+      <img src="serra-media3.jpg" onclick="changeMain(2,this)">
+    </div>
+
+    <p>
+      Una piccola cupola geodetica dal design compatto ma funzionale, perfetta per piccoli orti, coperture da giardino o rifugi per animali.  
+      Struttura leggera ma resistente grazie ai tubi in ferro trattato e verniciato, con accesso facilitato da due aperture: sportello superiore apribile e zip laterale.  
+      L’altezza interna di 160 cm consente di lavorare agevolmente all’interno, pur mantenendo una superficie contenuta.
+    </p>
+
+    <ul>
+      <li><strong>Diametro:</strong> 2 metri</li>
+      <li><strong>Altezza:</strong> 160 cm al centro</li>
+      <li><strong>Struttura:</strong> tubi in ferro Ø17 mm, spessore 2 mm, verniciati e trattati</li>
+      <li><strong>Copertura:</strong> telo in polietilene 300 micron, anti-UV</li>
+      <li><strong>Aperture:</strong> sportello superiore + zip laterale</li>
+      <li><strong>Montaggio:</strong> semplice, in 1 persona, kit completo incluso</li>
+      <li><strong>Utilizzi:</strong> mini serra, rifugio animali, copertura materiali</li>
+    </ul>
+
+    <div class="checkout">
+      <div class="product-options">
+        <label>Colore copertura</label>
+        <select>
+          <option value="trasparente">Trasparente</option>
+          <option value="verde">Verde</option>
+          <option value="bianco">Bianco</option>
+          <option value="nero">Nero</option>
+        </select>
+      </div>
+
+      <label>Quantità</label>
+      <input type="number" id="prod2_qty" value="1" min="1" onchange="updateCheckout(2)">
+      <p><strong>Prezzo finale: <span id="prod2_price">320 €</span></strong></p>
+      <button class="btn btn-primary" onclick="addToCart(2)">Aggiungi al carrello</button>
+      <button class="btn btn-secondary" onclick="requestQuote(2)">Richiedi preventivo</button>
+    </div>
+  </div>
+</div>
+
+
+<!-- MODAL 3: Serra Geodetica Grande 6.3m -->
+<div id="modal3" class="modal" style="display: none;">
+  <div class="modal-content">
+    <span class="close" onclick="closeModal(3)">&times;</span>
+    <h2>Serra Geodetica 6.3m – Struttura Rinforzata</h2>
+    <img id="mainImg3" class="main-image" src="serra-grande1.jpg" alt="Serra Grande">
+    <div class="gallery">
+      <img src="serra-grande1.jpg" onclick="changeMain(3,this)" class="selected">
+      <img src="serra-grande2.jpg" onclick="changeMain(3,this)">
+      <img src="serra-grande3.jpg" onclick="changeMain(3,this)">
+    </div>
+
+    <p>
+      Struttura geodetica di grande dimensione, ideale per coltivazioni intensive, serre multifunzionali o coperture outdoor.  
+      Realizzata con tubi in ferro Ø21 mm spessore 2.2 mm, verniciati e trattati anticorrosione.  
+      Copertura professionale su misura in telo 300 micron anti-UV, resistente agli agenti atmosferici.  
+      Porta di ingresso frontale con zip rinforzata e struttura a 2 frequenze (2V) per maggiore stabilità.
+    </p>
+
+    <ul>
+      <li><strong>Diametro:</strong> 6.3 metri</li>
+      <li><strong>Altezza interna:</strong> ~3.15 metri</li>
+      <li><strong>Superficie coperta:</strong> ~29 m²</li>
+      <li><strong>Struttura:</strong> cupola geodetica 2V – tubi Ø21 mm, spessore 2.2 mm</li>
+      <li><strong>Copertura:</strong> telo in polietilene 300 micron resistente ai raggi UV</li>
+      <li><strong>Ingresso:</strong> porta frontale con apertura a zip</li>
+      <li><strong>Montaggio:</strong> richiede 2-3 persone, guida inclusa</li>
+      <li><strong>Utilizzi:</strong> serra produttiva, spazio laboratorio, copertura per eventi o animali</li>
+    </ul>
+
+    <div class="checkout">
+      <div class="product-options">
+        <label>Colore copertura</label>
+        <select>
+          <option value="trasparente">Trasparente</option>
+          <option value="verde">Verde</option>
+          <option value="bianco">Bianco</option>
+          <option value="nero">Nero</option>
+        </select>
+      </div>
+
+      <label>Quantità</label>
+      <input type="number" id="prod3_qty" value="1" min="1" onchange="updateCheckout(3)">
+      <p><strong>Prezzo finale: <span id="prod3_price">1050 €</span></strong></p>
+      <button class="btn btn-primary" onclick="addToCart(3)">Aggiungi al carrello</button>
+      <button class="btn btn-secondary" onclick="requestQuote(3)">Richiedi preventivo</button>
+    </div>
+  </div>
+</div>
+
+
+<!-- MODAL 4: Cupola Stalla con Pannelli Fenolici -->
+<div id="modal4" class="modal" style="display: none;">
+  <div class="modal-content">
+    <span class="close" onclick="closeModal(4)">&times;</span>
+    <h2>Cupola Stalla 3.3 m – Struttura Rinforzata in Fenolico</h2>
+    <img id="mainImg4" class="main-image" src="anima.jpg" alt="Serra con pannelli in fenolico">
+    <div class="gallery">
+      <img src="listelli.jpg" onclick="changeMain(4,this)" class="selected">
+      <img src="serra-grande2.jpg" onclick="changeMain(4,this)">
+      <img src="serra-grande3.jpg" onclick="changeMain(4,this)">
+    </div>
+
+    <p>
+      Struttura geodetica ultra resistente, pensata per uso agricolo e zootecnico.  
+      Telaio rinforzato in tubolare metallico da 26 mm spesso 2.2 mm, con copertura in pannelli modulari di compensato fenolico da 21 mm.  
+      Ideale come rifugio per animali, deposito attrezzi o spazio di lavoro all'aperto.  
+      Progettata per essere facilmente modificabile o ampliabile nel tempo grazie alla copertura modulare e sostituibile.
+    </p>
+
+    <ul>
+      <li><strong>Diametro:</strong> 3.3 metri</li>
+      <li><strong>Altezza interna:</strong> 1.8 metri</li>
+      <li><strong>Superficie coperta:</strong> ~7.5 m²</li>
+      <li><strong>Struttura:</strong> tubolare Ø26 mm, spessore 2.2 mm, verniciato e trattato</li>
+      <li><strong>Copertura:</strong> pannelli in compensato fenolico 21 mm (resistente a umidità, urti e animali)</li>
+      <li><strong>Frequenza:</strong> 2V (cupola semi-sferica a doppia frequenza)</li>
+      <li><strong>Modularità:</strong> pannelli numerati, smontabili e facilmente sostituibili</li>
+      <li><strong>Utilizzi:</strong> stalla, pollaio, capanno, riparo agricolo, casetta da lavoro</li>
+    </ul>
+
+    <div class="checkout">
+      <div class="product-options">
+        <label>Colore copertura</label>
+        <select>
+          <option value="trasparente">Trasparente</option>
+          <option value="verde">Verde</option>
+          <option value="bianco">Bianco</option>
+          <option value="nero">Nero</option>
+        </select>
+      </div>
+      <label>Quantità</label>
+      <input type="number" id="prod4_qty" value="1" min="1" onchange="updateCheckout(4)">
+      <p><strong>Prezzo finale: <span id="prod4_price">1200 €</span></strong></p>
+      <button class="btn btn-primary" onclick="addToCart(4)">Aggiungi al carrello</button>
+      <button class="btn btn-secondary" onclick="requestQuote(4)">Richiedi preventivo</button>
+    </div>
+  </div>
+</div>
+
+<!-- MODAL 5: Cupola Recinto con Rete -->
+<div id="modal5" class="modal" style="display: none;">
+  <div class="modal-content">
+    <span class="close" onclick="closeModal(5)">&times;</span>
+    <h2>Cupola Recinto – Struttura Rinforzata con Rete</h2>
+    <img id="mainImg5" class="main-image" src="coop.jpg" alt="Cupola recinto per animali">
+    <div class="gallery">
+      <img src="coop.jpg" onclick="changeMain(5,this)" class="selected">
+      <img src="serra-grande2.jpg" onclick="changeMain(5,this)">
+      <img src="serra-grande3.jpg" onclick="changeMain(5,this)">
+    </div>
+
+    <p>
+      Recinto geodetico robusto e sicuro per animali da cortile o uso agricolo.  
+      Struttura in tubolare zincato Ø21 mm con rete a scelta (plastificata o elettrosaldata) per adattarsi a diverse specie e necessità.  
+      Copertura superiore in telo 130 g/m² inclusa per offrire protezione dal sole o pioggia.  
+      Porta rigida inclusa, rinforzata e apribile per accesso comodo.
+    </p>
+
+    <ul>
+      <li><strong>Diametro:</strong> 3.3 metri</li>
+      <li><strong>Altezza massima:</strong> ~1.9 metri</li>
+      <li><strong>Struttura:</strong> tubolare metallico Ø21 mm, spessore 2 mm, zincato e verniciato</li>
+      <li><strong>Recinzione:</strong> rete personalizzabile in base all’uso (vedi opzioni)</li>
+      <li><strong>Copertura:</strong> telo superiore incluso, grammatura 130 g/m², resistente UV</li>
+      <li><strong>Ingresso:</strong> porta rigida con chiusura, già montata nel kit</li>
+      <li><strong>Montaggio:</strong> semplice e veloce, richiede 1–2 persone</li>
+      <li><strong>Utilizzi:</strong> pollaio, recinto per galline, conigli, anatre, o spazio di sicurezza agricolo</li>
+    </ul>
+
+    <div class="checkout">
+      <div class="product-options">
+        <label>Tipo di rete</label>
+        <select>
+          <option value="plastificata">Plastificata</option>
+          <option value="avicola">Avicola zincata</option>
+          <option value="13x13">Elettrosaldata 13×13 mm (pennuti)</option>
+          <option value="25x25">Elettrosaldata 25×25 mm</option>
+        </select>
+      </div>
+
+      <label>Quantità</label>
+      <input type="number" id="prod5_qty" value="1" min="1" onchange="updateCheckout(5)">
+      <p><strong>Prezzo finale: <span id="prod5_price">1200 €</span></strong></p>
+      <button class="btn btn-primary" onclick="addToCart(5)">Aggiungi al carrello</button>
+      <button class="btn btn-secondary" onclick="requestQuote(5)">Richiedi preventivo</button>
+    </div>
+  </div>
+</div>
+
+
+<!-- MODAL 6: Voliera Geodetica 2.85m -->
+<div id="modal6" class="modal" style="display: none;">
+  <div class="modal-content">
+    <span class="close" onclick="closeModal(6)">&times;</span>
+    <h2>Voliera Geodetica 2.85 m – Rete Elettrosaldata 13×13</h2>
+    <img id="mainImg6" class="main-image" src="1v.jpg" alt="Voliera geodetica per uccelli">
+    <div class="gallery">
+      <img src="1v.jpg" onclick="changeMain(6,this)" class="selected">
+      <img src="serra-grande2.jpg" onclick="changeMain(6,this)">
+      <img src="serra-grande3.jpg" onclick="changeMain(6,this)">
+    </div>
+
+    <p>
+      Voliera geodetica compatta ma spaziosa, progettata per garantire la massima protezione e benessere a piccoli volatili o animali sensibili.  
+      Realizzata con tubi in ferro zincato Ø21 mm e rete elettrosaldata a maglia fine 13×13 mm, ideale per contenere anche animali di piccola taglia.  
+      Altezza interna di oltre 2 metri per un’ottima vivibilità, con possibilità di personalizzazione della rete.
+    </p>
+
+    <ul>
+      <li><strong>Diametro:</strong> 2.85 metri</li>
+      <li><strong>Altezza:</strong> 2.06 metri</li>
+      <li><strong>Superficie coperta:</strong> ~3.9 m²</li>
+      <li><strong>Struttura:</strong> tubolare zincato Ø21 mm, spessore 2 mm</li>
+      <li><strong>Rete:</strong> elettrosaldata 13×13 mm zincata, resistente e sicura per piccoli animali</li>
+      <li><strong>Accesso:</strong> ingresso con porta richiudibile</li>
+      <li><strong>Copertura superiore (opzionale):</strong> telo o lamiera modulare su richiesta</li>
+      <li><strong>Montaggio:</strong> rapido in 1-2 persone</li>
+      <li><strong>Utilizzi:</strong> voliera da giardino, recinto per piccoli animali, spazio osservazione</li>
+    </ul>
+
+    <div class="checkout">
+      <div class="product-options">
+        <label>Tipo di rete</label>
+        <select>
+          <option value="plastificata">Plastificata</option>
+          <option value="avicola">Avicola zincata</option>
+          <option value="13x13" selected>Elettrosaldata 13×13 mm (pennuti)</option>
+          <option value="25x25">Elettrosaldata 25×25 mm</option>
+        </select>
+      </div>
+
+      <label>Quantità</label>
+      <input type="number" id="prod6_qty" value="1" min="1" onchange="updateCheckout(6)">
+      <p><strong>Prezzo finale: <span id="prod6_price">1200 €</span></strong></p>
+      <button class="btn btn-primary" onclick="addToCart(6)">Aggiungi al carrello</button>
+      <button class="btn btn-secondary" onclick="requestQuote(6)">Richiedi preventivo</button>
+    </div>
+  </div>
+</div>
+
+<br>
+
+
+
+ <!-- MODAL 7: Mini Cupola Rifugio -->
+<div id="modal7" class="modal" style="display: none;">
+  <div class="modal-content">
+    <span class="close" onclick="closeModal(7)">&times;</span>
+    <h2>Mini Cupola Rifugio – Per Galline, Conigli ecc.</h2>
+    <img id="mainImg7" class="main-image" src="pollaio1.jpg" alt="Cupola Pollaio">
+    <div class="gallery">
+      <img src="pollaio1.jpg" onclick="changeMain(7,this)" class="selected">
+      <img src="pollaio2.jpg" onclick="changeMain(7,this)">
+      <img src="pollaio3.jpg" onclick="changeMain(7,this)">
+    </div>
+
+    <p>
+      Rifugio geodetico compatto, ideale per 3–4 animali da cortile (galline, conigli, anatre o simili).  
+      Realizzato con struttura in legno di abete piallato e pannelli di compensato fenolico da esterni, è pensato per resistere alle intemperie e garantire isolamento e protezione.  
+      Perfetto come ricovero notturno, box chiuso o mini-pollaio mobile.
+    </p>
+
+    <ul>
+      <li><strong>Diametro:</strong> 2.27 metri</li>
+      <li><strong>Altezza interna:</strong> ~0.92 metri</li>
+      <li><strong>Superficie coperta:</strong> ~3.8 m²</li>
+      <li><strong>Struttura:</strong> listelli di abete piallato 20×40 mm</li>
+      <li><strong>Copertura:</strong> pannelli in compensato fenolico da esterno</li>
+      <li><strong>Montaggio:</strong> sistema modulare numerato, facile da assemblare</li>
+      <li><strong>Utilizzi:</strong> rifugio per galline, conigli, anatre o come casetta da esterno</li>
+      <li><strong>Optional:</strong> fondo isolato, griglia di areazione, ruote per spostamento</li>
+    </ul>
+
+    <div class="checkout">
+      <label>Quantità</label>
+      <input type="number" id="prod7_qty" value="1" min="1" onchange="updateCheckout(7)">
+      <p><strong>Prezzo finale: <span id="prod7_price">370 €</span></strong></p>
+      <button class="btn btn-primary" onclick="addToCart(7)">Aggiungi al carrello</button>
+      <button class="btn btn-secondary" onclick="requestQuote(7)">Richiedi preventivo</button>
+    </div>
+  </div>
+</div>
+
+<!-- MODAL 8 -->
+<div id="modal8" class="modal" style="display: none;">
+  <div class="modal-content">
+    <span class="close" onclick="closeModal(8)">&times;</span>
+    <h2>cupola abitativa con pavi</h2>
+    <img id="mainImg8" class="main-image" src="gazebo1.jpg" alt="Gazebo Modulare">
+    <div class="gallery">
+      <img src="gazebo1.jpg" onclick="changeMain(8,this)" class="selected">
+      <img src="gazebo2.jpg" onclick="changeMain(8,this)">
+      <img src="gazebo3.jpg" onclick="changeMain(8,this)">
+    </div>
+    <p>Gazebo modulare elegante, ideale per eventi, giardini o spazi relax. Struttura in acciaio zincato e copertura impermeabile.</p>
+    <label>Quantità</label>
+    <input type="number" id="prod8_qty" value="1" min="1" onchange="updateCheckout(8)">
+    <p><strong>Prezzo finale: <span id="prod8_price">950 €</span></strong></p>
+    <button class="btn btn-primary" onclick="addToCart(8)">Aggiungi al carrello</button>
+    <button class="btn btn-secondary" onclick="requestQuote(8)">Richiedi preventivo</button>
+  </div>
+</div>
+
+<!-- MODAL 9 -->
+<div id="modal9" class="modal" style="display: none;">
+  <div class="modal-content">
+    <span class="close" onclick="closeModal(9)">&times;</span>
+    <h2>Recinto Modulare per Animali</h2>
+    <img id="mainImg9" class="main-image" src="recinto1.jpg" alt="Recinto Animali">
+    <div class="gallery">
+      <img src="recinto1.jpg" onclick="changeMain(9,this)" class="selected">
+      <img src="recinto2.jpg" onclick="changeMain(9,this)">
+      <img src="recinto3.jpg" onclick="changeMain(9,this)">
+    </div>
+    <p>Recinto modulare robusto, facilmente assemblabile per animali domestici o allevamenti. Personalizzabile in dimensioni e rete.</p>
+    <label>Quantità</label>
+    <input type="number" id="prod9_qty" value="1" min="1" onchange="updateCheckout(9)">
+    <p><strong>Prezzo finale: <span id="prod9_price">500 €</span></strong></p>
+    <button class="btn btn-primary" onclick="addToCart(9)">Aggiungi al carrello</button>
+    <button class="btn btn-secondary" onclick="requestQuote(9)">Richiedi preventivo</button>
+  </div>
+</div>
+
+
+
+  <section class="noleggio" id="noleggio">
+    <h2>Noleggio strutture</h2>
+    <p>Offro la possibilità di noleggiare alcune delle mie strutture per eventi, mercatini, installazioni o progetti temporanei. Entro 200 km da Milano, anche con trasporto e montaggio.</p>
+  
+    <div class="noleggio-card-container">
+      <!-- CUPOLA CHIOSCO -->
+      <div class="noleggio-card">
+        <img src="cupola.jpg" alt="Cupola Chiosco">
+        <h3>Cupola Chiosco</h3>
+        <ul>
+          <li>8 m² - altezza 1,9 m</li>
+          <li>Copertura in legno o PVC</li>
+          <li>Ideale per stand e mercatini</li>
+        </ul>
+        <p class="prezzo">100€ / giorno</p>
+        <p class="extra">Montaggio + trasporto: 300€<br>Con decking: 450€<br>Decking extra: +50€ / giorno</p>
+        <p class="note">Possibile ritiro e montaggio autonomo</p>
+      </div>
+  
+      <!-- CUPOLA EVENTI -->
+      <div class="noleggio-card">
+        <img src="" alt="Cupola Eventi">
+        <h3>Cupola Eventi Grande</h3>
+        <ul>
+          <li>30 m² - altezza 2,6 m</li>
+          <li>Copertura PVC modulare apribile</li>
+          <li>Perfetta per eventi e cerimonie</li>
+        </ul>
+        <p class="prezzo">200€ / giorno</p>
+        <p class="extra">Montaggio + trasporto: 450€<br>Con decking: 675€<br>Decking extra: +50€ / giorno</p>
+        <p class="note">Possibile ritiro e montaggio autonomo</p>
+      </div>
+    </div>
+  
+    <div class="preventivatore">
+      <h3>Calcola il tuo preventivo</h3>
+      <form id="noleggioForm">
+        <label for="tipo">Struttura:</label>
+        <select id="tipo">
+          <option value="chiosco">Cupola Chiosco</option>
+          <option value="eventi">Cupola Eventi Grande</option>
+        </select>
+  
+        <label for="giorni"><i class="fa-solid fa-calendar-days"> </i>Giorni di noleggio:</label>
+        <input type="number" id="giorni" min="1" max="15" value="1">
+  
+        <label><input type="checkbox" id="decking"><i class="fa-solid fa-layer-group"></i> Includi decking</label><br>
+
+        
+        <label><input type="checkbox" id="trasporto"><i class="fa-solid fa-truck"></i> Richiedi trasporto e montaggio</label><br>
+  
+        <button type="button" onclick="calcolaPreventivo()">Calcola</button>
+      </form>
+  
+      <p id="outputPreventivo"></p>
+    </div>
+
+
+    <div class="noleggio-info">
+      <p><strong>Durata massima:</strong> 15 giorni</p>
+      <p><strong>Per periodi più lunghi:</strong> contattami per un preventivo personalizzato</p>
+      <a href="#contatti" class="am-button">Richiedi preventivo</a>
+    </div>
+
+
+  </section>
+
+ <!-- SEZIONE CONTATTI -->
+<section class="am-contact-section">
+  <div class="am-contact-container">
+  
+    <form class="am-contact-form"
+   action="https://formspree.io/f/xpwrzlbq" method="POST" id="contatti">   
+       <h2>Scrivimi un messaggio</h2>
+      <input type="text" name="name" placeholder="Nome" required>
+      <input type="email" name="email" placeholder="Email" required>
+      <textarea name="message" placeholder="Messaggio" rows="6" required></textarea>
+      <button type="submit">Invia messaggio</button>
+    </form>
+  </div>
+
+
+<div class="am-contact-info" >
+  <h2>Contatti diretti</h2>
+  <p><strong>📍 Indirizzo:</strong><br>Via dell’Artigiano 12, Milano (MI)</p>
+  <p><strong>🕒 Orari di apertura:</strong><br>Lunedì – Venerdì: 9:00 – 18:00<br>Sabato: su appuntamento</p>
+  <p><strong>📞 Telefono:</strong><br><a href="tel:+393481234567">+39 348 123 4567</a></p>
+  <p><strong>✉️ Email:</strong><br><a href="mailto:fabiofasur@gmail.com">fabiofasur@gmail.com</a></p>
+  <div class="am-social-icons">
+    <a href="#"><i class="fab fa-instagram"></i></a>
+    <a href="#"><i class="fab fa-facebook"></i></a>
+    <a href="#"><i class="fab fa-youtube"></i></a>
+  </div>
+</div>
+
+
+</section>
+
+
+
+
+
+<!-- FOOTER -->
+<footer class="am-footer">
+  <p>&copy; 2025 Artigiano Moderno. Tutti i diritti riservati.</p>
+</footer>
+
+
+  <!-- SCRIPT -->
+  <script>
+    // Cambia colore navbar su scroll
+    window.addEventListener('scroll', () => {
+      const navbar = document.getElementById('amNavbar');
+      if (window.scrollY > 10) {
+        navbar.classList.add('scrolled');
+      } else {
+        navbar.classList.remove('scrolled');
+      }
+    });
+
+    // Menu mobile toggle
+    function toggleMenu() {
+      const menu = document.getElementById("mobileMenu");
+      menu.classList.toggle("show");
+    }
+  </script>
+
+<script>
+  window.addEventListener('scroll', () => {
+    const navbar = document.getElementById('amNavbar');
+    if (window.scrollY > 10) navbar.classList.add('scrolled');
+    else navbar.classList.remove('scrolled');
+  });
+  function toggleMenu() {
+    document.getElementById('mobileMenu').classList.toggle('show');
+  }
+</script>
+<!-- Swiper JS -->
+<script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+<script>
+  const swiper = new Swiper('.services-carousel', {
+    slidesPerView: 1,
+    spaceBetween: 0,
+    loop: true,
+    autoplay: {
+      delay: 4000,
+      disableOnInteraction: false,
+      pauseOnMouseEnter: true,
+    },
+    pagination: {
+      el: '.swiper-pagination',
+      clickable: true,
+    },
+    navigation: {
+      nextEl: '.swiper-button-next',
+      prevEl: '.swiper-button-prev',
+    },
+  });
+</script>
+
+
+<script>
+  const prezziFissi = {
+    1: 250,
+    2: 550,
+    3: 1050,
+    4: 1200,
+    5: 600,
+    6: 400
+  };
+
+  function updateCheckout(id) {
+    const qty = parseInt(document.getElementById(`prod${id}_qty`).value) || 1;
+    const total = prezziFissi[id] * qty;
+    document.getElementById(`prod${id}_price`).innerText = total.toFixed(5) + " €";
+  }
+
+  function openModal(id) {
+    document.getElementById(`modal${id}`).style.display = "block";
+    updateCheckout(id);
+  }
+
+  function closeModal(id) {
+    document.getElementById(`modal${id}`).style.display = "none";
+  }
+
+  function changeMain(id, imgEl) {
+    const mainImg = document.getElementById(`mainImg${id}`);
+    mainImg.src = imgEl.src;
+    [...imgEl.parentElement.children].forEach(el => el.classList.remove("selected"));
+    imgEl.classList.add("selected");
+  }
+
+  function addToCart(id) {
+    alert("Prodotto aggiunto al carrello!");
+  }
+
+  function requestQuote(id) {
+    alert("Preventivo richiesto!");
+  }
+
+  window.addEventListener("click", function(event) {
+    for (let i = 1; i <= 9; i++) {
+      const modal = document.getElementById(`modal${i}`);
+      if (modal && event.target === modal) {
+        modal.style.display = "none";
+      }
+    }
+  });
+</script>
+
+
+<script>
+  document.addEventListener('click', function (event) {
+    const menu = document.getElementById('mobileMenu');
+    const hamburger = document.querySelector('.hamburger');
+    
+    const isClickInsideMenu = menu.contains(event.target);
+    const isClickOnHamburger = hamburger.contains(event.target);
+
+    if (!isClickInsideMenu && !isClickOnHamburger && menu.classList.contains('show')) {
+      menu.classList.remove('show');
+    }
+  })
+  
+  ;
+
+  
+</script>
+<script>
+// Dropdown mobile
+const dropdowns = document.querySelectorAll('.mobile-dropdown');
+
+dropdowns.forEach(dropdown => {
+  dropdown.querySelector('.dropdown-toggle').addEventListener('click', () => {
+    dropdown.classList.toggle('active');
+    const content = dropdown.querySelector('.mobile-dropdown-content');
+    content.style.display = content.style.display === 'flex' ? 'none' : 'flex';
+  });
+});
+
+// Menu mobile toggle aggiornato
+function toggleMenu() {
+  const menu = document.getElementById('mobileMenu');
+  menu.classList.toggle('show');
+}
+
+// Chiudi menu se click esterno
+window.addEventListener('click', function(event) {
+  const menu = document.getElementById('mobileMenu');
+  const hamburger = document.querySelector('.hamburger');
+
+  if (!menu.contains(event.target) && !hamburger.contains(event.target)) {
+    menu.classList.remove('show');
+  }
+});
+</script>
+
+<script>
+function calcolaPreventivo() {
+  const tipo = document.getElementById('tipo').value;
+  const giorni = parseInt(document.getElementById('giorni').value);
+  const decking = document.getElementById('decking').checked;
+  const trasporto = document.getElementById('trasporto').checked;
+
+  let prezzoGiornaliero, prezzoMontaggio, prezzoDeckingMontaggio, prezzoDeckingGiornaliero;
+
+  if (tipo === 'chiosco') {
+    prezzoGiornaliero = 50;
+    prezzoMontaggio = 100;
+    prezzoDeckingMontaggio = 100;
+    prezzoDeckingGiornaliero = 20;
+  } else if (tipo === 'eventi') {
+    prezzoGiornaliero = 100;
+    prezzoMontaggio = 200;
+    prezzoDeckingMontaggio = 200;
+    prezzoDeckingGiornaliero = 40;
+  }
+
+  let prezzoDecking = decking ? prezzoDeckingGiornaliero * giorni : 0;
+  let totale = prezzoGiornaliero * giorni;
+
+  if (trasporto) {
+    totale += decking ? prezzoDeckingMontaggio : prezzoMontaggio;
+  }
+
+  totale += prezzoDecking;
+
+  document.getElementById('outputPreventivo').innerText = `Totale stimato: €${totale}`;
+}
+  </script>
+  
+</body>
+</html>
