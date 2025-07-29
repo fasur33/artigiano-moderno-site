@@ -577,22 +577,51 @@
 </div>
 
 <!-- MODAL 8 -->
+<!-- MODAL 8 -->
 <div id="modal8" class="modal" style="display: none;">
   <div class="modal-content">
     <span class="close" onclick="closeModal(8)">&times;</span>
-    <h2>cupola abitativa con pavi</h2>
+    <h2>Cupola Abitativa con Pavimento</h2>
+
     <img id="mainImg8" class="main-image" src="gazebo1.jpg" alt="Gazebo Modulare">
     <div class="gallery">
       <img src="gazebo1.jpg" onclick="changeMain(8,this)" class="selected">
       <img src="gazebo2.jpg" onclick="changeMain(8,this)">
       <img src="gazebo3.jpg" onclick="changeMain(8,this)">
     </div>
-    <p>Gazebo modulare elegante, ideale per eventi, giardini o spazi relax. Struttura in acciaio zincato e copertura impermeabile.</p>
-    <label>Quantità</label>
-    <input type="number" id="prod8_qty" value="1" min="1" onchange="updateCheckout(8)">
-    <p><strong>Prezzo finale: <span id="prod8_price">950 €</span></strong></p>
-    <button class="btn btn-primary" onclick="addToCart(8)">Aggiungi al carrello</button>
-    <button class="btn btn-secondary" onclick="requestQuote(8)">Richiedi preventivo</button>
+
+    <p>
+      Gazebo modulare elegante, ideale per eventi, giardini o spazi relax.
+      Struttura in acciaio zincato e copertura impermeabile.
+    </p>
+
+    <!-- Checkout dinamico -->
+    <div id="glamp-dome-7-options">
+      <div class="product-options">
+        <label>Colore telo:</label>
+        <select name="colore" data-product="glamp-dome-7">
+          <option value="blu">Blu</option>
+          <option value="giallo">Giallo</option>
+          <option value="verde">Verde</option>
+          <option value="grigio">Grigio</option>
+          <option value="trasparente">Trasparente</option>
+        </select>
+
+        <label>Struttura:</label>
+        <select name="struttura" data-product="glamp-dome-7">
+          <option value="metallo">Metallo</option>
+          <option value="legno">Legno</option>
+        </select>
+
+        <label>Quantità:</label>
+        <input id="glamp-dome-7_qty" type="number" min="1" value="1">
+
+        <p><strong>Prezzo base: 1390 €</strong></p>
+
+        <button class="btn btn-primary" onclick="checkoutDynamic('glamp-dome-7')">Acquista</button>
+        <button class="btn btn-secondary" onclick="requestQuote(8)">Richiedi preventivo</button>
+      </div>
+    </div>
   </div>
 </div>
 
@@ -911,6 +940,26 @@ function calcolaPreventivo() {
     });
   }
   </script>
-  
+  <script>
+    function checkoutDynamic(productId) {
+      const quantity = parseInt(document.getElementById(`${productId}_qty`).value || 1);
+      const options = {};
+    
+      const selects = document.querySelectorAll(`[data-product="${productId}"] select`);
+      selects.forEach(select => {
+        options[select.name] = select.value;
+      });
+    
+      fetch('/api/checkout', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ productId, quantity, options })
+      })
+      .then(res => res.json())
+      .then(data => window.location.href = data.url)
+      .catch(err => alert("Errore: " + err.message));
+    }
+    </script>
+    
 </body>
 </html>
