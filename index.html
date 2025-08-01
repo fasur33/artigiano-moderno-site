@@ -6,6 +6,10 @@
  <title>artigiano moderno</title>
  <link rel="stylesheet" href="style.css">
  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+ <link href="https://fonts.googleapis.com/css2?family=Permanent+Marker&display=swap" rel="stylesheet">
+ <link rel="preconnect" href="https://fonts.googleapis.com">
+ <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+ <link href="https://fonts.googleapis.com/css2?family=Rampart+One&display=swap" rel="stylesheet">
  <link href="https://fonts.googleapis.com/css2?family=Urbanist:wght@400;600;800&display=swap" rel="stylesheet">
  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
   
@@ -27,7 +31,7 @@
           <a href="#servizi">Servizi  <i class="fas fa-angle-down"></i>
           </a>
           <div class="dropdown-content">
-            <a href="#contatti">Consulenze</a>
+            <a href="#consulenza">Consulenze</a>
             <a href="#noleggio">noleggio</a>
           </div>
         </div>
@@ -661,8 +665,8 @@
           <li>Copertura in legno o PVC</li>
           <li>Ideale per stand e mercatini</li>
         </ul>
-        <p class="prezzo">100€ / giorno</p>
-        <p class="extra">Montaggio + trasporto: 300€<br>Con decking: 450€<br>Decking extra: +50€ / giorno</p>
+        <p class="prezzo">50€ / giorno</p>
+        <p class="extra">Montaggio + trasporto: 150€<br>Con decking: 20€<br>Decking extra: +20€ / giorno</p>
         <p class="note">Possibile ritiro e montaggio autonomo</p>
       </div>
   
@@ -675,8 +679,8 @@
           <li>Copertura PVC modulare apribile</li>
           <li>Perfetta per eventi e cerimonie</li>
         </ul>
-        <p class="prezzo">200€ / giorno</p>
-        <p class="extra">Montaggio + trasporto: 450€<br>Con decking: 675€<br>Decking extra: +50€ / giorno</p>
+        <p class="prezzo">100€ / giorno</p>
+        <p class="extra">Montaggio + trasporto: 250€€<br>Decking extra: +50€ / giorno</p>
         <p class="note">Possibile ritiro e montaggio autonomo</p>
       </div>
     </div>
@@ -715,22 +719,45 @@
   </section>
 
  <!-- SEZIONE CONTATTI -->
-<section class="am-contact-section">
+<section class="am-contact-section" id="consulenza">
+
   <div class="am-contact-container">
+    
+    <div class="am-contact-text">
+      <h3 class="rampart-one-regular">✏️ Progetti su misura o supporto tecnico?</h3>
   
+      <p>
+        Offriamo un servizio di <strong>consulenza tecnica e progettazione</strong> anche per realizzazioni esterne ai nostri prodotti standard. 
+        Ideale se stai lavorando a qualcosa di nuovo e vuoi partire con una base solida.
+      </p>
+  
+      <h4 class="rampart-one-regular"  style="      font-size: 1.3rem;
+      margin-top: 30px;
+      margin-bottom: 10px;
+      color: #c87c0d;
+      font-weight: 800;
+      text-transform: uppercase;
+      ">🛠️ Servizio post-vendita</h4>
+      <p>
+        Se hai acquistato da noi, puoi contare sul <strong>supporto dedicato</strong> per adattare, completare o migliorare la tua struttura:
+        modifiche su misura, integrazioni e assistenza tecnica, tutto su richiesta.
+      </p>
+    </div>
+
     <form class="am-contact-form"
-   action="https://formspree.io/f/xpwrzlbq" method="POST" id="contatti">   
-       <h2>Scrivimi un messaggio</h2>
-      <input type="text" name="name" placeholder="Nome" required>
-      <input type="email" name="email" placeholder="Email" required>
-      <textarea name="message" placeholder="Messaggio" rows="6" required></textarea>
-      <button type="submit">Invia messaggio</button>
+      action="https://formspree.io/f/xpwrzlbq" method="POST" id="contatti">   
+        <h2>Scrivimi un messaggio</h2>
+        <input type="text" name="name" placeholder="Nome" required>
+        <input type="email" name="email" placeholder="Email" required>
+        <textarea name="message" placeholder="Messaggio" rows="6" required></textarea>
+        <button type="submit">Invia messaggio</button>
     </form>
+
   </div>
 
 
 <div class="am-contact-info" >
-  <h2>Contatti diretti</h2>
+  <h2 >Contatti diretti</h2>
   <p><strong>📍 Indirizzo:</strong><br>Via dell’Artigiano 12, Milano (MI)</p>
   <p><strong>🕒 Orari di apertura:</strong><br>Lunedì – Venerdì: 9:00 – 18:00<br>Sabato: su appuntamento</p>
   <p><strong>📞 Telefono:</strong><br><a href="tel:+393481234567">+39 348 123 4567</a></p>
