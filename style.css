@@ -40,14 +40,21 @@ font-family: 'Urbanist', sans-serif;
   width: 100px;
 }
 
+
+
+
+
+
+
+
+[id] {
+  scroll-margin-top: 130px; /* o l'altezza esatta della tua navbar fissa */
+}
 .nav-links { display: flex; gap: 25px; }
 .nav-links a { text-decoration: none; color: #050505; font-weight: 500; transition: color 0.3s; font-size: 1.2rem; }
-.am-navbar.scrolled .nav-links a {
-    color: #000; /* testo nero */
-  }
-  .am-navbar.scrolled .nav-links a:hover {
-    color: #333; /* hover leggermente più scuro */
-  }.social { display: flex; gap: 15px; }
+.nav-links a:hover{ text-decoration: none; color: #fbf9f9; font-weight: 500; transition: color 0.3s; font-size: 1.2rem; }
+
+
 .social a { color: #020100; font-size: 1.5rem; transition: color 0.3s; }
 .social a:hover { color: #f0c040; }
 
@@ -336,6 +343,7 @@ color: #ffffff;
 text-shadow: 0 2px 4px rgba(0,0,0,0.6); /* più netto */
 font-weight: 900;
 letter-spacing: -0.6px;
+
 }
 
 .am-hero-subtitle {
@@ -368,6 +376,9 @@ background: transparent;
 color: white;
 border: 2px solid white;
 transition: all 0.3s ease;
+margin-top: 10px;
+display: inline-block;
+
 }
 
 .am-btn-outline:hover {
@@ -546,7 +557,6 @@ text-align: center;
 display: inline;
 justify-content: center;
 margin-bottom: 3%;
-margin-top: 3%;
 
 }
 
@@ -555,6 +565,8 @@ font-size: 2.4rem;
 font-weight: 800;
 color: #222;
 margin-bottom: 30px;
+margin-top: 6%;
+
 }
 
 .am-contact-info p {
@@ -569,6 +581,57 @@ color: #000;
 text-decoration: none;
 font-weight: 500;
 }
+
+.rampart-one-regular {
+  font-family: "Rampart One", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+}
+
+
+
+.am-contact-text {
+  flex: 1 1 500px;
+  min-width: 300px;
+  background: radial-gradient(circle at top left, #fff4d4, #fffdf5);
+  padding: 50px 40px;
+  border-radius: 20px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+  animation: fadeInUp 0.6s ease forwards;
+  transform: translateY(30px);
+  opacity: 0;
+}
+
+.am-contact-text h3 {
+  font-size: 2.6rem;
+  font-weight: 800;
+  color: #222;
+  margin-bottom: 20px;
+  line-height: 1.2;
+}
+
+.am-contact-text p {
+  font-size: 1.4rem;
+  color: #333;
+  font-weight: 500;
+  line-height: 1.6;
+}
+
+.am-contact-text strong {
+  color: #c87c0d;
+  font-weight: 700;
+}
+
+/* Fade-in animazione */
+@keyframes fadeInUp {
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+
+
 
 .am-social-icons {
 margin-top: 30px;
@@ -715,6 +778,35 @@ color:#fff; width:100%; padding:12px;
 font-size:16px; text-align:center;
 transition:.3s;
 }
+
+
+
+.modal-content select {
+  width: 100%;
+  padding: 12px 14px;
+  margin-top: 6px;
+  margin-bottom: 20px;
+  font-family: 'Urbanist', sans-serif;
+  font-size: 1rem;
+  color: #333;
+  background-color: #fff;
+  border: 2px solid #ccc;
+  border-radius: 8px;
+  appearance: none;
+  background-image: url("data:image/svg+xml,%3Csvg fill='%23444' viewBox='0 0 24 24' width='24' height='24' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M7 10l5 5 5-5z'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 14px center;
+  background-size: 18px 18px;
+  transition: border 0.3s ease;
+}
+
+.modal-content select:focus {
+  outline: none;
+  border-color: #f4c97b;
+}
+
+
+
 .modal {
 position: fixed;
 inset: 0;
