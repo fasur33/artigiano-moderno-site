@@ -776,6 +776,8 @@ grid-template-columns: 1fr;
   display:flex;
   flex-direction:column;
   cursor:pointer;
+    border-bottom: 4px solid var(--am-brand-yellow); /* spessore, tipo e colore */
+
 }
 .am-product-card:hover{
   transform: translateY(-6px);
