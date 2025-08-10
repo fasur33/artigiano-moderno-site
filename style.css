@@ -203,6 +203,7 @@ transform: rotate(180deg);
     padding: 30px;
     border-radius: 18px;
     box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4);
+        margin-top: 30%
   }
   
   .hero-title {
