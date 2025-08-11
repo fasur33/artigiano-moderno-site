@@ -551,28 +551,55 @@ Progettiamo e realizziamo soluzioni modulari versatili e resistenti, pensate per
 </div>
 <!-- MODAL 8 -->
 <!-- MODAL 8 -->
-<div class="checkout">
-  <label>Quantità</label>
-  <div class="am-qty" data-id="8">
-    <button type="button" class="am-qty-btn" data-delta="-1" aria-label="Diminuisci">−</button>
-    <input type="number" id="prod8_qty" value="1" min="1" inputmode="numeric" pattern="[0-9]*" onchange="updateCheckout(8)">
-    <button type="button" class="am-qty-btn" data-delta="1" aria-label="Aumenta">+</button>
+<!-- MODAL 8 -->
+<div id="modal8" class="modal" style="display: none;">
+  <div class="modal-content">
+    <span class="close" onclick="closeModal(8)">&times;</span>
+    <h2>Cupola Abitativa con Pavimento</h2>
+
+    <img id="mainImg8" class="main-image" src="gazebo1.jpg" alt="Gazebo Modulare">
+    <div class="gallery">
+      <img src="gazebo1.jpg" onclick="changeMain(8,this)" class="selected">
+      <img src="gazebo2.jpg" onclick="changeMain(8,this)">
+      <img src="gazebo3.jpg" onclick="changeMain(8,this)">
+    </div>
+
+    <p>
+      Gazebo modulare elegante, ideale per eventi, giardini o spazi relax.
+      Struttura in acciaio zincato e copertura impermeabile.
+    </p>
+
+    <div class="checkout">
+      <label>Quantità</label>
+      <div class="am-qty" data-id="8">
+        <button type="button" class="am-qty-btn" data-delta="-1" aria-label="Diminuisci">−</button>
+        <input type="number" id="prod8_qty" value="1" min="1" inputmode="numeric" pattern="[0-9]*" onchange="updateCheckout(8)">
+        <button type="button" class="am-qty-btn" data-delta="1" aria-label="Aumenta">+</button>
+      </div>
+
+      <label>Struttura</label>
+      <select name="struttura" data-product="glamp-dome-7" onchange="updateCheckout(8)">
+        <option value="metallo">Metallo (base)</option>
+        <option value="legno">Legno (+€150)</option>
+      </select>
+
+      <label>Colore</label>
+      <select name="colore" data-product="glamp-dome-7" onchange="updateCheckout(8)">
+        <option value="blu">Blu (base)</option>
+        <option value="giallo">Giallo (base)</option>
+        <option value="verde">Verde (base)</option>
+        <option value="grigio">Grigio (base)</option>
+        <option value="trasparente">Trasparente (+€80)</option>
+      </select>
+
+      <p><strong>Totale: <span id="prod8_total"></span></strong></p>
+
+      <button class="btn btn-primary" onclick="addToCart(8)">Aggiungi al carrello</button>
+      <button class="btn btn-secondary" onclick="requestQuote(8)">Richiedi preventivo</button>
+    </div>
   </div>
-
-  <label>Struttura</label>
-  <select name="struttura" data-product="glamp-dome-7" onchange="updateCheckout(8)">
-    <option value="metallo">Metallo (base)</option>
-    <option value="legno">Legno (+€150)</option>
-  </select>
-
-  <label>Colore</label>
-  <select name="colore" data-product="glamp-dome-7" onchange="updateCheckout(8)">
-    <option value="blu">Blu (base)</option>
-    <option value="giallo">Giallo (base)</option>
-    <option value="verde">Verde (base)</option>
-    <option value="grigio">Grigio (base)</option>
-    <option value="trasparente">Trasparente (+€80)</option>
-  </select>
+</div>
+<!-- FINE MODAL 8 -->
 
   <p><strong>Totale: <span id="prod8_total"></span></strong></p>
 
