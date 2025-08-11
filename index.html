@@ -876,46 +876,97 @@ Progettiamo e realizziamo soluzioni modulari versatili e resistenti, pensate per
 </script>
 
 <script>
-  // 1) Metti i prezzi corretti qui (aggiorna a piacere)
+  // --- Prezzi base (resta invariato se l'hai già) ---
   const prezziBase = {
-    1: 390,
-    2: 320,
-    3: 1050,
-    4: 1200,
-    5: 1200,
-    6: 1200,
-    7: 370,
-    8: 1390, // il modal 8 ha logica propria, questa è solo per coerenza
-    9: 500
+    1: 390, 2: 320, 3: 1050, 4: 1200, 5: 1200, 6: 1200, 7: 370, 8: 1390, 9: 500
   };
 
-  // 2) Formatter € italiano (niente 5 decimali)
+  // --- Supplementi modal 8 (oggetto come i prezzi) ---
+  // Cambia i valori come preferisci
+  const supplementiModal8 = {
+    colore: { blu: 0, giallo: 0, verde: 0, grigio: 0, trasparente: 80 },
+    struttura: { metallo: 0, legno: 150 }
+  };
+
   const fmtEUR = new Intl.NumberFormat('it-IT', { style: 'currency', currency: 'EUR' });
 
   function updateCheckout(id) {
-    const base = prezziBase[id];
-    if (!base) return; // evita NaN se manca la chiave
+    // Modal "standard" con id e coppia prod{id}_qty / prod{id}_price
+    if (id !== 8) {
+      const base = prezziBase[id];
+      const qtyEl = document.getElementById(`prod${id}_qty`);
+      const priceEl = document.getElementById(`prod${id}_price`);
+      if (!base || !qtyEl || !priceEl) return;
+      const qty = Math.max(1, parseInt(qtyEl.value) || 1);
+      priceEl.textContent = fmtEUR.format(base * qty);
+      return;
+    }
+    // Modal 8: calcolo dinamico con supplementi + quantità
+    const base8 = prezziBase[8] || 0;
+    const qtyInput = document.getElementById('glamp-dome-7_qty') || document.getElementById('prod8_qty');
+    const coloreSel = document.querySelector('[data-product="glamp-dome-7"][name="colore"]');
+    const strutturaSel = document.querySelector('[data-product="glamp-dome-7"][name="struttura"]');
+    const totalEl = document.getElementById('prod8_total') || document.getElementById('prod8_price');
+    if (!qtyInput || !coloreSel || !strutturaSel || !totalEl) return;
 
-    const qtyEl = document.getElementById(`prod${id}_qty`);
-    const priceEl = document.getElementById(`prod${id}_price`);
-    if (!qtyEl || !priceEl) return;
-
-    const qty = Math.max(1, parseInt(qtyEl.value) || 1);
-    priceEl.textContent = fmtEUR.format(base * qty);
+    const qty = Math.max(1, parseInt(qtyInput.value) || 1);
+    const supColore = supplementiModal8.colore[coloreSel.value] || 0;
+    const supStrutt = supplementiModal8.struttura[strutturaSel.value] || 0;
+    const totale = (base8 + supColore + supStrutt) * qty;
+    totalEl.textContent = fmtEUR.format(totale);
   }
 
   function openModal(id) {
     const m = document.getElementById(`modal${id}`);
     if (!m) return;
-    m.style.display = "block";
-    // aggiorna subito il prezzo quando si apre
+    m.style.display = 'block';
     updateCheckout(id);
   }
 
   function closeModal(id) {
     const m = document.getElementById(`modal${id}`);
-    if (m) m.style.display = "none";
+    if (m) m.style.display = 'none';
   }
+
+  // Chiudi cliccando sull'overlay (fuori dalla .modal-content)
+  document.addEventListener('click', (e) => {
+    // Se clicchi sull'elemento con classe .modal (overlay), chiudi
+    if (e.target.classList && e.target.classList.contains('modal')) {
+      e.target.style.display = 'none';
+    }
+  });
+
+  // Chiudi con ESC
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape') {
+      document.querySelectorAll('.modal').forEach(m => m.style.display = 'none');
+    }
+  });
+
+  // Inizializza prezzi visibili appena la pagina è pronta
+  document.addEventListener('DOMContentLoaded', () => {
+    // per i modali standard 1..7,9: set base price (qty=1)
+    [1,2,3,4,5,6,7,9].forEach(id => {
+      const priceEl = document.getElementById(`prod${id}_price`);
+      const qtyEl = document.getElementById(`prod${id}_qty`);
+      if (qtyEl) qtyEl.value = 1;
+      if (priceEl && prezziBase[id]) {
+        priceEl.textContent = fmtEUR.format(prezziBase[id]);
+      }
+    });
+
+    // modal 8: inizializza totale
+    updateCheckout(8);
+
+    // Ricalcola modal 8 live quando cambiano opzioni/qty
+    const watchers8 = [
+      document.getElementById('glamp-dome-7_qty') || document.getElementById('prod8_qty'),
+      document.querySelector('[data-product="glamp-dome-7"][name="colore"]'),
+      document.querySelector('[data-product="glamp-dome-7"][name="struttura"]')
+    ].filter(Boolean);
+    watchers8.forEach(el => el.addEventListener('change', () => updateCheckout(8)));
+    watchers8.forEach(el => el.addEventListener('input', () => updateCheckout(8)));
+  });
 </script>
 
 
