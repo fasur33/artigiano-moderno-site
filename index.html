@@ -551,45 +551,34 @@ Progettiamo e realizziamo soluzioni modulari versatili e resistenti, pensate per
 </div>
 <!-- MODAL 8 -->
 <!-- MODAL 8 -->
-<div class="modal" id="modal8" style="display: none;">
-<div class="modal-content">
-<span class="close" onclick="closeModal(8)">×</span>
-<h2>Cupola Abitativa con Pavimento</h2>
-<img alt="Gazebo Modulare" class="main-image" id="mainImg8" src="gazebo1.jpg"/>
-<div class="gallery">
-<img class="selected" onclick="changeMain(8,this)" src="gazebo1.jpg"/>
-<img onclick="changeMain(8,this)" src="gazebo2.jpg"/>
-<img onclick="changeMain(8,this)" src="gazebo3.jpg"/>
+<div class="checkout">
+  <label>Quantità</label>
+  <div class="am-qty" data-id="8">
+    <button type="button" class="am-qty-btn" data-delta="-1" aria-label="Diminuisci">−</button>
+    <input type="number" id="prod8_qty" value="1" min="1" inputmode="numeric" pattern="[0-9]*" onchange="updateCheckout(8)">
+    <button type="button" class="am-qty-btn" data-delta="1" aria-label="Aumenta">+</button>
+  </div>
+
+  <label>Struttura</label>
+  <select name="struttura" data-product="glamp-dome-7" onchange="updateCheckout(8)">
+    <option value="metallo">Metallo (base)</option>
+    <option value="legno">Legno (+€150)</option>
+  </select>
+
+  <label>Colore</label>
+  <select name="colore" data-product="glamp-dome-7" onchange="updateCheckout(8)">
+    <option value="blu">Blu (base)</option>
+    <option value="giallo">Giallo (base)</option>
+    <option value="verde">Verde (base)</option>
+    <option value="grigio">Grigio (base)</option>
+    <option value="trasparente">Trasparente (+€80)</option>
+  </select>
+
+  <p><strong>Totale: <span id="prod8_total"></span></strong></p>
+
+  <button class="btn btn-primary">Aggiungi al carrello</button>
 </div>
-<p>
-      Gazebo modulare elegante, ideale per eventi, giardini o spazi relax.
-      Struttura in acciaio zincato e copertura impermeabile.
-    </p>
-<!-- Checkout dinamico -->
-<div id="glamp-dome-7-options">
-<div class="product-options">
-<label>Colore telo:</label>
-<select data-product="glamp-dome-7" name="colore">
-<option value="blu">Blu</option>
-<option value="giallo">Giallo</option>
-<option value="verde">Verde</option>
-<option value="grigio">Grigio</option>
-<option value="trasparente">Trasparente</option>
-</select>
-<label>Struttura:</label>
-<select data-product="glamp-dome-7" name="struttura">
-<option value="metallo">Metallo</option>
-<option value="legno">Legno</option>
-</select>
-<label>Quantità:</label>
-<input id="glamp-dome-7_qty" min="1" type="number" value="1"/>
-<p><strong>Prezzo base: 1390 €</strong></p>
-<button class="btn btn-primary" onclick="checkoutDynamic('glamp-dome-7')">Acquista</button>
-<button class="btn btn-secondary" onclick="requestQuote(8)">Richiedi preventivo</button>
-</div>
-</div>
-</div>
-</div>
+
 <!-- MODAL 9 -->
 <div class="modal" id="modal9" style="display: none;">
 <div class="modal-content">
