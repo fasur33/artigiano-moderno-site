@@ -1309,3 +1309,126 @@ padding: 15px;
 border-radius: 10px;
 border: 1px dashed #f4c97b;
 }
+
+
+
+/* ——— WHY DOMES ——— */
+/* ——— WHY DOMES ——— */
+.why-domes {
+  padding: 64px 20px;
+}
+
+.why-domes .container {
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+/* fallback variabili se non presenti nel foglio globale */
+:root{
+  --am-brand-yellow: #f4c97b;
+  --am-text-dark: #0b1020;
+  --am-brand-yellow-ink: #b38a00; /* tono testo titoli */
+}
+
+.why-domes h2 {
+  text-align: center;
+  margin: 0 0 20px;
+  font-weight: 800;
+  color: var(--am-text-dark);
+}
+
+.why-domes .intro {
+  text-align: center;
+  max-width: 720px;
+  margin: 0 auto 20px;
+  color: #555;
+  line-height: 1.55;
+}
+
+/* Griglia 2–2–1 forzata */
+.reasons-grid {
+  display: grid;
+  gap: 44px 72px; /* riga, colonna */
+}
+
+/* Mobile: 1 colonna */
+@media (max-width: 991px) {
+  .reasons-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* Desktop: 2 colonne fisse */
+@media (min-width: 992px) {
+  .reasons-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  /* Ultimo blocco centrato e più stretto (contenuto resta left) */
+  .reason-item.last-centered {
+    grid-column: 1 / -1;      /* occupa tutta la riga */
+    justify-self: center;     /* centra il box */
+    max-width: 720px;         /* larghezza contenuta */
+  }
+}
+
+/* Item */
+.reason-item {
+  border-top: 2px solid rgba(244, 201, 123, 0.55); /* riga nella palette */
+  padding-top: 18px;
+}
+
+
+.title-icon {
+  display: block;
+  margin: 0 auto 20px; /* centrata e con spazio sotto */
+  width: 48px;
+  height: 48px;
+  object-fit: contain;
+  opacity: 0.85;
+}
+
+
+/* Header: icona + titolo in riga, allineati a sinistra */
+.reason-header {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  margin-bottom: 10px;
+}
+
+/* Icona ingrandita con “badge” brand */
+.reason-icon {
+  width: 44px;
+  height: 44px;
+  flex: 0 0 44px;
+  display: inline-block;
+  padding: 8px;                          /* respiro interno */
+  border-radius: 12px;                    /* badge morbido */
+  background: rgba(244, 201, 123, 0.22);  /* giallo soft */
+  border: 1px solid rgba(244, 201, 123, 0.55);
+  object-fit: contain;                    /* tiene proporzioni */
+}
+
+/* Testi */
+.reason-item h3 {
+  margin: 0;
+  font-weight: 800;
+  letter-spacing: 0.1px;
+  color: var(--am-brand-yellow-ink);
+}
+
+.reason-item p {
+  color: #3f3f3f;
+  line-height: 1.55;
+  margin: 0;
+}
+
+/* Spaziatura più compatta su mobile */
+@media (max-width: 480px) {
+  .why-domes { padding: 48px 16px; }
+  .reasons-grid { gap: 28px; }
+  .reason-icon { width: 40px; height: 40px; flex-basis: 40px; }
+}
+
+
