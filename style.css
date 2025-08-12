@@ -1428,7 +1428,7 @@ border: 1px dashed #f4c97b;
 @media (max-width: 480px) {
   .why-domes { padding: 48px 16px; }
   .reasons-grid { gap: 28px; }
-  .reason-icon { width: 40px; height: 40px; flex-basis: 40px; }
+  .reason-icon { width: 50px; height: 50px; flex-basis: 50px; }
 }
 
 
