@@ -1382,8 +1382,8 @@ border: 1px dashed #f4c97b;
 .title-icon {
   display: block;
   margin: 0 auto 20px; /* centrata e con spazio sotto */
-  width: 48px;
-  height: 48px;
+  width: 88px;
+  height: 88px;
   object-fit: contain;
   opacity: 0.85;
 }
