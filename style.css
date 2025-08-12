@@ -1382,8 +1382,8 @@ border: 1px dashed #f4c97b;
 .title-icon {
   display: block;
   margin: 0 auto 20px; /* centrata e con spazio sotto */
-  width: 88px;
-  height: 88px;
+  width: 54px;
+  height: 54px;
   object-fit: contain;
   opacity: 0.85;
 }
@@ -1399,8 +1399,8 @@ border: 1px dashed #f4c97b;
 
 /* Icona ingrandita con “badge” brand */
 .reason-icon {
-  width: 44px;
-  height: 44px;
+  width: 84px;
+  height: 84px;
   flex: 0 0 44px;
   display: inline-block;
   padding: 8px;                          /* respiro interno */
